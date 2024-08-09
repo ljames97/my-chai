@@ -1,7 +1,9 @@
 // ProductDescription.jsx
 
-const ProductDescription = () => {
-
+const ProductDescription = ({ description }) => {
+  return (
+    <p>{description}</p>
+  )
 }
 
 export default ProductDescription;

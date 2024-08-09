@@ -9,21 +9,10 @@ const ProductPage = ({ product }) => {
   return (
     <div>
       <ProductHeader product={product} />
-      <AddToCart />
-      <ProductDescription />
+      <AddToCart product={product} />
+      <ProductDescription description={product.description} />
     </div>
   )
-}
-
-/**
- * Utility function to find item in array.
- * @param {any} array 
- * @param {number} itemId 
- * @returns Found item in array.
- */
-export const findItemInArray = (array, itemId) => {
-  const foundItem = array.find(arrayItem => arrayItem.id === itemId);
-  return foundItem;
 }
 
 export default ProductPage;
