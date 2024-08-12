@@ -2,6 +2,7 @@
 
 import AddToCart from "./AddToCart";
 import ProductDescription from "./ProductDescription";
+import ProductReviews from "./ProductReviews";
 import ProductHeader from "./product-header/ProductHeader";
 
 const ProductPage = ({ product }) => {
@@ -11,6 +12,7 @@ const ProductPage = ({ product }) => {
       <ProductHeader product={product} />
       <AddToCart product={product} />
       <ProductDescription description={product.description} />
+      <ProductReviews product={product}/>
     </div>
   )
 }

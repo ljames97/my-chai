@@ -1,12 +1,11 @@
 TODO
 
 Css for product page:
-- quantity selector
-- reviews widget/component
+- review stars next to title
 - footer (global): nav, newsletter, copywright
 - sticky header
 
 - Refactor css into scss
 - Add to cart functionality
 - Product collection grid + react router
-- Start building pages: home, collections, products, add to cart, search etc.
+- Start building pages: menu, home, collections, products, add to cart, search etc.
