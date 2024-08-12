@@ -1,16 +1,15 @@
 // App.jsx
 
 import ProductPage from './components/product-page/ProductPage';
-import products from './data';
+import products from './components/data';
+import './App.css';
 
 const App = () => {
 
   const product = products[0];
 
   return (
-    <div>
-      <ProductPage product={product}/>
-    </div>
+    <ProductPage product={product}/>
   )
 }
 

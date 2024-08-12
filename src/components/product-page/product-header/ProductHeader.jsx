@@ -7,7 +7,7 @@ import ProductTitle from "./ProductTitle";
 const ProductHeader = ({ product }) => {
 
   return (
-    <div>
+    <div className="product-header">
       <ProductImage image={product.image}/>
       <ProductTitle title={product.title}/>
       <ProductPrice price={product.price}/>

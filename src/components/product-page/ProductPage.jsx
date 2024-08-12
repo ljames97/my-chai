@@ -7,7 +7,7 @@ import ProductHeader from "./product-header/ProductHeader";
 const ProductPage = ({ product }) => {
 
   return (
-    <div>
+    <div className="product-page">
       <ProductHeader product={product} />
       <AddToCart product={product} />
       <ProductDescription description={product.description} />

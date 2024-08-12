@@ -2,7 +2,7 @@
 
 const ProductDescription = ({ description }) => {
   return (
-    <p>{description}</p>
+    <p className="product-decription">{description}</p>
   )
 }
 
