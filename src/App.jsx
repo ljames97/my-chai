@@ -1,8 +1,8 @@
 // App.jsx
 
 import ProductPage from './components/product-page/ProductPage';
-import { products } from './components/data';
-import './App.css';
+import products from './components/data';
+import './styles/main.scss';
 
 const App = () => {
 

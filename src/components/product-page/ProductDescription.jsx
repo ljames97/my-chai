@@ -1,8 +1,10 @@
 // ProductDescription.jsx
 
+import styles from './ProductPage.module.scss';
+
 const ProductDescription = ({ description }) => {
   return (
-    <p className="product-decription">{description}</p>
+    <p className={styles['product-decription']}>{description}</p>
   )
 }
 

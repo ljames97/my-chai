@@ -1,0 +1,52 @@
+@import '../../styles/variables';
+
+.product-page {
+  padding: 1rem;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-image-container {
+  width: 100%;
+  align-self: center;
+  margin-bottom: 1.5rem;
+}
+
+.product-price {
+  margin-top: 0.3rem;
+  font-size: 1.3rem;
+  color: $text-color-light;
+}
+
+.add-to-cart-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-decription {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+}
+
+.product-reviews {
+  margin-top: 1.5rem;
+}
+
+.customer-review {
+  margin-top: 1rem;
+}
+
+.rating-stars {
+  margin: 0.5rem 0;
+}
+
+.rating-stars span {
+  color: $accent-color;
+}

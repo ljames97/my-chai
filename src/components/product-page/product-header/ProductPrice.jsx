@@ -1,8 +1,10 @@
 // ProductPrice.jsx
 
+import styles from '../ProductPage.module.scss';
+
 const ProductPrice = ({ price }) => {
   return (
-    <p className="product-price">{price}</p>
+    <p className={styles['product-price']}>{price}</p>
   );
 }
 
