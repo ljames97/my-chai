@@ -37,10 +37,19 @@
 
 .product-reviews {
   margin-top: 1.5rem;
+  padding: 1rem;
+  border: 1px $border-color-light solid;
 }
 
 .customer-review {
   margin-top: 1rem;
+  border-bottom: 1px $border-color-light solid;
+  padding-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.customer-review:last-of-type {
+  border-bottom: none;
 }
 
 .rating-stars {
@@ -50,3 +59,24 @@
 .rating-stars span {
   color: $accent-color;
 }
+
+.review-date {
+  margin-top: 0.2rem;
+  font-style: italic;
+  font-size: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.review-name {
+  margin-top: -0.4rem;
+  font-weight: 500;
+}
+
+.review-title {
+  font-weight: 600;
+}
+
+.review-description {
+  padding-top: 0.3rem;
+}
+
