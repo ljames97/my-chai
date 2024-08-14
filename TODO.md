@@ -2,7 +2,6 @@ TODO
 
 Css for product page:
 - review stars next to title
-- footer (global): nav, newsletter, copywright
 - sticky header
 
 - Refactor css into scss
