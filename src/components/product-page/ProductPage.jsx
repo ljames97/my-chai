@@ -2,28 +2,20 @@
 
 import AddToCart from "./AddToCart";
 import ProductDescription from "./ProductDescription";
+import ProductReviews from "./product-reviews/ProductReviews";
 import ProductHeader from "./product-header/ProductHeader";
+import styles from './ProductPage.module.scss';
 
 const ProductPage = ({ product }) => {
 
   return (
-    <div>
+    <div className={styles['product-page']}>
       <ProductHeader product={product} />
-      <AddToCart />
-      <ProductDescription />
+      <AddToCart product={product} />
+      <ProductDescription description={product.description} />
+      <ProductReviews product={product}/>
     </div>
   )
-}
-
-/**
- * Utility function to find item in array.
- * @param {any} array 
- * @param {number} itemId 
- * @returns Found item in array.
- */
-export const findItemInArray = (array, itemId) => {
-  const foundItem = array.find(arrayItem => arrayItem.id === itemId);
-  return foundItem;
 }
 
 export default ProductPage;

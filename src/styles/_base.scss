@@ -1,0 +1,44 @@
+// _base.scss
+@import 'variables';
+
+body {
+  background-color: $background-color;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-family;
+}
+
+h2, p, h3 {
+  margin: 0;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+label {
+  display: none;
+}
+
+img {
+  width: 100%;
+}
+
+input, select {
+  margin-top: 1rem;
+  padding: 0.7rem;
+  text-align: center;
+  border: 1px solid $border-color-light;
+  background-color: transparent;
+}

@@ -1,6 +1,8 @@
 TODO
 
-- Deep refresh on react (one week to refresh)
-- Learn bootstrap / tailwind before starting design.
-- Decide on niche, small amount of products, design etc
-- Start building pages: home, collections, products, add to cart, search etc.
+Css for product page:
+- sticky header
+
+- Add to cart functionality
+- Product collection grid + react router
+- Start building other pages: menu, home, collections, products, add to cart, search etc.

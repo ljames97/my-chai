@@ -1,0 +1,82 @@
+@import '../../styles/variables';
+
+.product-page {
+  padding: 1rem;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-image-container {
+  width: 100%;
+  align-self: center;
+  margin-bottom: 1.5rem;
+}
+
+.product-price {
+  margin-top: 0.3rem;
+  font-size: 1.3rem;
+  color: $text-color-light;
+}
+
+.add-to-cart-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-decription {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+}
+
+.product-reviews {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 1px $border-color-light solid;
+}
+
+.customer-review {
+  margin-top: 1rem;
+  border-bottom: 1px $border-color-light solid;
+  padding-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.customer-review:last-of-type {
+  border-bottom: none;
+}
+
+.rating-stars {
+  margin: 0.5rem 0;
+}
+
+.rating-stars span {
+  color: $accent-color;
+}
+
+.review-date {
+  margin-top: 0.2rem;
+  font-style: italic;
+  font-size: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.review-name {
+  margin-top: -0.4rem;
+  font-weight: 500;
+}
+
+.review-title {
+  font-weight: 600;
+}
+
+.review-description {
+  padding-top: 0.3rem;
+}
+

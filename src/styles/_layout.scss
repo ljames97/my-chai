@@ -1,0 +1,66 @@
+// _layout.scss
+@import 'variables';
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: $header-background-color;
+}
+
+#shipping-header {
+  text-align: center;
+  padding: 1.2rem;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  background-color: #9d8466;
+  color: #fcfaf7;
+}
+
+.main-logo {
+  width: 30%;
+}
+
+.main-logo img {
+  width: 100%;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: $header-background-color;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: $text-color-light;
+}
+
+.footer-nav-heading {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.footer-nav-item {
+  list-style: none;
+  margin-bottom: 0.5rem;
+}
+
+.footer-nav-item:last-of-type {
+  margin-bottom: 1.5rem;
+}
+
+.newsletter {
+  margin-bottom: 2rem;
+}
+
+.newsletter-text {
+  margin-bottom: 0.5rem;
+}
+
+#email {
+  margin-top: 0;
+  text-align: center;
+  width: 70%;
+}
