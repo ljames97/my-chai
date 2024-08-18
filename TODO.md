@@ -1,13 +1,10 @@
 TODO
 
-/add to cart functionality
-
-/cart modal
-- mobile cart modal, update/remove from cart
-
 /collection grid
+- router
 /mobile menu
 /home page
+/checkout functionality
 
 - Product collection grid + react router
 - Start building other pages: menu, home, collections, products, add to cart, search etc.

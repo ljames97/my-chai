@@ -20,10 +20,12 @@ const AddToCart = ({ product }) => {
 
   const addToCartHandler = () => {
     const cartProduct = {
-      id: product.id,
-      name: product.title,
+      id: Date.now(),
+      title: product.title,
       weight: weight,
-      quantity: quantity
+      quantity: quantity,
+      price: product.price, 
+      image: product.image
     }
     addToCart(cartProduct);
     // console.log(`ProductId: ${product.id}, ProductName: ${product.title},  Weight: ${document.getElementById('weight').value}, Quantity: ${quantity}`);
@@ -48,7 +50,7 @@ const AddToCart = ({ product }) => {
         value={quantity}
         onChange={handleQuantityChange}
       />
-      <button className="add-to-cart" onClick={addToCartHandler}>ADD TO CART</button>
+      <button className={`${styles['add-to-cart-btn']} btn-primary`} onClick={addToCartHandler}>ADD TO CART</button>
     </div>
   )
 }
