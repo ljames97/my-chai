@@ -2,6 +2,10 @@ TODO
 
 /collection grid
 - router
+- design grid with multiple products
+- clicking on product renders product page
+
+
 /mobile menu
 /home page
 /checkout functionality
