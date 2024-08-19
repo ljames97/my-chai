@@ -1,16 +1,13 @@
 TODO
 
 /collection grid
-- router
 - design grid with multiple products
 - clicking on product renders product page
 
-
-/mobile menu
+/mobile menu modal
 /home page
 /checkout functionality
 
-- Product collection grid + react router
 - Start building other pages: menu, home, collections, products, add to cart, search etc.
 - add customer review 
 - sticky header on scroll
