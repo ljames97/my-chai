@@ -5,6 +5,7 @@ import ProductImage from "./ProductImage";
 import ProductPrice from "./ProductPrice";
 import ProductTitle from "./ProductTitle";
 import styles from '../ProductPage.module.scss';
+import { calculateAverageRating } from "../../global/globalUtils";
 
 const ProductHeader = ({ product }) => {
 
@@ -18,12 +19,6 @@ const ProductHeader = ({ product }) => {
       <ProductPrice price={product.price}/>
     </div>
   )
-}
-
-const calculateAverageRating = (reviews) => {
-  const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
-  const averageRating = totalRating / reviews.length;
-  return Math.round(averageRating);
 }
 
 export default ProductHeader;

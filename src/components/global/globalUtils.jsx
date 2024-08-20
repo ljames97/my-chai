@@ -38,3 +38,9 @@ export const timeSince = (date) => {
   
   return 'Just now';
 }
+
+export const calculateAverageRating = (reviews) => {
+  const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
+  const averageRating = totalRating / reviews.length;
+  return Math.round(averageRating);
+}

@@ -9,6 +9,12 @@ body {
   font-family: $font-family;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 h2, p, h3 {
   margin: 0;
 }

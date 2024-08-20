@@ -1,6 +1,7 @@
 // CollectionPage.jsx
 
 import products from "../data";
+import CollectionGrid from "./CollectionGrid";
 import FilterProducts from "./FilterProducts";
 
 const CollectionPage = () => {

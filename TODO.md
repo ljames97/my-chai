@@ -1,8 +1,9 @@
 TODO
 
 /collection grid
-- design grid with multiple products
+- collection title / description 
 - clicking on product renders product page
+- create multiple collections and connect these to a mobile menu
 
 /mobile menu modal
 /home page
