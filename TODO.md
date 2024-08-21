@@ -1,10 +1,11 @@
 TODO
 
 /collection grid
-- collection navigation on product page
-- create multiple collections and connect these to a mobile menu
 
 /mobile menu modal
+- mobile menu items (home, collections, contact, about etc)
+- create multiple collections and connect these to a mobile menu
+
 /home page
 /checkout functionality
 
@@ -16,3 +17,6 @@ futher ideas:
 AI chat bot, tea quiz, mock checkout process with email confirmation
 Customer account option
 Admin area for adding/editing products
+
+- tailwind
+- backend (node.js, SQL)
