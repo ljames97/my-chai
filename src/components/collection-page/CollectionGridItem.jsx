@@ -1,12 +1,12 @@
 // CollectionGridItem.jsx
 
-import { calculateAverageRating } from "../global/globalUtils";
+import { calculateAverageRating, getProductReviews } from "../global/globalUtils";
 import StarRating from "../product-page/product-reviews/StarRating";
 import styles from './collectionPage.module.scss';
 
 const CollectionGridItem = ({ product }) => {
-
-  const productRating = calculateAverageRating(product.reviews);
+  const productReviews = getProductReviews(product);
+  const productRating = calculateAverageRating(productReviews);
 
   return (
     <div className={styles['collection-grid-item']}>

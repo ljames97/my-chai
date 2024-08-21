@@ -5,15 +5,19 @@ import ProductDescription from "./ProductDescription";
 import ProductReviews from "./product-reviews/ProductReviews";
 import ProductHeader from "./product-header/ProductHeader";
 import styles from './ProductPage.module.scss';
+import { getProductReviews } from "../global/globalUtils";
+
 
 const ProductPage = ({ product }) => {
+
+  const productReviews = getProductReviews(product);
 
   return (
     <div className={styles['product-page']}>
       <ProductHeader product={product} />
       <AddToCart product={product} />
       <ProductDescription description={product.description} />
-      <ProductReviews product={product}/>
+      <ProductReviews reviews={productReviews}/>
     </div>
   )
 }

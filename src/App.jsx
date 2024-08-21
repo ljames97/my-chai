@@ -2,7 +2,7 @@
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ProductPage from './components/product-page/ProductPage';
-import products from './components/data';
+import { collections, products } from './components/data';
 import Header from './components/layout/Header.jsx'
 import ShippingHeader from './components/layout/ShippingHeader.jsx'
 import Footer from './components/layout/Footer.jsx'
@@ -14,6 +14,7 @@ import CollectionPage from './components/collection-page/CollectionPage';
 const App = () => {
 
   const product = products[0];
+  const collection = collections[0];
 
   const [isCartModalVisible, setIsCartModalVisible] = useState(false);
 
@@ -36,7 +37,7 @@ const App = () => {
       <Header toggleCartModal={toggleCartModal} />
 
       <Routes>
-        <Route path='/collection' element={<CollectionPage />} />
+        <Route path='/collection' element={<CollectionPage collection={collection}/>} />
         <Route path='/product' element={<ProductPage product={product}/>} />
       </Routes>
 

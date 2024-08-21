@@ -1,3 +1,5 @@
+import { products, reviews } from "../data";
+
 /**
  * Utility function to find item in array.
  * @param {any} array 
@@ -43,4 +45,16 @@ export const calculateAverageRating = (reviews) => {
   const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
   const averageRating = totalRating / reviews.length;
   return Math.round(averageRating);
+}
+
+export const getProductReviews = (product) => {
+  const productReviews = reviews.filter(review => product.reviewIds.includes(review.id));
+
+  return productReviews;
+}
+
+export const getCollectionProducts = (collection) => {
+  const collectionProducts = products.filter(product => collection.productIds.includes(product.id));
+
+  return collectionProducts;
 }

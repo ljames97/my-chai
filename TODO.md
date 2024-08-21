@@ -2,6 +2,7 @@ TODO
 
 /collection grid
 - collection title / description 
+- number of reviews next to stars
 - clicking on product renders product page
 - create multiple collections and connect these to a mobile menu
 

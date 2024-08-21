@@ -5,11 +5,11 @@ import ProductImage from "./ProductImage";
 import ProductPrice from "./ProductPrice";
 import ProductTitle from "./ProductTitle";
 import styles from '../ProductPage.module.scss';
-import { calculateAverageRating } from "../../global/globalUtils";
+import { calculateAverageRating, getProductReviews } from "../../global/globalUtils";
 
 const ProductHeader = ({ product }) => {
-
-  const productRating = calculateAverageRating(product.reviews);
+  const productReviews = getProductReviews(product);
+  const productRating = calculateAverageRating(productReviews);
 
   return (
     <div className={styles['product-header']}>

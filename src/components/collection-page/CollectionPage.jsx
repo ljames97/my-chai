@@ -1,18 +1,19 @@
 // CollectionPage.jsx
 
-import products from "../data";
+import { getCollectionProducts } from "../global/globalUtils";
 import CollectionGrid from "./CollectionGrid";
 import FilterProducts from "./FilterProducts";
+import styles from './collectionPage.module.scss';
 
-const CollectionPage = () => {
-  const productList = products;
+const CollectionPage = ({ collection }) => {
+  const collectionProducts = getCollectionProducts(collection)
 
   return (
-    <div className="collection-page">
-      <div className="collection-title"></div>
-      <div className="collection-description"></div>
+    <div className={styles['collection-page']}>
+      <div className={styles['collection-title']}>{collection.title}</div>
+      <div className={styles ['collection-description']}>{collection.description}</div>
       <FilterProducts />
-      <CollectionGrid products={productList} />
+      <CollectionGrid products={collectionProducts} />
     </div>
   )
 }

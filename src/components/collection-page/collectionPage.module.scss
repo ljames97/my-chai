@@ -1,5 +1,23 @@
 @import '../../styles/variables';
 
+.collection-page {
+  text-align: center;
+}
+
+.collection-title {
+  font-family: serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.collection-description {
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+  line-height: 1.4rem;
+}
+
 .collection-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
