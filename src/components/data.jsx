@@ -20,6 +20,7 @@ const products = [
     description: 'Discover the pure, rich taste of our Classic Black Tea.',
     price: '£9.99',
     reviewIds: [1, 2, 3, 4],
+    collectionId: 1
   },
   {
     id: 2,
@@ -29,6 +30,7 @@ const products = [
     description: 'Discover the rich taste of our Jasmine Oolong Tea.',
     price: '£12.99',
     reviewIds: [5, 6],
+    collectionId: 1
   }
 ];
 

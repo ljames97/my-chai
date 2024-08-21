@@ -35,7 +35,7 @@ const App = () => {
       <Header toggleCartModal={toggleCartModal} />
 
       <Routes>
-        <Route path='/collection' element={<CollectionPage collection={collection}/>} />
+        <Route path='/collection/:id' element={<CollectionPage />} />
         <Route path='/product/:id' element={<ProductPage />} />
       </Routes>
 

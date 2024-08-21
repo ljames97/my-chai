@@ -5,8 +5,14 @@ import { getCollectionProducts } from "../global/globalUtils";
 import CollectionGrid from "./CollectionGrid";
 import FilterProducts from "./FilterProducts";
 import styles from './collectionPage.module.scss';
+import { collections } from "../data";
+import { useParams } from 'react-router-dom';
 
-const CollectionPage = ({ collection }) => {
+
+const CollectionPage = () => {
+  const { id } = useParams();
+  const collection = collections.find(collection => collection.id === parseInt(id));
+
   const collectionProducts = getCollectionProducts(collection);
   const [sortedProducts, setSortedProducts] = useState(collectionProducts);
 
