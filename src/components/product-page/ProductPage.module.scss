@@ -7,6 +7,12 @@
   flex-direction: column;
 }
 
+.product-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 .product-header {
   display: flex;
   flex-direction: column;
@@ -56,10 +62,6 @@
   border-bottom: none;
 }
 
-.rating-stars {
-  margin: 0.5rem 0;
-}
-
 .rating-stars span {
   color: $accent-color;
 }
@@ -82,5 +84,10 @@
 
 .review-description {
   padding-top: 0.3rem;
+}
+
+.product-title,
+.review-name {
+  margin-top: 0.5rem;
 }
 

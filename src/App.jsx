@@ -1,17 +1,18 @@
 // App.jsx
 
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ProductPage from './components/product-page/ProductPage';
-import products from './components/data';
+import { collections, products } from './components/data';
 import Header from './components/layout/Header.jsx'
 import ShippingHeader from './components/layout/ShippingHeader.jsx'
 import Footer from './components/layout/Footer.jsx'
 import CartModal from './components/cart-modal/CartModal.jsx'
 import './styles/main.scss';
 import { useEffect, useState } from 'react';
+import CollectionPage from './components/collection-page/CollectionPage';
 
 const App = () => {
-
-  const product = products[0];
+  const collection = collections[0];
 
   const [isCartModalVisible, setIsCartModalVisible] = useState(false);
 
@@ -28,13 +29,18 @@ const App = () => {
   }, [isCartModalVisible]);
 
   return (
-    <>
+    <Router >
       {isCartModalVisible && <CartModal toggleCartModal={toggleCartModal} />}
       <ShippingHeader />
       <Header toggleCartModal={toggleCartModal} />
-      <ProductPage product={product}/>
+
+      <Routes>
+        <Route path='/collection/:id' element={<CollectionPage />} />
+        <Route path='/product/:id' element={<ProductPage />} />
+      </Routes>
+
       <Footer />
-    </>
+    </Router>
   )
 }
 

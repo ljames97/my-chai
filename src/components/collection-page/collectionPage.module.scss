@@ -1,0 +1,84 @@
+@import '../../styles/variables';
+
+.collection-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.collection-title {
+  font-family: serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.collection-description {
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+  line-height: 1.4rem;
+}
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.filter-bar {
+  display: flex;
+  position: relative;
+  width: 90%;
+  border: 1px rgba(0, 0, 0, 0.25) solid;
+  border-radius: 5px;
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+#sort-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.sort-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: $background-color;
+  padding: 1rem 0.5rem;
+  border: 1px rgba(0, 0, 0, 0.25) solid;
+  border-radius: 5px;
+}
+
+.sort-menu button {
+  background-color: transparent;
+  border: none;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.collection-grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.product-reviews {
+  display: flex;
+  gap: 0.5rem;
+  color: $text-color-light
+}
+
+.rating-stars {
+  margin: 0 !important;
+}
+
+.grid-item-price {
+  color: $text-color-light;
+}

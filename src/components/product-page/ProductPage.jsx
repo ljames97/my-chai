@@ -5,15 +5,25 @@ import ProductDescription from "./ProductDescription";
 import ProductReviews from "./product-reviews/ProductReviews";
 import ProductHeader from "./product-header/ProductHeader";
 import styles from './ProductPage.module.scss';
+import { getProductReviews } from "../global/globalUtils";
+import { useParams } from 'react-router-dom';
+import { products } from "../data";
+import ProductNavigation from "./ProductNavigation";
 
-const ProductPage = ({ product }) => {
+
+const ProductPage = () => {
+  const { id } = useParams();
+  const product = products.find(product => product.id === parseInt(id));
+
+  const productReviews = getProductReviews(product);
 
   return (
     <div className={styles['product-page']}>
+      <ProductNavigation product={product}/>
       <ProductHeader product={product} />
       <AddToCart product={product} />
       <ProductDescription description={product.description} />
-      <ProductReviews product={product}/>
+      <ProductReviews reviews={productReviews}/>
     </div>
   )
 }

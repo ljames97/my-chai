@@ -9,6 +9,12 @@ body {
   font-family: $font-family;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 h2, p, h3 {
   margin: 0;
 }
@@ -41,4 +47,9 @@ input, select {
   text-align: center;
   border: 1px solid $border-color-light;
   background-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
