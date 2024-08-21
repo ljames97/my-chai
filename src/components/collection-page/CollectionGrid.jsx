@@ -8,7 +8,7 @@ const CollectionGrid = ({ products }) => {
   return (
     <div className={styles['collection-grid']}>
       {products.map((product, index) => (
-        <CollectionGridItem key={index} product={product} />
+        <CollectionGridItem key={index} product={product}/>
       ))}
     </div>
   )
