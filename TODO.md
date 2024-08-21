@@ -1,7 +1,6 @@
 TODO
 
 /collection grid
-- filter on collection
 - collection navigation on product page
 - create multiple collections and connect these to a mobile menu
 

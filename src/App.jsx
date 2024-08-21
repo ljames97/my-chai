@@ -12,8 +12,6 @@ import { useEffect, useState } from 'react';
 import CollectionPage from './components/collection-page/CollectionPage';
 
 const App = () => {
-
-  const product = products[0];
   const collection = collections[0];
 
   const [isCartModalVisible, setIsCartModalVisible] = useState(false);

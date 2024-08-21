@@ -11,7 +11,7 @@ const CollectionGrid = ({ products }) => {
         <CollectionGridItem key={index} product={product}/>
       ))}
     </div>
-  )
+  );
 }
 
 export default CollectionGrid;
