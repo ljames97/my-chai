@@ -6,9 +6,14 @@ import ProductReviews from "./product-reviews/ProductReviews";
 import ProductHeader from "./product-header/ProductHeader";
 import styles from './ProductPage.module.scss';
 import { getProductReviews } from "../global/globalUtils";
+import { useParams } from 'react-router-dom';
+import { products } from "../data";
 
 
-const ProductPage = ({ product }) => {
+const ProductPage = () => {
+  const { id } = useParams();
+  const product = products.find(product => product.id === parseInt(id));
+  console.log(product)
 
   const productReviews = getProductReviews(product);
 

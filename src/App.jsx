@@ -38,7 +38,7 @@ const App = () => {
 
       <Routes>
         <Route path='/collection' element={<CollectionPage collection={collection}/>} />
-        <Route path='/product' element={<ProductPage product={product}/>} />
+        <Route path='/product/:id' element={<ProductPage />} />
       </Routes>
 
       <Footer />
