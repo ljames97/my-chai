@@ -1,13 +1,14 @@
 TODO
 
-/collection grid
-
 /mobile menu modal
 - mobile menu items (home, collections, contact, about etc)
 - create multiple collections and connect these to a mobile menu
 
 /home page
 /checkout functionality
+/search for products
+/leave reviews
+/customer account
 
 - Start building other pages: menu, home, collections, products, add to cart, search etc.
 - add customer review 

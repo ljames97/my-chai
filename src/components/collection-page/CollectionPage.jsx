@@ -1,6 +1,6 @@
 // CollectionPage.jsx
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getCollectionProducts } from "../global/globalUtils";
 import CollectionGrid from "./CollectionGrid";
 import FilterProducts from "./FilterProducts";
@@ -10,11 +10,21 @@ import { useParams } from 'react-router-dom';
 
 
 const CollectionPage = () => {
-  const { id } = useParams();
-  const collection = collections.find(collection => collection.id === parseInt(id));
+  const { path } = useParams();
+  const [collection, setCollection] = useState(null);
+  const [collectionProducts, setCollectionProducts] = useState([]);
+  const [sortedProducts, setSortedProducts] = useState([]);
 
-  const collectionProducts = getCollectionProducts(collection);
-  const [sortedProducts, setSortedProducts] = useState(collectionProducts);
+  // Update the collection and products whenever the path changes
+  useEffect(() => {
+    const selectedCollection = collections.find(collection => collection.path === path);
+    if (selectedCollection) {
+      setCollection(selectedCollection);
+      const products = getCollectionProducts(selectedCollection);
+      setCollectionProducts(products);
+      setSortedProducts(products); // Initialize sorted products
+    }
+  }, [path]);
 
   const handleSort = (sortType) => {
     let sortedArray = [...sortedProducts];
@@ -36,6 +46,10 @@ const CollectionPage = () => {
     console.log(sortedArray);
 
     setSortedProducts(sortedArray);
+  }
+
+  if (!collection) {
+    return <div>Loading...</div>; // Or "Collection not found" if applicable
   }
 
   return (
