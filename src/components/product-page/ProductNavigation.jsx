@@ -10,15 +10,15 @@ const ProductNavigation = ({ product }) => {
   const navigate = useNavigate();
 
   const handleCollectionNavigation = () => {
-    navigate(`/collection/${collection.id}`);
+    navigate(`/collection/${collection.path}`);
   }
 
   return (
     <div className={styles['product-navigation']}>
       <Link to='/home'>Home</Link>
-      <div>▹</div>
+      <div>•</div>
       <div onClick={handleCollectionNavigation}>{product.collection}</div>
-      <div>▹</div>
+      <div>•</div>
       <div>{product.title}</div>
     </div>
   ) 

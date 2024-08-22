@@ -10,10 +10,10 @@ const CartModal = ({ toggleCartModal }) => {
   const totalPrice = cart.price;
 
   return (
-    <div className={styles['cart-modal']}>
+    <div className="modal">
       <div className={styles['cart-modal-header']}>
         <p>CART</p>
-        <button id={styles['exit-cart-modal-btn']} onClick={toggleCartModal}>X</button>
+        <button className='exit-modal-btn' onClick={toggleCartModal}>X</button>
       </div>
       {cart.map((product, index) => (
         <CartItem key={index} product={product} />

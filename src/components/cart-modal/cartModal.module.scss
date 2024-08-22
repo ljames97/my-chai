@@ -1,15 +1,5 @@
 @import '../../styles/variables';
 
-.cart-modal {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  background-color: $background-color;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-}
-
 .cart-modal-header {
   display: flex;
   justify-content: space-between;
@@ -19,12 +9,6 @@
 
 .cart-modal-header p {
   font-weight: 600;
-}
-
-#exit-cart-modal-btn {
-  background-color: transparent;
-  border: none;
-  font-size: 1rem;
 }
 
 .cart-item {

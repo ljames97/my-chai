@@ -1,0 +1,19 @@
+@import '../../styles/variables';
+
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 2px $border-color-light solid;
+}
+
+.mobile-menu-items {
+  margin: 0;
+}
+
+.mobile-menu-item {
+  padding: 1.2rem;
+  border-bottom: 2px $border-color-light solid;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}

@@ -12,8 +12,8 @@ import ProductNavigation from "./ProductNavigation";
 
 
 const ProductPage = () => {
-  const { id } = useParams();
-  const product = products.find(product => product.id === parseInt(id));
+  const { path } = useParams();
+  const product = products.find(product => product.path === path);
 
   const productReviews = getProductReviews(product);
 

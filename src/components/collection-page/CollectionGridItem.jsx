@@ -12,7 +12,7 @@ const CollectionGridItem = ({ product }) => {
   const productRating = calculateAverageRating(productReviews);
 
   const handleClick = () => {
-    navigate(`/product/${product.id}`);
+    navigate(`/product/${product.path}`);
   }
 
   return (

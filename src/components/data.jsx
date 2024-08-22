@@ -5,9 +5,17 @@ import { getProductReviews } from "./global/globalUtils";
 const collections = [
   {
     id: 1,
+    path: 'black-tea',
     title: 'Black Tea',
-    description: 'Experience the rich, bold flavors of our Black Tea Collection. Handpicked and expertly crafted, each blend offers a smooth, full-bodied taste thats perfect on its own or with a splash of milk. Enjoy a classic tea experience any time of day.',
-    productIds: [1, 2]
+    description: 'Experience the rich, bold flavors of our Black Tea Collection.',
+    productIds: [1, 2, 3, 4]
+  },
+  {
+    id: 2,
+    path: 'oolong',
+    title: 'Oolong Tea',
+    description: 'Experience the rich, bold flavors of our Oolong Tea Collection',
+    productIds: [5, 6, 7]
   }
 ];
 
@@ -16,6 +24,7 @@ const products = [
     id: 1,
     collection: 'Black Tea',
     title: 'Black Loose Leaf Tea', 
+    path: 'Black-Loose-Leaf-Tea',
     image: blackTea,
     description: 'Discover the pure, rich taste of our Classic Black Tea.',
     price: '£9.99',
@@ -23,14 +32,15 @@ const products = [
     collectionId: 1
   },
   {
-    id: 2,
-    collection: 'Black Tea', 
+    id: 5,
+    collection: 'Oolong Tea', 
     title: 'Jasmine Oolong Loose Leaf Tea', 
+    path: 'Jasmine-Oolong-Loose-Leaf-Tea',
     image: jasmineOolong,
     description: 'Discover the rich taste of our Jasmine Oolong Tea.',
     price: '£12.99',
     reviewIds: [5, 6],
-    collectionId: 1
+    collectionId: 2
   }
 ];
 
