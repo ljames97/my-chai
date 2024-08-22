@@ -1,11 +1,10 @@
 TODO
 
-/mobile menu modal
-- mobile menu items (home, collections, contact, about etc)
-- create multiple collections and connect these to a mobile menu
+/checkout functionality
+- multiple collections, multiple products
+- checkout button leading to checkout page
 
 /home page
-/checkout functionality
 /search for products
 /leave reviews
 /customer account
