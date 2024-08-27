@@ -48,13 +48,13 @@ export const calculateAverageRating = (reviews) => {
 }
 
 export const getProductReviews = (product) => {
-  const productReviews = reviews.filter(review => product.reviewIds.includes(review.id));
+  const productReviews = reviews.filter(review => product.id === review.productId);
 
   return productReviews;
 }
 
 export const getCollectionProducts = (collection) => {
-  const collectionProducts = products.filter(product => collection.productIds.includes(product.id));
+  const collectionProducts = products.filter(product => collection.id === product.collectionId);
 
   return collectionProducts;
 }

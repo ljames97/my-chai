@@ -20,6 +20,9 @@ const MobileMenu = ({ toggleMobileMenu }) => {
           <Link to="/collection/black-tea">BLACK TEA</Link>
         </li>
         <li onClick={toggleMobileMenu} className={styles['mobile-menu-item']}>
+          <Link to="/collection/green-tea">GREEN TEA</Link>
+        </li>
+        <li onClick={toggleMobileMenu} className={styles['mobile-menu-item']}>
           <Link to="/collection/oolong">OOLONG</Link>
         </li>
         <li onClick={toggleMobileMenu} className={styles['mobile-menu-item']}>
