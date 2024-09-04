@@ -1,17 +1,14 @@
 TODO
 
 /checkout functionality
-- multiple collections, multiple products
-- quantities price change (price: {})
-
-
-- checkout button leading to mock checkout page
+- error handling for checkout form
+- better design
 
 /home page
 /about and contact pages
 /search for products
-/leave reviews
-/customer account
+/leave reviews (API)
+/customer account (API)
 /dark theme
 
 /tea quiz via chat bot

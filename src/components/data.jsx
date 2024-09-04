@@ -43,7 +43,11 @@ const products = [
     path: 'Classic-Black-Tea',
     image: blackTea,
     description: 'Discover the pure, rich taste of our Classic Black Tea.',
-    price: '£3.60',
+    price: {
+      '50g': '£3.95',
+      '100g': '£6.95',
+      '250g': '£12.05'
+    },
     collectionId: 1
   },
   {
@@ -53,7 +57,11 @@ const products = [
     path: 'Assam-Organic',
     image: assam,
     description: 'Discover the pure, rich taste of our Classic Black Tea.',
-    price: '£3.90',
+    price: {
+      '50g': '£3.95',
+      '100g': '£6.95',
+      '250g': '£12.05'
+    },
     collectionId: 1
   },
   {
@@ -63,7 +71,11 @@ const products = [
     path: 'Yunnan-Golden-Needle',
     image: goldenNeedle,
     description: 'Discover the pure, rich taste of our Classic Black Tea.',
-    price: '£9.40',
+    price: {
+      '50g': '£9.95',
+      '100g': '£17.95',
+      '250g': '£39.95'
+    },
     collectionId: 1
   },
   {
@@ -73,7 +85,11 @@ const products = [
     path: 'Yunnan-Gold',
     image: yunnanGold,
     description: 'Discover the pure, rich taste of our Classic Black Tea.',
-    price: '£5.75',
+    price: {
+      '50g': '£5.95',
+      '100g': '£9.95',
+      '250g': '£19.95'
+    },
     collectionId: 1
   },
   {
@@ -83,7 +99,11 @@ const products = [
     path: 'English-Breakfast-Tea',
     image: englishBreakfast,
     description: 'Discover the pure, rich taste of our Classic Black Tea.',
-    price: '£3.60',
+    price: {
+      '50g': '£3.95',
+      '100g': '£6.95',
+      '250g': '£12.05'
+    },
     collectionId: 1
   },
   {
@@ -93,7 +113,11 @@ const products = [
     path: 'Jasmine-Oolong-Loose-Leaf-Tea',
     image: jasmineOolong,
     description: 'Discover the rich taste of our Jasmine Oolong Tea.',
-    price: '£7.05',
+    price: {
+      '50g': '£7.95',
+      '100g': '£13.95',
+      '250g': '£29.95'
+    },
     collectionId: 3
   },
   {
@@ -103,7 +127,11 @@ const products = [
     path: 'Milk-Oolong',
     image: milkOolong,
     description: 'Discover the rich taste of our Jasmine Oolong Tea.',
-    price: '£6.40',
+    price: {
+      '50g': '£6.95',
+      '100g': '£11.95',
+      '250g': '£23.95'
+    },
     collectionId: 3
   },
   {
@@ -113,7 +141,11 @@ const products = [
     path: 'Yellow-Gold',
     image: yellowGold,
     description: 'Discover the rich taste of our Jasmine Oolong Tea.',
-    price: '£6.40',
+    price: {
+      '50g': '£4.95',
+      '100g': '£8.95',
+      '250g': '£17.95'
+    },
     collectionId: 3
   },
   {
@@ -123,7 +155,11 @@ const products = [
     path: 'Japanese-Sencha',
     image: japaneseSencha,
     description: 'Discover the rich taste of our Jasmine Oolong Tea.',
-    price: '£5.20',
+    price: {
+      '50g': '£5.95',
+      '100g': '£9.95',
+      '250g': '£19.95'
+    },
     collectionId: 2
   },
   {
@@ -133,7 +169,11 @@ const products = [
     path: 'Gunpowder-Green',
     image: gunpowderGreen,
     description: 'Discover the rich taste of our Jasmine Oolong Tea.',
-    price: '£3.60',
+    price: {
+      '50g': '£3.95',
+      '100g': '£6.95',
+      '250g': '£12.05'
+    },
     collectionId: 2
   },
   {
@@ -143,7 +183,11 @@ const products = [
     path: 'Dragon-well',
     image: dragonWell,
     description: 'Discover the rich taste of our Jasmine Oolong Tea.',
-    price: '£5.95',
+    price: {
+      '50g': '£5.95',
+      '100g': '£10.95',
+      '250g': '£24.95'
+    },
     collectionId: 2
   },
 ];

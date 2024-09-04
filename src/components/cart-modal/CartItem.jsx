@@ -6,6 +6,7 @@ import CartContext from '../../store/CartContext';
 
 const CartItem = ({ product }) => {
   const { updateQuantity, removeFromCart } = useContext(CartContext);
+  console.log(product);
 
   const handleQuantityChange = (event) => {
     const newQuantity = event.target.value;
@@ -32,7 +33,7 @@ const CartItem = ({ product }) => {
       </div>
       <button onClick={handleRemoveItem} id={styles['remove-from-cart-btn']}>Remove</button>
     </div>
-  )
+  );
 }
 
 export default CartItem;
