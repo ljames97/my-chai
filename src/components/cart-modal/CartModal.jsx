@@ -4,10 +4,20 @@ import { useContext } from "react"
 import CartContext from "../../store/CartContext"
 import CartItem from "./CartItem";
 import styles from './cartModal.module.scss';
+import { useNavigate } from 'react-router-dom';
+import { getTotalCartPrice } from "../global/globalUtils";
 
 const CartModal = ({ toggleCartModal }) => {
   const { cart } = useContext(CartContext);
-  const totalPrice = cart.price;
+  const navigate = useNavigate();
+  const totalPrice = getTotalCartPrice();
+
+  const handleCheckoutClick = () => {
+    if (cart.length !== 0) {
+      navigate(`/checkout`);
+      toggleCartModal();
+    }
+  }
 
   return (
     <div className="modal">
@@ -19,7 +29,7 @@ const CartModal = ({ toggleCartModal }) => {
         <CartItem key={index} product={product} />
       ))}
       <p className={styles['cart-message']}>Shipping calculated at checkout</p>
-      <button className={`${styles['checkout-btn']} btn-primary`}>CHECKOUT {totalPrice}</button>
+      <button onClick={handleCheckoutClick} className={`${styles['checkout-btn']} btn-primary`}>CHECKOUT {`£${totalPrice}`}</button>
     </div>
   )
 }

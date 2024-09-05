@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { products, reviews } from "../data";
+import CartContext from "../../store/CartContext";
 
 /**
  * Utility function to find item in array.
@@ -48,13 +50,23 @@ export const calculateAverageRating = (reviews) => {
 }
 
 export const getProductReviews = (product) => {
-  const productReviews = reviews.filter(review => product.reviewIds.includes(review.id));
+  const productReviews = reviews.filter(review => product.id === review.productId);
 
   return productReviews;
 }
 
 export const getCollectionProducts = (collection) => {
-  const collectionProducts = products.filter(product => collection.productIds.includes(product.id));
+  const collectionProducts = products.filter(product => collection.id === product.collectionId);
 
   return collectionProducts;
+}
+
+export const getTotalCartPrice = () => {
+  const { cart } = useContext(CartContext);
+  const totalPrice = cart.reduce((accumulator, currentItem) => {
+    const price = parseFloat(currentItem.price.replace('£', '') * currentItem.quantity);
+    return accumulator + price;
+  }, 0).toFixed(2);
+
+  return totalPrice;
 }

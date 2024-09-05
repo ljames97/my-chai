@@ -2,8 +2,8 @@
 
 import { useContext, useEffect, useState } from "react";
 import CartContext from "../../store/CartContext";
-import styles from './layout.module.scss'
-import { chaiLogo } from "../../assets/images";
+import styles from './layout.module.scss';
+import MainLogo from "./MainLogo";
 
 // move header from index.html to here, do same for footer
 
@@ -26,9 +26,7 @@ const Header = ({ toggleCartModal, toggleMobileMenu }) => {
             <rect x="3" y="16" width="18" height="2" fill="#000" />
           </svg>
         </div>
-        <div className={styles['main-logo']}>
-          <img src={chaiLogo} alt="brand logo" />
-        </div>
+        <MainLogo />
         <div className={styles['cart-icon']} onClick={toggleCartModal}>
           {cartCount > 0 && <div id={styles['cart-badge']}></div>}
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">

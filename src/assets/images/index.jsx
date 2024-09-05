@@ -1,3 +1,12 @@
 export { default as blackTea } from './black-tea.png';
 export { default as jasmineOolong } from './jasmine-oolong.png';
 export { default as chaiLogo } from './chai-logo.png';
+export { default as englishBreakfast } from './english-breakfast.png';
+export { default as goldenNeedle } from './golden-needle.png';
+export { default as milkOolong } from './milk-oolong.png';
+export { default as yunnanGold } from './yunnan-gold.png';
+export { default as assam } from './assam.png';
+export { default as yellowGold } from './yellow-gold.png';
+export { default as japaneseSencha } from './sencha.png';
+export { default as gunpowderGreen } from './gunpowder.png';
+export { default as dragonWell } from './dragon-well.png';

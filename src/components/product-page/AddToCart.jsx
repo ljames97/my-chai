@@ -5,7 +5,7 @@ import styles from './ProductPage.module.scss';
 import CartContext from "../../store/CartContext";
 
 
-const AddToCart = ({ product }) => {
+const AddToCart = ({ product, price, setPrice }) => {
   const { addToCart } = useContext(CartContext);
   const [quantity, setQuantity] = useState('1');
   const [weight, setWeight] = useState('50g');
@@ -16,6 +16,7 @@ const AddToCart = ({ product }) => {
 
   const handleWeightChange = (event) => {
     setWeight(event.target.value);
+    setPrice(product.price[`${event.target.value}`])
   }
 
   const addToCartHandler = () => {
@@ -24,7 +25,7 @@ const AddToCart = ({ product }) => {
       title: product.title,
       weight: weight,
       quantity: quantity,
-      price: product.price, 
+      price: price, 
       image: product.image
     }
     addToCart(cartProduct);

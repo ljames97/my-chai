@@ -7,16 +7,16 @@ import ProductTitle from "./ProductTitle";
 import styles from '../ProductPage.module.scss';
 import { calculateAverageRating, getProductReviews } from "../../global/globalUtils";
 
-const ProductHeader = ({ product }) => {
+const ProductHeader = ({ product, price }) => {
   const productReviews = getProductReviews(product);
   const productRating = calculateAverageRating(productReviews);
-
+  
   return (
     <div className={styles['product-header']}>
       <ProductImage image={product.image}/>
       <StarRating rating={productRating}/>
       <ProductTitle title={product.title}/>
-      <ProductPrice price={product.price}/>
+      <ProductPrice price={price}/>
     </div>
   )
 }

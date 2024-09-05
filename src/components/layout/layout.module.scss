@@ -4,7 +4,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 2rem 1rem;
   background-color: $header-background-color;
 }
 
@@ -13,12 +13,17 @@ header {
   padding: 1.2rem;
   font-size: 0.8rem;
   letter-spacing: 1.5px;
-  background-color: #9d8466;
+  background-color: #7a614f;
   color: #fcfaf7;
 }
 
 .main-logo {
   width: 30%;
+}
+
+.checkout-logo {
+  align-self: center;
+  padding: 1rem;
 }
 
 .main-logo img {
