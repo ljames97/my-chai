@@ -1,9 +1,5 @@
 TODO
 
-/checkout functionality
-- error handling for checkout form
-- better design
-
 /home page
 /about and contact pages
 /search for products
@@ -16,6 +12,7 @@ TODO
 - Start building other pages: menu, home, collections, products, add to cart, search etc.
 - add customer review 
 - sticky header on scroll
+- save cart info in local storage 
 
 futher ideas:
 AI chat bot, tea quiz, mock checkout process with email confirmation
@@ -25,3 +22,4 @@ Admin area for adding/editing products
 - tests
 - tailwind
 - backend (node.js, SQL)
+- finish

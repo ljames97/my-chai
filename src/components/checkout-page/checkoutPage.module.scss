@@ -85,3 +85,13 @@
   margin-top: 1rem;
   color: rgba(0, 0, 0, 0.567);
 }
+
+.input-error {
+  border-color: red;
+  outline-color: red;
+}
+
+.error {
+  margin-top: 0.5rem;
+  color: red;
+}
