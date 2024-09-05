@@ -7,7 +7,7 @@ import MainLogo from "./MainLogo";
 
 // move header from index.html to here, do same for footer
 
-const Header = ({ toggleCartModal, toggleMobileMenu }) => {
+const Header = ({ toggleCartModal, toggleMobileMenu, isHomePage }) => {
   const { cart } = useContext(CartContext);
   const [cartCount, setCartCount] = useState(0);
 
@@ -18,7 +18,7 @@ const Header = ({ toggleCartModal, toggleMobileMenu }) => {
 
   return (
     <>    
-      <header>
+      <header className={isHomePage ? 'transparent-background': ''}>
         <div className="mobile-menu" onClick={toggleMobileMenu}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles['menu-icon']}>
             <rect x="3" y="6" width="18" height="2" fill="#000" />

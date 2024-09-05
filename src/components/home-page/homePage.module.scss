@@ -1,0 +1,53 @@
+@import '../../styles/variables';
+
+.home-page {
+  position: relative;
+  text-align: center;
+}
+
+.cover-photo-container {
+  height: calc(100vh - 3.8rem);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#shop-now {
+  position: absolute;
+  bottom: 10%;
+  padding: 1.5rem 3rem;
+  border: none;
+  border-radius: 10px;
+  background-color: $primary-color;
+  color: white;
+  letter-spacing: 3px;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.section-header {
+  margin: 2rem 1rem 2rem 1rem;
+}
+
+.section-header p {
+  margin-top: 0.5rem;
+}
+
+.featured-collection h4 {
+  padding: 1rem;
+  background-color: $header-background-color;
+}
+
+.collection-slideshow {
+  display: flex;
+  overflow-x: scroll; 
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory; 
+  scroll-behavior: smooth; 
+  width: 100vw; 
+  white-space: nowrap;
+  padding-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}

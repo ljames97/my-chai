@@ -1,6 +1,11 @@
 TODO
 
 /home page
+- home page copy
+- featured collectoins/products etc
+
+- cover photos for each collection page
+
 /about and contact pages
 /search for products
 /leave reviews (API)

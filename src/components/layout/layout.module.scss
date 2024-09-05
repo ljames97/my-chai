@@ -6,6 +6,7 @@ header {
   align-items: center;
   padding: 2rem 1rem;
   background-color: $header-background-color;
+  z-index: 3;
 }
 
 #shipping-header {
@@ -13,12 +14,13 @@ header {
   padding: 1.2rem;
   font-size: 0.8rem;
   letter-spacing: 1.5px;
-  background-color: #7a614f;
+  background-color: #9d8c82;
   color: #fcfaf7;
 }
 
 .main-logo {
-  width: 30%;
+  width: 60%;
+  margin-top: 0.5rem;
 }
 
 .checkout-logo {

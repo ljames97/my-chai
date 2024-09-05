@@ -32,6 +32,12 @@ const collections = [
     title: 'Teaware',
     description: 'Experience the rich, bold flavors of our Teaware Collection',
   },
+  {
+    id: 99,
+    path: 'bestsellers',
+    title: 'Bestsellers',
+    description: 'Discover our range of best selling loose leaf teas'
+  }
 
 ];
 
@@ -48,7 +54,8 @@ const products = [
       '100g': '£6.95',
       '250g': '£12.05'
     },
-    collectionId: 1
+    collectionId: 1,
+    bestSeller: true
   },
   {
     id: 2,
@@ -62,7 +69,7 @@ const products = [
       '100g': '£6.95',
       '250g': '£12.05'
     },
-    collectionId: 1
+    collectionId: 1,
   },
   {
     id: 3,
@@ -76,7 +83,8 @@ const products = [
       '100g': '£17.95',
       '250g': '£39.95'
     },
-    collectionId: 1
+    collectionId: 1,
+    bestSeller: true
   },
   {
     id: 4,
@@ -118,7 +126,8 @@ const products = [
       '100g': '£13.95',
       '250g': '£29.95'
     },
-    collectionId: 3
+    collectionId: 3,
+    bestSeller: true
   },
   {
     id: 7,
@@ -174,7 +183,8 @@ const products = [
       '100g': '£6.95',
       '250g': '£12.05'
     },
-    collectionId: 2
+    collectionId: 2,
+    bestSeller: true
   },
   {
     id: 11,
