@@ -11,3 +11,5 @@ export { default as japaneseSencha } from './sencha.png';
 export { default as gunpowderGreen } from './gunpowder.png';
 export { default as dragonWell } from './dragon-well.png';
 export { default as coverPhoto } from './my-chai-cover-photo.png';
+export { default as featuredImage } from './tea-featured-image.png';
+export { default as featuredImage_2 } from './teaware-featured-image.png';

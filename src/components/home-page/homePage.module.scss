@@ -22,21 +22,30 @@
   background-color: $primary-color;
   color: white;
   letter-spacing: 3px;
-  font-size: 1rem;
   font-weight: 400;
 }
 
 .section-header {
-  margin: 2rem 1rem 2rem 1rem;
+  padding: 2rem 1rem 1rem 1rem;
+  background-color: $header-background-color;
 }
 
 .section-header p {
   margin-top: 0.5rem;
 }
 
-.featured-collection h4 {
-  padding: 1rem;
-  background-color: $header-background-color;
+.featured-collection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feature-header {
+  padding: 0.6rem;
+  background-color: $button-background-light;
+  width: 30%;
+  border-radius: 30px;
+  font-size: 0.9rem;
 }
 
 .collection-slideshow {
@@ -50,4 +59,30 @@
   padding-bottom: 1rem;
   position: relative;
   z-index: 2;
+  scrollbar-width: none;
+}
+
+.text-image-feature {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.featured-text {
+  text-align: left;
+  padding: 1rem;
+}
+
+.featured-button {
+  align-self: flex-start;
+  margin-left: 1rem;
+  background-color: $button-background-light;
+  border: none;
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 45%;
+}
+
+.review-carousel {
+  margin-top: 2rem;
 }
