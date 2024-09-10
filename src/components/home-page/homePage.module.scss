@@ -41,6 +41,7 @@
 }
 
 .feature-header {
+  margin-top: 4rem;
   padding: 0.6rem;
   background-color: $button-background-light;
   width: 30%;
@@ -65,12 +66,23 @@
 .text-image-feature {
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
+  margin-top: 4rem;
+  position: relative;
+}
+
+.featured-header {
+  position: absolute;
+  top: 35%;
+  color: white;
+  letter-spacing: 2px;
+  font-family: $font-family;
+  margin-left: 1rem;
 }
 
 .featured-text {
   text-align: left;
   padding: 1rem;
+
 }
 
 .featured-button {
@@ -84,5 +96,102 @@
 }
 
 .review-carousel {
-  margin-top: 2rem;
+  margin-top: 4rem;
+  text-align: left;
 }
+
+.carousel-header {
+  margin-left: 1rem;
+}
+
+.carousel-heading {
+  font-weight: 400;
+}
+
+#reviews {
+  width: calc(100vw - 2rem);
+  gap: 1.5rem;
+  padding-left: 2rem;
+}
+
+.review-widget {
+  margin-top: 1rem;
+  padding: 1rem;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  width: 100vw;
+  font-size: 0.9rem;
+}
+
+.review-title {
+  font-weight: 600;
+}
+
+.review-description {
+  margin-bottom: 1rem; 
+}
+
+.product-title {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.journal-widget {
+  margin-top: 4rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.journal-cover-container {
+  width: 100%;
+  height: 350px;
+  position: relative;
+}
+
+.journal-cover-container img,
+.image-container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-container {
+  position: relative;
+}
+
+.journal-cover-container::before,
+.image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.journal-cover-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  position: absolute;
+  top: 25%;
+  color: white;
+  padding: 0 1rem;
+  letter-spacing: 1px;
+}
+
+.journal-button  {
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.506);
+  border: none;
+  color: white;
+  width: 40%;
+}
+

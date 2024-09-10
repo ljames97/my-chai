@@ -3,7 +3,7 @@
 import { coverPhoto, featuredImage, featuredImage_2 } from '../../assets/images';
 import { products } from '../data';
 import FeaturedCollection from './FeaturedCollection';
-import Journal from './Journal';
+import JournalWidget from './JournalWidget';
 import ReviewCarousel from './ReviewCarousel';
 import TextImageFeature from './TextImageFeature';
 import styles from './homePage.module.scss';
@@ -37,7 +37,7 @@ const HomePage = () => {
       <TextImageFeature text={featuredText} image={featuredImage} />
       <TextImageFeature text={featuredText_2} image={featuredImage_2} />
       <ReviewCarousel />
-      <Journal />
+      <JournalWidget />
     </div>
   )
 }

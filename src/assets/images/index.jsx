@@ -13,3 +13,4 @@ export { default as dragonWell } from './dragon-well.png';
 export { default as coverPhoto } from './my-chai-cover-photo.png';
 export { default as featuredImage } from './tea-featured-image.png';
 export { default as featuredImage_2 } from './teaware-featured-image.png';
+export { default as journalCover } from './journal-cover.png';
