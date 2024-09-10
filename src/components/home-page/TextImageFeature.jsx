@@ -8,10 +8,8 @@ const TextImageFeature = ({ text, image }) => {
       <div className={styles['image-container']}>
         <img src={image}/>
       </div>
-      <div className={styles['featured-text']}>
-        <h3>{text.header}</h3>
-        <p>{text.main}</p>
-      </div>
+      <h3 className={styles['featured-header']}>{text.header}</h3>
+      <p className={styles['featured-text']}>{text.main}</p>
       <button className={styles['featured-button']}>{text.button}</button>
     </div>
   );
