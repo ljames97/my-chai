@@ -7,6 +7,7 @@ import FilterProducts from "./FilterProducts";
 import styles from './collectionPage.module.scss';
 import { collections } from "../data";
 import { useParams } from 'react-router-dom';
+import { journalCover } from "../../assets/images";
 
 
 const CollectionPage = () => {
@@ -28,13 +29,19 @@ const CollectionPage = () => {
 
   const handleSort = (sortType) => {
     let sortedArray = [...sortedProducts];
-
+  
+    const getFirstPrice = (product) => {
+      const priceValues = Object.values(product.price);
+      const firstPrice = priceValues[0]; // Assuming the first price is always the smallest ('50g')
+      return parseFloat(firstPrice.replace('£', '')) || 0; // Convert the price to a number for comparison
+    };
+  
     switch (sortType) {
       case 'price-low-high':
-        sortedArray.sort((a, b) => parseFloat(a.price.replace('£', '')) - parseFloat(b.price.replace('£', '')));
+        sortedArray.sort((a, b) => getFirstPrice(a) - getFirstPrice(b));
         break;
       case 'price-high-low':
-        sortedArray.sort((a, b) => parseFloat(b.price.replace('£', '')) - parseFloat(a.price.replace('£', '')));
+        sortedArray.sort((a, b) => getFirstPrice(b) - getFirstPrice(a));
         break;
       case 'alphabetical':
         sortedArray.sort((a, b) => a.title.localeCompare(b.title));
@@ -42,9 +49,7 @@ const CollectionPage = () => {
       default:
         sortedArray = collectionProducts;
     }
-
-    console.log(sortedArray);
-
+  
     setSortedProducts(sortedArray);
   }
 
