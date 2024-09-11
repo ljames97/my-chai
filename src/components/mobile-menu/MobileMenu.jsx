@@ -35,6 +35,9 @@ const MobileMenu = ({ toggleMobileMenu }) => {
           <Link to="/about">ABOUT US</Link>
         </li>
         <li onClick={toggleMobileMenu} className={styles['mobile-menu-item']}>
+          <Link to="/journal">JOURNAL</Link>
+        </li>
+        <li onClick={toggleMobileMenu} className={styles['mobile-menu-item']}>
           <Link to="/contact">CONTACT</Link>
         </li>
       </ul>

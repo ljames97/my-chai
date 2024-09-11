@@ -3,6 +3,12 @@ import { assam, blackTea, dragonWell, englishBreakfast, goldenNeedle, gunpowderG
 
 const collections = [
   {
+    id: 0,
+    path: 'all',
+    title: 'Shop All',
+    description: 'Experience the rich, bold flavors of our Black Tea Collection.',
+  },
+  {
     id: 1,
     path: 'black-tea',
     title: 'Black Tea',
@@ -11,7 +17,7 @@ const collections = [
   {
     id: 2,
     path: 'green-tea',
-    title: 'Green',
+    title: 'Green Tea',
     description: 'Experience the rich, bold flavors of our Green Tea Collection',
   },
   {

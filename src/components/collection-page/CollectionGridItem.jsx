@@ -26,7 +26,7 @@ const CollectionGridItem = ({ product }) => {
         <div className="number-of-reviews">{`(${productReviews.length})`}</div>
       </div>
 
-      <p className={styles['grid-item-price']}>{product.price['50g']}</p>
+      <p className={styles['grid-item-price']}>{`from ${product.price['50g']}`}</p>
     </div>
   )
 }

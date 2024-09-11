@@ -72,17 +72,24 @@
 
 .featured-header {
   position: absolute;
-  top: 35%;
+  top: 30%;
   color: white;
   letter-spacing: 2px;
   font-family: $font-family;
   margin-left: 1rem;
 }
 
+.featured-sub-header {
+  text-align: left;
+  margin-left: 1rem;
+  margin-top: 2rem;
+  font-weight: 400;
+  font-size: 1.7rem;
+}
+
 .featured-text {
   text-align: left;
   padding: 1rem;
-
 }
 
 .featured-button {
@@ -93,6 +100,8 @@
   border-radius: 10px;
   padding: 1.5rem;
   width: 45%;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .review-carousel {
@@ -185,6 +194,10 @@
   color: white;
   padding: 0 1rem;
   letter-spacing: 1px;
+}
+
+.journal-cover-text p {
+  margin-bottom: 1rem;
 }
 
 .journal-button  {
