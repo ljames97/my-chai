@@ -4,6 +4,7 @@ import CartContext from "../../store/CartContext";
 import CheckoutItem from "./CheckoutItem";
 import { getTotalCartPrice } from "../global/globalUtils";
 import { useNavigate } from 'react-router-dom';
+import { contactUsCover } from "../../assets/images";
 
 const CheckoutMain = () => {
   const navigate = useNavigate();
@@ -94,7 +95,7 @@ const CheckoutMain = () => {
     setErrors(newErrors);
 
     if (isValid) {
-      console.log('Form is valid, submitting:', formData);
+      console.log('Form is valid, submitting:', formData, cart);
     } else {
       console.log('Form is invalid, please correct the errors');
     }
@@ -102,9 +103,12 @@ const CheckoutMain = () => {
 
   return (
     <div>
+      <div className="image-container">
+        <img src={contactUsCover}/>
+      </div>
       <button onClick={handleContinueShopping} id={styles['continue-shopping']}>Continue Shopping</button>
       <form className={styles['checkout-form']} onSubmit={handleSubmit}>
-        <h2>Contact</h2>
+        <h3>Contact</h3>
         <input 
           type="email"
           id="email"
@@ -115,7 +119,7 @@ const CheckoutMain = () => {
         />
         {errors.email && <p className={styles['error']}>{errors.email}</p>}
 
-        <h2>Shipping</h2>
+        <h3>Shipping</h3>
         <input
           type="text"
           id="name"
@@ -177,7 +181,7 @@ const CheckoutMain = () => {
         {errors.country && <p className={styles['error']}>{errors.country}</p>}
 
         <div className={styles['order-summary']}>
-          <h2>Order Summary</h2>
+          <h3>Order Summary</h3>
           {cart.map((product, index) => (
             <CheckoutItem key={index} product={product} />
           ))}

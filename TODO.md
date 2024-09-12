@@ -1,17 +1,12 @@
 TODO
 
-/home page
-/about and contact pages
-- complete about page
-- compelte contact page
-
 /journal
 /search for products
 /leave reviews (API)
 /customer account (API)
-/newsletter and email list
+/newsletter and email list (popup)
 /dark theme
-/tea quiz via chat bot
+/tea quiz via chat bot 
 
 - Start building other pages: menu, home, collections, products, add to cart, search etc.
 - add customer review 
@@ -22,6 +17,7 @@ TODO
 futher ideas:
 AI chat bot, tea quiz, mock checkout process with email confirmation
 
+- js documentation
 - tests
 - tailwind
 - backend (node.js, SQL)

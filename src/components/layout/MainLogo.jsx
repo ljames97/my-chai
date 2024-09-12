@@ -1,10 +1,10 @@
 // MainLogo.jsx
 
-import { chaiLogo } from "../../assets/images";
+import { chaiLogoLight, chaiLogoDark } from "../../assets/images";
 import styles from './layout.module.scss';
 import { useNavigate } from 'react-router-dom';
 
-const MainLogo = ({ className = '' }) => {
+const MainLogo = ({ className = '', isHomePage }) => {
   const navigate = useNavigate();
   
   const handleLogoClick = () => {
@@ -12,7 +12,7 @@ const MainLogo = ({ className = '' }) => {
   }
   return (
     <div onClick={handleLogoClick} className={`${styles['main-logo']} ${styles[className]}`}>
-      <img src={chaiLogo} alt="brand logo" />
+      <img src={isHomePage? chaiLogoLight : chaiLogoDark} alt="brand logo" />
     </div>
   );
 }

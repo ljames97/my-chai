@@ -1,6 +1,6 @@
 // HomePage.jsx
 
-import { coverPhoto, featuredImage, featuredImage_2 } from '../../assets/images';
+import { aboutUsCover, contactUsCover, coverPhoto, featuredImage, featuredImage_2, homePageCover } from '../../assets/images';
 import { products } from '../data';
 import FeaturedCollection from './FeaturedCollection';
 import JournalWidget from './JournalWidget';
@@ -32,18 +32,18 @@ const HomePage = () => {
   return (
     <div className={styles['home-page']}>
       <div className={styles['cover-photo-container']}>
-        <img src={coverPhoto}/>
+        <img src={homePageCover}/>
         <button onClick={handleShopNowClick} id={styles['shop-now']}>SHOP NOW</button>
       </div>
       <div className={styles['section-header']}>
-        <h3>The Tea Specialists</h3>
-        <p>Tea is out speciality. At My Chai, we've collected some of the finest premium loose leaf teas from sustainable sources.
+        <h3>Premium Loose Leaf Tea</h3>
+        <p>Tea is our speciality. At My Chai, we've collected some of the finest premium loose leaf teas from sustainable sources.
           Discover a range of black, green, herbal and more.
         </p>
       </div>
       <FeaturedCollection header={'BESTSELLERS'} collection={bestSellers} />
       <TextImageFeature text={featuredText} image={featuredImage} buttonLink={'/collection/all'}/>
-      <TextImageFeature text={featuredText_2} image={featuredImage_2} buttonLink={'/collection/teaware'} />
+      <TextImageFeature text={featuredText_2} image={contactUsCover} buttonLink={'/collection/teaware'} />
       <ReviewCarousel />
       <JournalWidget />
     </div>
