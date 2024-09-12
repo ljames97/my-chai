@@ -1,7 +1,10 @@
 TODO
 
-/home page
 /about and contact pages
+- complete about page
+- compelte contact page
+
+/journal
 /search for products
 /leave reviews (API)
 /customer account (API)
@@ -9,10 +12,10 @@ TODO
 
 /tea quiz via chat bot
 
-- Start building other pages: menu, home, collections, products, add to cart, search etc.
-- add customer review 
+- add customer review
 - sticky header on scroll
 - save cart info in local storage 
+- footer nav leads to home page
 
 futher ideas:
 AI chat bot, tea quiz, mock checkout process with email confirmation
