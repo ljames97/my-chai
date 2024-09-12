@@ -1,6 +1,7 @@
 export { default as blackTea } from './black-tea.png';
 export { default as jasmineOolong } from './jasmine-oolong.png';
-export { default as chaiLogo } from './chai-logo.png';
+export { default as chaiLogoLight } from './chai-logo-light.png';
+export { default as chaiLogoDark } from './chai-logo-dark.png';
 export { default as englishBreakfast } from './english-breakfast.png';
 export { default as goldenNeedle } from './golden-needle.png';
 export { default as milkOolong } from './milk-oolong.png';
@@ -14,3 +15,6 @@ export { default as coverPhoto } from './my-chai-cover-photo.png';
 export { default as featuredImage } from './tea-featured-image.png';
 export { default as featuredImage_2 } from './teaware-featured-image.png';
 export { default as journalCover } from './journal-cover.png';
+export { default as aboutUsCover } from './about-us-cover.png';
+export { default as contactUsCover } from './contact-us-cover.png';
+export { default as homePageCover } from './home-page-cover.png';

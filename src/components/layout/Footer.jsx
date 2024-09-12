@@ -1,8 +1,22 @@
 // Footer.jsx
 
+import { useState } from 'react';
 import styles from './layout.module.scss'
 
 const Footer = () => {
+  const [email, setEmail] = useState('');
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value)
+  }
+
+  const handleNewsletterSubmit = (event) => {
+    event.preventDefault();
+
+    console.log(email);
+    setEmail('');
+  }
+
   return (
     <footer>
       <nav className={styles['footer-nav']}>
@@ -16,9 +30,9 @@ const Footer = () => {
       </nav>
       <div className={styles['newsletter']}>
         <p className={styles['newsletter-text']}>Subscribe for exclusive offers, free giveaways and My Chai news.</p>
-        <form className={styles['newsletter-form']}>
+        <form onSubmit={handleNewsletterSubmit} className={styles['newsletter-form']}>
           <label htmlFor="email"></label>
-          <input type="email" id="email" placeholder="your-email@example.com" />
+          <input type="email" id="email" placeholder="your-email@example.com" value={email} onChange={handleEmailChange} />
           <button className={styles['form-button']}>JOIN</button>
         </form>
       </div>

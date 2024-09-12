@@ -26,10 +26,10 @@ h2 {
 }
 
 h3 {
-  font-weight: 600;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   letter-spacing: 1px;
-  font-size: 1.5rem;
+  font-weight: 400;
+  font-size: 1.7rem;
 }
 
 h4 {
@@ -53,11 +53,19 @@ img {
 }
 
 input, select {
-  margin-top: 1rem;
   padding: 0.7rem;
-  text-align: center;
+  text-align: left;
   border: 1px solid $border-color-light;
   background-color: transparent;
+}
+
+textarea {
+  height: 10rem;
+  background-color: transparent;
+  padding: 0.7rem;
+  font-family: Raleway;
+  font-size: 0.9rem;
+  border: 1px solid $border-color-light;
 }
 
 a {

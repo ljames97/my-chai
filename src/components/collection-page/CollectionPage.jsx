@@ -7,8 +7,6 @@ import FilterProducts from "./FilterProducts";
 import styles from './collectionPage.module.scss';
 import { collections } from "../data";
 import { useParams } from 'react-router-dom';
-import { journalCover } from "../../assets/images";
-
 
 const CollectionPage = () => {
   const { path } = useParams();
@@ -59,7 +57,7 @@ const CollectionPage = () => {
 
   return (
     <div className={styles['collection-page']}>
-      <div className={styles['collection-title']}>{collection.title}</div>
+      <h3 className={styles['collection-title']}>{collection.title}</h3>
       <div className={styles ['collection-description']}>{collection.description}</div>
       <FilterProducts onSort={handleSort}/>
       <CollectionGrid products={sortedProducts} />
