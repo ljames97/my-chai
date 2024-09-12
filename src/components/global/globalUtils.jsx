@@ -56,7 +56,15 @@ export const getProductReviews = (product) => {
 }
 
 export const getCollectionProducts = (collection) => {
-  const collectionProducts = products.filter(product => collection.id === product.collectionId);
+  let collectionProducts;
+
+  if (collection.path === 'all') {
+    collectionProducts = products;
+    return collectionProducts
+  }
+
+  collectionProducts = products.filter(product => collection.id === product.collectionId);
+
 
   return collectionProducts;
 }

@@ -14,7 +14,7 @@ const MobileMenu = ({ toggleMobileMenu }) => {
       </div>
       <ul className={styles['mobile-menu-items']}>
         <li onClick={toggleMobileMenu} className={styles['mobile-menu-item']}>
-          <Link to="/">HOME</Link>
+          <Link to="/home">HOME</Link>
         </li>
         <li onClick={toggleMobileMenu} className={styles['mobile-menu-item']}>
           <Link to="/collection/black-tea">BLACK TEA</Link>
@@ -33,6 +33,9 @@ const MobileMenu = ({ toggleMobileMenu }) => {
         </li>
         <li onClick={toggleMobileMenu} className={styles['mobile-menu-item']}>
           <Link to="/about">ABOUT US</Link>
+        </li>
+        <li onClick={toggleMobileMenu} className={styles['mobile-menu-item']}>
+          <Link to="/journal">JOURNAL</Link>
         </li>
         <li onClick={toggleMobileMenu} className={styles['mobile-menu-item']}>
           <Link to="/contact">CONTACT</Link>

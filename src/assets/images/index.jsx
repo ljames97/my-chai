@@ -10,4 +10,3 @@ export { default as yellowGold } from './yellow-gold.png';
 export { default as japaneseSencha } from './sencha.png';
 export { default as gunpowderGreen } from './gunpowder.png';
 export { default as dragonWell } from './dragon-well.png';
-export { default as aboutUsCover } from './about-us-cover.png';

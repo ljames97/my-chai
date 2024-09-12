@@ -1,5 +1,6 @@
 TODO
 
+/home page
 /about and contact pages
 - complete about page
 - compelte contact page
@@ -8,21 +9,20 @@ TODO
 /search for products
 /leave reviews (API)
 /customer account (API)
+/newsletter and email list
 /dark theme
-
 /tea quiz via chat bot
 
-- add customer review
+- Start building other pages: menu, home, collections, products, add to cart, search etc.
+- add customer review 
 - sticky header on scroll
 - save cart info in local storage 
 - footer nav leads to home page
 
 futher ideas:
 AI chat bot, tea quiz, mock checkout process with email confirmation
-Customer account option
-Admin area for adding/editing products
 
 - tests
 - tailwind
 - backend (node.js, SQL)
-- finish
+- finish, production on GH
