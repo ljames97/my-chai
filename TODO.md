@@ -1,15 +1,25 @@
 TODO
 
 /journal
-/search for products
-/leave reviews (API)
-/customer account (API)
-/newsletter and email list (popup)
-/dark theme
-/tea quiz via chat bot 
 
-- Start building other pages: menu, home, collections, products, add to cart, search etc.
-- add customer review 
+/search for products
+- search for products in mobile menu
+
+/leave reviews (API)
+- form for customers to leave reviews, stored in firestore
+
+/customer account (API)
+- customer account login using firestore
+- cart data stored in firestore
+
+/newsletter and email list (popup)
+
+/dark theme
+- dark theme optino
+
+/tea quiz via chat bot 
+- chat bot library
+
 - sticky header on scroll
 - save cart info in local storage 
 - footer nav leads to home page
@@ -17,7 +27,8 @@ TODO
 futher ideas:
 AI chat bot, tea quiz, mock checkout process with email confirmation
 
-- js documentation
+- product and collection descriptions
+- function documentation
 - tests
 - tailwind
 - backend (node.js, SQL)

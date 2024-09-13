@@ -1,0 +1,88 @@
+@import '../../styles/variables';
+
+.journal-page {
+  padding: 1rem;
+}
+
+.journal-entry-widget,
+.entry-text {
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 8px -4px rgba(0, 0, 0, 0.1),
+  8px 0 8px -4px rgba(0, 0, 0, 0.1),
+ -8px 0 8px -4px rgba(0, 0, 0, 0.1);
+}
+
+.cover-photo-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.main-text {
+  padding: 1.5rem;
+  font-size: 0.8rem;
+}
+
+.main-text p {
+  margin-bottom: 1rem;
+}
+
+.journal-entry-header {
+  position: relative;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 50%;
+  color: $primary-text-color;
+  padding: 0 1rem 1rem 1rem;
+}
+
+.text-overlay h3 {
+  margin-bottom: 1.5rem;
+}
+
+.text-overlay p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.main-text button {
+  background-color: transparent;
+  border: none;
+  letter-spacing: 1px;
+  font-weight: 500;
+  margin: -0.4rem;
+}
+
+.journal-entry {
+  margin-bottom: 2rem;
+}
+
+.entry-text {
+  padding: 2rem;
+  margin: 1rem;
+}
+
+.entry-text h3 {
+  margin-bottom: 0.3rem;
+}
+
+.entry-date {
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.entry-main p {
+  margin-bottom: 1rem;
+}
+
+
+
+

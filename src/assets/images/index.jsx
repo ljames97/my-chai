@@ -18,3 +18,5 @@ export { default as journalCover } from './journal-cover.png';
 export { default as aboutUsCover } from './about-us-cover.png';
 export { default as contactUsCover } from './contact-us-cover.png';
 export { default as homePageCover } from './home-page-cover.png';
+export { default as journalEntry_1 } from './pouring-tea.png';
+export { default as journalEntry_2 } from './tea-leaves.png';

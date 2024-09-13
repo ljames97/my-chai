@@ -14,6 +14,7 @@ import ScrollToTop from './components/global/ScrollToTop';
 import Journal from './components/journal/Journal';
 import AboutUs from './components/info-pages/AboutUs';
 import Contact from './components/info-pages/Contact';
+import JournalEntry from './components/journal/JournalEntry';
 
 const App = () => {
   const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false);
@@ -71,6 +72,7 @@ const MainContent = ({ toggleCartModal, toggleMobileMenu, isMobileMenuVisible, i
           <Route path='/contact' element={<Contact />} />
           <Route path='/collection/:path' element={<CollectionPage />} />
           <Route path='/product/:path' element={<ProductPage />} />
+          <Route path='/journal/:path' element={<JournalEntry />} />
           <Route path='/checkout' element={<CheckoutPage />} />
         </Routes>
       </div>

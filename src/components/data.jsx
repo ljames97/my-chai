@@ -1,5 +1,5 @@
 // data.jsx
-import { assam, blackTea, dragonWell, englishBreakfast, goldenNeedle, gunpowderGreen, japaneseSencha, jasmineOolong, milkOolong, yellowGold, yunnanGold } from "../assets/images";
+import { assam, blackTea, dragonWell, englishBreakfast, goldenNeedle, gunpowderGreen, japaneseSencha, jasmineOolong, journalEntry_1, journalEntry_2, milkOolong, yellowGold, yunnanGold } from "../assets/images";
 
 const collections = [
   {
@@ -265,4 +265,33 @@ const reviews = [
   }
 ];
 
-export { products, reviews, collections };
+const journalEntries = [
+  {
+    title: 'The Ritual of Tea',
+    path: 'the-ritual-of-tea',
+    coverImage: journalEntry_1,
+    date: 'September 12, 2024',
+    mainText: [
+      'In today’s fast-paced world, finding moments of calm can feel like a luxury. At MyChai, we believe that true relaxation is something everyone deserves—and that sometimes, it can be found in something as simple as a cup of tea.',
+      'Tea is more than just a drink. For centuries, it has been a symbol of balance, mindfulness, and connection to nature. Whether it’s the soothing warmth of a chai blend or the refreshing taste of a delicate green tea, each cup offers a chance to slow down and reconnect with yourself.',
+      'Our mission at MyChai is to create these small moments of peace through our carefully sourced, premium loose leaf teas. We blend tradition with sustainability, ensuring that each sip not only tastes amazing but also reflects our commitment to the planet. From sourcing ingredients ethically to packaging with care, we aim to bring you a product that’s as mindful as the experience itself.',
+      'Creating a tea ritual is simple and can transform even the busiest day into something a little more intentional. It’s about more than just brewing tea—it’s about embracing the process, inhaling the aroma of the leaves, feeling the warmth of the cup in your hands, and allowing yourself a pause, even if only for a few minutes. These are the moments that ground us and remind us of the beauty in simplicity.',
+      'At MyChai, we’re here to offer more than just tea. We’re offering an invitation to slow down, be present, and enjoy the richness that each moment has to offer. Because sometimes, peace can be as close as your next cup.'
+    ]
+  },
+  {
+    title: 'The Journey of a Tea Leaf',
+    path: 'the-journey-of-a-tea-leaf',
+    coverImage: journalEntry_2,
+    date: 'September 12, 2024',
+    mainText: [
+      'At MyChai, every cup of tea tells a story. It’s not just about the flavor—it’s about the journey each tea leaf takes, from the lush, green fields where it’s grown to the carefully crafted blends you enjoy. We believe that understanding the origins of what we consume deepens our connection to it, making every sip more meaningful.',
+      'Our commitment to sustainability starts with our relationships with tea farmers. We partner with those who share our values of ethical sourcing and environmentally friendly practices. This means that the tea you enjoy is grown in harmony with nature, without harming the environment or exploiting the hands that nurture it. By choosing sustainable farming methods, we help preserve the ecosystems that support our tea cultivation, ensuring the natural beauty of these regions for generations to come.',
+      'But sustainability isn’t just about the environment—it’s also about mindfulness. As tea lovers, we encourage taking a moment to appreciate the time and effort that goes into every blend. Preparing tea can be a simple, calming ritual, a chance to slow down and reconnect with yourself. The warmth of the cup, the aroma of the leaves, and the soothing flavors invite you to be present, reminding you that slowing down can be a powerful form of self-care.',
+      'At MyChai, we are proud to be a part of your journey toward more conscious, thoughtful consumption. Together, we can savor the beauty of tea while doing our part to protect the planet. Because at the end of the day, we believe that sustainable living begins with small, intentional choices—and sometimes, all it takes is a cup of tea.'
+    ]
+  }
+];
+
+
+export { products, reviews, collections, journalEntries };
