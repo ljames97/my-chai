@@ -268,6 +268,7 @@ const reviews = [
 const journalEntries = [
   {
     title: 'The Ritual of Tea',
+    path: 'the-ritual-of-tea',
     coverImage: journalEntry_1,
     date: 'September 12, 2024',
     mainText: [
@@ -280,6 +281,7 @@ const journalEntries = [
   },
   {
     title: 'The Journey of a Tea Leaf',
+    path: 'the-journey-of-a-tea-leaf',
     coverImage: journalEntry_2,
     date: 'September 12, 2024',
     mainText: [

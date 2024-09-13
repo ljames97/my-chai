@@ -1,10 +1,9 @@
 TODO
 
 /journal
-- entry page
 
 /search for products
-- search fo products in mobile menu
+- search for products in mobile menu
 
 /leave reviews (API)
 - form for customers to leave reviews, stored in firestore
@@ -28,6 +27,7 @@ TODO
 futher ideas:
 AI chat bot, tea quiz, mock checkout process with email confirmation
 
+- product and collection descriptions
 - function documentation
 - tests
 - tailwind
