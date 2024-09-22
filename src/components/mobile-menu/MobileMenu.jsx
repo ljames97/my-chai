@@ -2,8 +2,25 @@
 
 import { Link } from 'react-router-dom';
 import styles from './mobileMenu.module.scss';
+import { useState } from 'react';
+import { products } from '../data';
+import CollectionGridItem from '../collection-page/CollectionGridItem';
+import ProductImageTitle from '../collection-page/ProductImageTitle';
 
 const MobileMenu = ({ toggleMobileMenu }) => {
+  const [searchProducts, setSearchProducts] = useState([]);
+
+  const handleChange = (event) => {
+    const searchTerm = event.target.value.toLowerCase();
+    const userSearchProducts = products.filter(product => product.title.toLowerCase().includes(searchTerm));
+    if (searchTerm.length > 1) {
+      setSearchProducts(userSearchProducts);
+    } else {
+      setSearchProducts([]);
+    }
+    console.log(userSearchProducts)
+  }
+
   return (
     <div className="modal mobile-menu">
       <div className={styles['mobile-menu-header']}>
@@ -12,6 +29,26 @@ const MobileMenu = ({ toggleMobileMenu }) => {
         </svg>
         <button className='exit-modal-btn' onClick={toggleMobileMenu}>X</button>
       </div>
+      <div className={styles['search-bar']}>
+        <input 
+          type='text'
+          placeholder='Search...'
+          id='search'
+          onChange={handleChange}
+        />
+        <button id={styles['search-button']}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-search">
+            <circle cx="11" cy="11" r="6"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </div>
+      {searchProducts.length > 0 ? 
+      <div className={styles['search-results']}>
+        {searchProducts.map((product) => (
+          <ProductImageTitle toggleMobileMenu={toggleMobileMenu} key={product.id} product={product} className={'search-item'} />
+        ))}
+      </div> : ''}
       <ul className={styles['mobile-menu-items']}>
         <li onClick={toggleMobileMenu} className={styles['mobile-menu-item']}>
           <Link to="/home">HOME</Link>

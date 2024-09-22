@@ -29,7 +29,7 @@
 
 #pay-btn {
   width: 80%;
-  margin-top: 3rem;
+  margin-top: 1rem;
   margin-bottom: 2rem;
 }
 
@@ -55,10 +55,9 @@
 .order-summary {
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
   background-color: $header-background-color;
   text-align: left;
-  padding: 0 2rem;
+  padding: 0 2rem 2rem 2rem;
 }
 
 .order-summary h3{

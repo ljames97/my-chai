@@ -106,9 +106,15 @@ const CheckoutMain = () => {
       <div className="image-container">
         <img src={contactUsCover}/>
       </div>
+      <div className={styles['order-summary']}>
       <button onClick={handleContinueShopping} id={styles['continue-shopping']}>Continue Shopping</button>
+          <h3>Order Summary</h3>
+          {cart.map((product, index) => (
+            <CheckoutItem key={index} product={product} />
+          ))}
+        </div>
       <form className={styles['checkout-form']} onSubmit={handleSubmit}>
-        <h3>Contact</h3>
+        <h3>Email</h3>
         <input 
           type="email"
           id="email"
@@ -180,12 +186,7 @@ const CheckoutMain = () => {
         />
         {errors.country && <p className={styles['error']}>{errors.country}</p>}
 
-        <div className={styles['order-summary']}>
-          <h3>Order Summary</h3>
-          {cart.map((product, index) => (
-            <CheckoutItem key={index} product={product} />
-          ))}
-        </div>
+
 
         <button className="btn-primary" id={styles['pay-btn']} type="submit">
           Pay Now {`£${totalPrice}`}
