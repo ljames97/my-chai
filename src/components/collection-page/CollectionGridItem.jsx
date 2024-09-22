@@ -2,25 +2,26 @@
 
 import { calculateAverageRating, getProductReviews } from "../global/globalUtils";
 import StarRating from "../product-page/product-reviews/StarRating";
+import ProductImageTitle from "./ProductImageTitle";
 import styles from './collectionPage.module.scss';
 import { useNavigate } from 'react-router-dom';
 
 
-const CollectionGridItem = ({ product }) => {
+const CollectionGridItem = ({ product, toggleMobileMenu }) => {
   const navigate = useNavigate();
   const productReviews = getProductReviews(product);
   const productRating = calculateAverageRating(productReviews);
 
   const handleClick = () => {
     navigate(`/product/${product.path}`);
+    if (toggleMobileMenu) {
+      toggleMobileMenu();
+    }
   }
 
   return (
     <div onClick={handleClick} className={styles['collection-grid-item']}>
-      <div className="grid-item-image-container">
-        <img src={product.image} alt="" />
-      </div>
-      <p className="grid-item-title">{product.title}</p>
+      <ProductImageTitle product={product} />
       <div className={styles['product-reviews']}>
         <StarRating rating={productRating}/>
         <div className="number-of-reviews">{`(${productReviews.length})`}</div>
