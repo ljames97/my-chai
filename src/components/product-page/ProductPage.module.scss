@@ -97,3 +97,32 @@
   margin-top: 1rem;
   text-align: center !important;
 }
+
+#review-form {
+  padding-left: 0;
+  padding-top: 1rem;
+}
+
+#submit-review-button {
+  width: 50%;
+  align-self: flex-start;
+  font-size: 0.7rem;
+}
+
+#review-error {
+  padding-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.write-a-review {
+  margin-top: 1rem;
+  background-color: transparent;
+  border: none;
+  color: rgba(0, 0, 0, 0.7);
+  padding: 0;
+}
+
+#thankyou {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
