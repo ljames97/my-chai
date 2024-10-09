@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import styles from './mobileMenu.module.scss';
 import { useState } from 'react';
 import { products } from '../data';
-import CollectionGridItem from '../collection-page/CollectionGridItem';
 import ProductImageTitle from '../collection-page/ProductImageTitle';
 
 const MobileMenu = ({ toggleMobileMenu }) => {

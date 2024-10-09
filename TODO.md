@@ -1,13 +1,10 @@
 TODO
 
-/leave reviews (API)
-- form for customers to leave reviews, stored in firestore
-
 /customer account (API)
 - customer account login using firestore
 - cart data stored in firestore
 
-/newsletter and email list (popup)
+/newsletter and email list popup
 
 /dark theme
 - dark theme option
@@ -20,9 +17,9 @@ TODO
 - chat bot library
 
 futher ideas:
-AI chat bot, tea quiz, mock checkout process with email confirmation
+AI chat bot, tea quiz, mock checkout process with email confirmation and order complete page
 
-- product and collection descriptions
+- full product and collection descriptions
 - function documentation
 - accessibility (buttons, forms, images, error handling)
 - tests

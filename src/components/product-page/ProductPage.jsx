@@ -25,7 +25,7 @@ const ProductPage = () => {
       <ProductHeader product={product} price={price} />
       <AddToCart product={product} price={price} setPrice={setPrice} />
       <ProductDescription description={product.description} />
-      <ProductReviews reviews={productReviews}/>
+      <ProductReviews reviews={productReviews} product={product}/>
     </div>
   )
 }

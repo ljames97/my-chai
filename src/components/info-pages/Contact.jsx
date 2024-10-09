@@ -45,8 +45,8 @@ const Contact = () => {
     <div className="contact-us-page">
       <InfoPage featuredImage={contactUsCover} header={'Contact Us'} mainText={['For questions, comments or general enquiries, please get in touch at hello@mychai.co.uk or fill in our contact form below.']}/>
       {isSubmit ? <p className={styles['submit-message']}>Thank you for contacting us. We'll get back to you soon!</p> : ''}
-      {error ? <p className={styles['submit-message']} id={styles['error-message']}>Please enter a valid email address</p> : ''}
-      <form id={styles['contact-form']} onSubmit={handleSubmit}>
+      {error ? <p className={`${styles['submit-message']} error-message`}>Please enter a valid email address</p> : ''}
+      <form className="main-form" onSubmit={handleSubmit}>
       <label htmlFor="name">Full Name</label>
         <input 
           type="text"
