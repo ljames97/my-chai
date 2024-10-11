@@ -1,8 +1,9 @@
 TODO
-
 /customer account (API)
 - customer account login using firestore
 - cart data stored in firestore
+
+- custom 'useForm' hook for repeated form related code
 
 /newsletter and email list popup
 

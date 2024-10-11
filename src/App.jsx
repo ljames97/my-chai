@@ -15,18 +15,13 @@ import Journal from './components/journal/Journal';
 import AboutUs from './components/info-pages/AboutUs';
 import Contact from './components/info-pages/Contact';
 import JournalEntry from './components/journal/JournalEntry';
+import useToggle from './components/hooks/useToggle';
+import LoginModal from './components/customer-account/LoginModal';
 
 const App = () => {
-  const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false);
-  const [isCartModalVisible, setIsCartModalVisible] = useState(false);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuVisible(!isMobileMenuVisible);
-  };
-
-  const toggleCartModal = () => {
-    setIsCartModalVisible(!isCartModalVisible);
-  };
+  const [isMobileMenuVisible, toggleMobileMenu] = useToggle(false);
+  const [isCartModalVisible, toggleCartModal] = useToggle(false);
+  const [isLoginModalVisible, toggleLoginModal] = useToggle(false);
 
   useEffect(() => {
     if (isCartModalVisible) {
@@ -42,22 +37,25 @@ const App = () => {
       <MainContent 
         toggleCartModal={toggleCartModal} 
         toggleMobileMenu={toggleMobileMenu} 
+        toggleLoginModal={toggleLoginModal}
         isMobileMenuVisible={isMobileMenuVisible}
         isCartModalVisible={isCartModalVisible}
+        isLoginModalVisible={isLoginModalVisible}
       />
     </Router>
   );
 };
 
-const MainContent = ({ toggleCartModal, toggleMobileMenu, isMobileMenuVisible, isCartModalVisible }) => {
+const MainContent = ({ toggleCartModal, toggleMobileMenu, toggleLoginModal, isMobileMenuVisible, isCartModalVisible, isLoginModalVisible }) => {
   const location = useLocation();
   const isCheckoutPage = location.pathname === '/checkout';
   const isHomePage = location.pathname === '/home';
 
   return (
     <div className="app-container">
-      {isMobileMenuVisible && <MobileMenu toggleMobileMenu={toggleMobileMenu} />}
+      {isMobileMenuVisible && <MobileMenu toggleMobileMenu={toggleMobileMenu} toggleLoginModal={toggleLoginModal} />}
       {isCartModalVisible && <CartModal toggleCartModal={toggleCartModal} />}
+      {isLoginModalVisible && <LoginModal toggleLoginModal={toggleLoginModal} />}
       
       <div className="header-container">
         <ShippingHeader />

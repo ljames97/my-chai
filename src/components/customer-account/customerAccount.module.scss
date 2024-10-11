@@ -1,0 +1,30 @@
+@import '../../styles/variables';
+
+.account-header {
+  padding: 2rem 1.5rem 1rem 1.5rem;
+}
+
+.account-header h3 {
+  margin-bottom: 0.9rem;
+}
+
+.account-header p {
+  font-size: 0.8rem;
+}
+
+#sign-in {
+  margin-top: 0.5rem;
+  background-color: #9d8c82;
+}
+
+.login-modal-options {
+  display: flex;
+  justify-content: center;
+}
+
+.login-modal-options button {
+  background-color: transparent;
+  border: none;
+  color: rgba(0, 0, 0, 0.7);
+  letter-spacing: 0.5px;
+}
