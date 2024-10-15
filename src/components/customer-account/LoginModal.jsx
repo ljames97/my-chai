@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import styles from './customerAccount.module.scss';
+import { loginUser, registerUser } from "../../firebase/authService";
 
-const LoginModal = ({ toggleLoginModal }) => {
+const LoginModal = ({ toggleAccountModalManager }) => {
   const [isSubmit, setIsSubmit] = useState(false);
   const [error, setError] = useState(false);
   const [formData, setFormData] = useState({
-    email: '',
+    emailLogin: '',
     password: '', 
   });
 
@@ -20,23 +21,38 @@ const LoginModal = ({ toggleLoginModal }) => {
     }));
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('LOGGING IN')
+
+    try {
+      const user = await loginUser(formData.emailLogin, formData.password)
+      console.log(user, 'log in success')
+    } catch {
+      setError('ERROR login');
+    }
+  }
+
+  const handleRegisterUser = async () => {
+    try {
+      const newUser = await registerUser(formData.emailLogin, formData.password)
+      console.log(newUser);
+    } catch {
+      setError('ERROR registering');
+    }
   }
 
   return (
     <div className="modal login-modal">
-      <div className={styles['account-header']}>
-        <h3>MyChai Account</h3>
-        <p onClick={toggleLoginModal}>← Back to menu</p>
+      <div className={styles['login-modal-header']}>
+        <h3>Your Account</h3>
+        <p onClick={toggleAccountModalManager}>← Back to menu</p>
       </div>
       <form className="main-form" onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
         <input 
           type="email"
           placeholder="Email"
-          id="login-email"
+          id="emailLogin"
           value={formData.email}
           onChange={handleChange}
         />
@@ -51,7 +67,7 @@ const LoginModal = ({ toggleLoginModal }) => {
         <button id={styles['sign-in']} className="btn-primary">SIGN IN</button>
       </form>
       <div className={styles['login-modal-options']}>
-        <button>Create Account</button>
+        <button onClick={handleRegisterUser}>Create Account</button>
         <button>Forgot Password</button>
       </div>
     </div>

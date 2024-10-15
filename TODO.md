@@ -1,6 +1,6 @@
 TODO
 /customer account (API)
-- customer account login using firestore
+- account menu: My orders, my details, delete account
 - cart data stored in firestore
 
 - custom 'useForm' hook for repeated form related code

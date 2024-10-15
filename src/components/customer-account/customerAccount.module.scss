@@ -1,14 +1,15 @@
 @import '../../styles/variables';
 
-.account-header {
+.login-modal-header {
   padding: 2rem 1.5rem 1rem 1.5rem;
 }
 
-.account-header h3 {
+.login-modal-header h3 {
   margin-bottom: 0.9rem;
 }
 
-.account-header p {
+.login-modal-header p,
+.account-modal-buttons p {
   font-size: 0.8rem;
 }
 
@@ -27,4 +28,15 @@
   border: none;
   color: rgba(0, 0, 0, 0.7);
   letter-spacing: 0.5px;
+}
+
+.account-modal-header {
+  padding: 2rem;
+  padding-bottom: 0;
+}
+
+.account-modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
 }
