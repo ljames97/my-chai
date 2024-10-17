@@ -1,12 +1,4 @@
 TODO
-/customer account (API)
-- account menu: My orders, my details, delete account
-- cart data stored in firestore
-
-- custom 'useForm' hook for repeated form related code
-
-/newsletter and email list popup
-
 /dark theme
 - dark theme option
 
@@ -18,9 +10,11 @@ TODO
 - chat bot library
 
 futher ideas:
-AI chat bot, tea quiz, mock checkout process with email confirmation and order complete page
+AI chat bot, tea quiz, mock checkout process with email confirmation and order complete page, newsletter and email list popup
 
+- custom 'useForm' hook for repeated form related code
 - full product and collection descriptions
+- customer account menu links
 - function documentation
 - accessibility (buttons, forms, images, error handling)
 - tests
