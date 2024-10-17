@@ -1,6 +1,6 @@
 TODO
-/dark theme
-- dark theme option
+/extra-features
+- dark theme option 
 
 - sticky header on scroll
 - save cart info in local storage 
