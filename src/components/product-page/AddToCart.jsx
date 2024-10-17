@@ -22,6 +22,7 @@ const AddToCart = ({ product, price, setPrice }) => {
   const addToCartHandler = () => {
     const cartProduct = {
       id: Date.now(),
+      originalId: product.id,
       title: product.title,
       weight: weight,
       quantity: quantity,

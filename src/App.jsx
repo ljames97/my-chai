@@ -15,18 +15,13 @@ import Journal from './components/journal/Journal';
 import AboutUs from './components/info-pages/AboutUs';
 import Contact from './components/info-pages/Contact';
 import JournalEntry from './components/journal/JournalEntry';
+import useToggle from './hooks/useToggle';
+import AccountModalManager from './components/customer-account/AccountModalManager';
 
 const App = () => {
-  const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false);
-  const [isCartModalVisible, setIsCartModalVisible] = useState(false);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuVisible(!isMobileMenuVisible);
-  };
-
-  const toggleCartModal = () => {
-    setIsCartModalVisible(!isCartModalVisible);
-  };
+  const [isMobileMenuVisible, toggleMobileMenu] = useToggle(false);
+  const [isCartModalVisible, toggleCartModal] = useToggle(false);
+  const [isAccountModalManagerVisible, toggleAccountModalManager] = useToggle(false);
 
   useEffect(() => {
     if (isCartModalVisible) {
@@ -42,22 +37,25 @@ const App = () => {
       <MainContent 
         toggleCartModal={toggleCartModal} 
         toggleMobileMenu={toggleMobileMenu} 
+        toggleAccountModalManager={toggleAccountModalManager}
         isMobileMenuVisible={isMobileMenuVisible}
         isCartModalVisible={isCartModalVisible}
+        isAccountModalManagerVisible={isAccountModalManagerVisible}
       />
     </Router>
   );
 };
 
-const MainContent = ({ toggleCartModal, toggleMobileMenu, isMobileMenuVisible, isCartModalVisible }) => {
+const MainContent = ({ toggleCartModal, toggleMobileMenu, toggleAccountModalManager, isMobileMenuVisible, isCartModalVisible, isAccountModalManagerVisible }) => {
   const location = useLocation();
   const isCheckoutPage = location.pathname === '/checkout';
   const isHomePage = location.pathname === '/home';
 
   return (
     <div className="app-container">
-      {isMobileMenuVisible && <MobileMenu toggleMobileMenu={toggleMobileMenu} />}
+      {isMobileMenuVisible && <MobileMenu toggleMobileMenu={toggleMobileMenu} toggleAccountModalManager={toggleAccountModalManager} />}
       {isCartModalVisible && <CartModal toggleCartModal={toggleCartModal} />}
+      {isAccountModalManagerVisible && <AccountModalManager toggleAccountModalManager={toggleAccountModalManager} />}
       
       <div className="header-container">
         <ShippingHeader />

@@ -1,0 +1,50 @@
+@import '../../styles/variables';
+
+.login-modal-header {
+  padding: 2rem 1.5rem 1rem 1.5rem;
+}
+
+.login-modal-header h3 {
+  margin-bottom: 0.9rem;
+}
+
+.login-modal-header p,
+.account-modal-buttons p {
+  font-size: 0.8rem;
+}
+
+#sign-in {
+  margin-top: 0.5rem;
+  background-color: #9d8c82;
+}
+
+.login-modal-options {
+  display: flex;
+  justify-content: center;
+}
+
+.login-modal-options button {
+  background-color: transparent;
+  border: none;
+  color: rgba(0, 0, 0, 0.7);
+  letter-spacing: 0.5px;
+}
+
+.account-modal-header {
+  padding: 2rem;
+  padding-bottom: 0;
+}
+
+.account-modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.2rem 2rem;
+    border-bottom: 2px $border-color-light solid;
+}
+
+.account-menu-item {
+  padding: 1.2rem;
+  border-bottom: 2px $border-color-light solid;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
