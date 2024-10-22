@@ -22,4 +22,8 @@
   background-color: transparent;
   border: none;
   font-size: 1rem;
+
+  &.dark {
+    color: $primary-text-color;
+  }
 }

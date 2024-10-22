@@ -17,11 +17,21 @@ import Contact from './components/info-pages/Contact';
 import JournalEntry from './components/journal/JournalEntry';
 import useToggle from './hooks/useToggle';
 import AccountModalManager from './components/customer-account/AccountModalManager';
+import { useTheme } from './store/ThemeContext';
 
 const App = () => {
   const [isMobileMenuVisible, toggleMobileMenu] = useToggle(false);
   const [isCartModalVisible, toggleCartModal] = useToggle(false);
   const [isAccountModalManagerVisible, toggleAccountModalManager] = useToggle(false);
+  const { isDarkMode } = useTheme();
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add('dark-theme')
+    } else {
+      document.body.classList.remove('dark-theme');
+    }
+  }, [isDarkMode]);
 
   useEffect(() => {
     if (isCartModalVisible) {

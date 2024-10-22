@@ -29,6 +29,10 @@
   margin-top: 0.3rem;
   font-size: 1.3rem;
   color: $text-color-light;
+
+  &.dark {
+    color: $primary-text-color
+  }
 }
 
 .add-to-cart-section {

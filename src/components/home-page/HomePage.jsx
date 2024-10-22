@@ -1,6 +1,7 @@
 // HomePage.jsx
 
-import { aboutUsCover, contactUsCover, coverPhoto, featuredImage, featuredImage_2, homePageCover } from '../../assets/images';
+import { contactUsCover, featuredImage, homePageCover } from '../../assets/images';
+import { useTheme } from '../../store/ThemeContext';
 import { products } from '../data';
 import FeaturedCollection from './FeaturedCollection';
 import JournalWidget from './JournalWidget';
@@ -11,6 +12,8 @@ import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const { isDarkMode } = useTheme();
+
   const bestSellers = products.filter(product => product.bestSeller === true);
   const featuredText = {
     header: 'Premium Loos Leaf Tea',
@@ -33,9 +36,9 @@ const HomePage = () => {
     <div className={styles['home-page']}>
       <div className={styles['cover-photo-container']}>
         <img src={homePageCover}/>
-        <button onClick={handleShopNowClick} id={styles['shop-now']}>SHOP NOW</button>
+        <button onClick={handleShopNowClick} className={`${styles['shop-now-btn']} ${isDarkMode ? styles['dark']: ''}`}>SHOP NOW</button>
       </div>
-      <div className={styles['section-header']}>
+      <div className={`${styles['section-header']} ${isDarkMode ? styles['dark'] : ''}`}>
         <h3>Premium Loose Leaf Tea</h3>
         <p>Tea is our speciality. At My Chai, we've collected some of the finest premium loose leaf teas from sustainable sources.
           Discover a range of black, green, herbal and more.

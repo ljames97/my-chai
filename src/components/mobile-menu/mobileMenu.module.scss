@@ -28,6 +28,10 @@
 
 .mobile-menu-items {
   margin: 0;
+
+   &.dark a {
+    color: $primary-text-color;
+   }
 }
 
 .mobile-menu-item {
@@ -41,4 +45,17 @@
   display: flex;
   padding: 1rem;
 
+}
+
+.theme-switch-btn {
+  background-color: transparent;
+  border: none;
+  color: rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+  margin-left: auto;
+  margin-right: 1rem;
+
+  &.dark {
+    color: rgba(255, 255, 255, 0.5);
+  }
 }

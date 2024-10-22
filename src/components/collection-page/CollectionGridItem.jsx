@@ -1,5 +1,6 @@
 // CollectionGridItem.jsx
 
+import { useTheme } from "../../store/ThemeContext";
 import { calculateAverageRating, getProductReviews } from "../global/globalUtils";
 import StarRating from "../product-page/product-reviews/StarRating";
 import ProductImageTitle from "./ProductImageTitle";
@@ -9,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 const CollectionGridItem = ({ product, toggleMobileMenu }) => {
   const navigate = useNavigate();
+  const { isDarkMode } = useTheme();
   const productReviews = getProductReviews(product);
   const productRating = calculateAverageRating(productReviews);
 
@@ -20,14 +22,14 @@ const CollectionGridItem = ({ product, toggleMobileMenu }) => {
   }
 
   return (
-    <div onClick={handleClick} className={styles['collection-grid-item']}>
+    <div onClick={handleClick} className={`${styles['collection-grid-item']} ${isDarkMode ? styles['dark'] : ''}`}>
       <ProductImageTitle product={product} />
       <div className={styles['product-reviews']}>
         <StarRating rating={productRating}/>
-        <div className="number-of-reviews">{`(${productReviews.length})`}</div>
+        <div className={`${styles['number-of-reviews']} ${isDarkMode ? styles['dark'] : ''}`}>{`(${productReviews.length})`}</div>
       </div>
 
-      <p className={styles['grid-item-price']}>{`from ${product.price['50g']}`}</p>
+      <p className={`${styles['grid-item-price']} ${isDarkMode ? styles['dark'] : ''}`}>{`from ${product.price['50g']}`}</p>
     </div>
   )
 }

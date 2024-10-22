@@ -2,9 +2,11 @@
 
 import { useState } from 'react';
 import styles from './layout.module.scss'
+import { useTheme } from '../../store/ThemeContext';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
+  const { isDarkMode } = useTheme();
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value)
@@ -33,7 +35,7 @@ const Footer = () => {
         <form onSubmit={handleNewsletterSubmit} className={styles['newsletter-form']}>
           <label htmlFor="email"></label>
           <input type="email" id="email" placeholder="your-email@example.com" value={email} onChange={handleEmailChange} />
-          <button className={styles['form-button']}>JOIN</button>
+          <button className={`${styles['form-button']} ${isDarkMode ? styles['dark'] : ''}`}>JOIN</button>
         </form>
       </div>
       <p className={styles['copyright']}>MyChai | © 2024 All Rights Reserved.</p>

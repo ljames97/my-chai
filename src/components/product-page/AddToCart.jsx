@@ -3,10 +3,12 @@
 import { useContext, useState } from "react";
 import styles from './ProductPage.module.scss';
 import CartContext from "../../store/CartContext";
+import { useTheme } from "../../store/ThemeContext";
 
 
 const AddToCart = ({ product, price, setPrice }) => {
   const { addToCart } = useContext(CartContext);
+  const { isDarkMode } = useTheme();
   const [quantity, setQuantity] = useState('1');
   const [weight, setWeight] = useState('50g');
 

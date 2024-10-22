@@ -1,7 +1,5 @@
 TODO
 /extra-features
-- dark theme option 
-
 - sticky header on scroll
 - save cart info in local storage 
 - footer nav leads to home page
@@ -17,6 +15,7 @@ AI chat bot, tea quiz, mock checkout process with email confirmation and order c
 - customer account menu links
 - function documentation
 - accessibility (buttons, forms, images, error handling)
+- desktop css
 - tests
 - tailwind
 - backend (node.js, SQL)
