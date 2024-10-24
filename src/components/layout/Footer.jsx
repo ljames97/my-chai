@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import styles from './layout.module.scss'
 import { useTheme } from '../../store/ThemeContext';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -24,10 +25,18 @@ const Footer = () => {
       <nav className={styles['footer-nav']}>
         <div className={styles['footer-nav-heading']}>Information</div>
         <ul className={styles['footer-nav-items']}>
-          <li className={styles['footer-nav-item']}>Delivery & Returns</li>
-          <li className={styles['footer-nav-item']}>Wholesale</li>
-          <li className={styles['footer-nav-item']}>Refund Policy</li>
-          <li className={styles['footer-nav-item']}>Terms & Conditions</li>
+          <li className={styles['footer-nav-item']}>
+            <Link to="/home">Delivery & Returns</Link>
+          </li>
+          <li className={styles['footer-nav-item']}>
+            <Link to="/home">Wholesale</Link>
+          </li>
+          <li className={styles['footer-nav-item']}>
+            <Link to="/home">Refund Policy</Link>
+          </li>
+          <li className={styles['footer-nav-item']}>
+            <Link to="/home">Terms & Conditions</Link>
+          </li>
         </ul>
       </nav>
       <div className={styles['newsletter']}>

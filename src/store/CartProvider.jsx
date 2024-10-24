@@ -4,9 +4,10 @@ import { useEffect, useState } from "react"
 import CartContext from "./CartContext";
 import useAuth from "../hooks/useAuth";
 import { addToCartDatabase, getCartFromDatabase, removeFromCartDatabase, updateQuantityDatabase } from "../firebase/cartService";
+import { loadCartFromLocalStorage, saveCartToLocalStorage } from "../components/global/globalUtils";
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(loadCartFromLocalStorage());
   const user = useAuth();
 
   const addToCart = async (product) => {
@@ -28,6 +29,7 @@ export const CartProvider = ({ children }) => {
   }, [user]);
 
   useEffect(() => {
+    saveCartToLocalStorage(cart);
     console.log(cart);
   }, [cart]);
 

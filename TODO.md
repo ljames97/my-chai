@@ -1,8 +1,6 @@
 TODO
 /extra-features
 - sticky header on scroll
-- save cart info in local storage 
-- footer nav leads to home page
 
 /tea quiz via chat bot 
 - chat bot library
