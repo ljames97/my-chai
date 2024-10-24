@@ -102,4 +102,9 @@ footer {
   border: none;
   padding: 0.7rem 1rem;
   margin-left: 0.5rem;
+
+  &.dark {
+    color: $primary-text-color;
+    background-color: $background-color-dark;
+  }
 }

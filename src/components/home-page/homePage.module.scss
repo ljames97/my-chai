@@ -13,7 +13,7 @@
   align-items: center;
 }
 
-#shop-now {
+.shop-now-btn {
   position: absolute;
   bottom: 10%;
   padding: 1.5rem 3rem;
@@ -23,11 +23,20 @@
   color: white;
   letter-spacing: 3px;
   font-weight: 400;
+
+  &.dark {
+    background-color: $background-color-dark;
+  }
 }
 
 .section-header {
   padding: 2rem 1rem 1rem 1rem;
   background-color: $header-background-color;
+
+  &.dark {
+    background-color: $dark-background-accent;
+    color: $primary-text-color;
+  }
 }
 
 .section-header p {
@@ -47,6 +56,11 @@
   width: 30%;
   border-radius: 30px;
   font-size: 0.9rem;
+
+  &.dark {
+    background-color: $dark-background-accent;
+    color: $primary-text-color;
+  }
 }
 
 .collection-slideshow {
@@ -100,6 +114,12 @@
   width: 45%;
   font-weight: 600;
   letter-spacing: 1px;
+  margin-top: 1rem;
+
+  &.dark {
+    background-color: $dark-background-accent;
+    color: $primary-text-color
+  }
 }
 
 .review-carousel {
@@ -128,6 +148,12 @@
   border-radius: 5px;
   width: 100vw;
   font-size: 0.9rem;
+
+  &.dark {
+    background-color: $secondary-color;
+    box-shadow: 0px 8px 8px rgba(40, 40, 40, 0.2);
+    color: black;
+  }
 }
 
 .review-title {
@@ -204,4 +230,3 @@
   color: white;
   width: 40%;
 }
-

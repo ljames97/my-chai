@@ -78,3 +78,21 @@ export const getTotalCartPrice = () => {
 
   return totalPrice;
 }
+
+export const saveCartToLocalStorage = (cart) => {
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+export const loadCartFromLocalStorage = () => {
+  const savedCart = localStorage.getItem('cart');
+  return savedCart ? JSON.parse(savedCart) : [];
+}
+
+export const saveThemeToLocalStorage = (isDarkMode) => {
+  localStorage.setItem('theme', JSON.stringify(isDarkMode));
+}
+
+export const loadThemeFromLocalStorage = () => {
+  const savedTheme = localStorage.getItem('theme');
+  return savedTheme ? JSON.parse(savedTheme) : false;
+}

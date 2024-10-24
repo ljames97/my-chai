@@ -3,9 +3,11 @@
 import { useContext } from 'react';
 import styles from './cartModal.module.scss';
 import CartContext from '../../store/CartContext';
+import { useTheme } from '../../store/ThemeContext';
 
 const CartItem = ({ product }) => {
   const { updateQuantity, removeFromCart } = useContext(CartContext);
+  const { isDarkMode } = useTheme();
   console.log(product);
 
   const handleQuantityChange = (event) => {
@@ -18,7 +20,7 @@ const CartItem = ({ product }) => {
   }
 
   return (
-    <div className={styles['cart-item']}>
+    <div className={`${styles['cart-item']} ${isDarkMode ? styles['dark']: ''}`}>
       <div className={styles['cart-image-container']}>
         <img src={product.image} alt=""/>
       </div>
@@ -27,7 +29,7 @@ const CartItem = ({ product }) => {
         <p className={styles['cart-item-weight']}>{product.weight}</p>
         <p className={styles['cart-item-price']}>{product.price}</p>
         <input 
-        id={styles['cart-item-quantity']}
+        className={`${styles['cart-item-quantity']} ${isDarkMode ? styles['dark']: ''}`}
         value={product.quantity}
         onChange={handleQuantityChange}/>
       </div>
