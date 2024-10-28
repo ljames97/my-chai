@@ -3,13 +3,13 @@
 import CustomerReview from "./CustomerReview";
 import styles from '../ProductPage.module.scss';
 import { useState } from "react";
+import useForm from "../../../hooks/useForm";
 
 const ProductReviews = ({ reviews, product }) => {
   const [showForm, setShowForm] = useState(false);
   const reviewButtonText = !showForm ? 'Leave a review' : 'Cancel';
-  const [error, setError] = useState(false);
-  const [isSubmit, setIsSubmit] = useState(false);
-  const [formData, setFormData] = useState({
+
+  const { formData, handleChange, handleSubmit, isError, isSubmit } = useForm({
     name: '',
     email: '',
     rating: 5,
@@ -20,40 +20,13 @@ const ProductReviews = ({ reviews, product }) => {
   const handleClick = () => {
     if (showForm) {
       setShowForm(false);
-      setIsSubmit(false);
     } else {
       setShowForm(true);
     }
   }
 
-  const handleChange = (event) =>  {
-    const { id, value } = event.target;
-
-    setFormData((prevData) => ({
-      ...prevData,
-      [id]: value
-    }));
-  }
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (formData.name === '' || formData.email === '' || formData.rating === '' || formData.reviewTitle === '' || formData.review === '') {
-      setError(true);
-      setIsSubmit(false);
-      return;
-    }
-
-    console.log(formData, product);
+  const submitForm = () => {
     handleClick();
-    setError(false);
-    setFormData({
-      name: '',
-      email: '',
-      rating: 5,
-      reviewTitle: '',
-      review: ''
-    });
-    setIsSubmit(true);
   }
 
 
@@ -62,8 +35,8 @@ const ProductReviews = ({ reviews, product }) => {
       <h3>Customer Reviews</h3>
       {isSubmit && !showForm ? <p id={styles['thankyou']}>Thank you for leaving a review!</p> : ''}
       <button onClick={handleClick} className={styles['write-a-review']}>{reviewButtonText}</button>
-      {error && showForm ? <p className="error-message" id={styles['review-error']}>Please fill out all fields</p> : ''}
-      {showForm ? <form onSubmit={handleSubmit} className='main-form' id={styles['review-form']}>
+      {isError && showForm ? <p className="error-message" id={styles['review-error']}>Please fill out all fields</p> : ''}
+      {showForm ? <form onSubmit={(e) => handleSubmit(e, submitForm)} className='main-form' id={styles['review-form']}>
         <input
           placeholder="First Name"
           type="text"

@@ -5,7 +5,6 @@ import styles from './customerAccount.module.scss';
 import { loginUser, registerUser } from "../../firebase/authService";
 
 const LoginModal = ({ toggleAccountModalManager }) => {
-  const [isSubmit, setIsSubmit] = useState(false);
   const [error, setError] = useState(false);
   const [formData, setFormData] = useState({
     emailLogin: '',
@@ -25,19 +24,51 @@ const LoginModal = ({ toggleAccountModalManager }) => {
     event.preventDefault();
 
     try {
-      const user = await loginUser(formData.emailLogin, formData.password)
-      console.log(user, 'log in success')
-    } catch {
-      setError('ERROR login');
+      const user = await loginUser(formData.emailLogin, formData.password);
+      console.log(user, 'log in success');
+      setError(false);
+    } catch (error) {
+      handleAuthError(error);
+      console.log(error);
     }
   }
 
   const handleRegisterUser = async () => {
     try {
-      const newUser = await registerUser(formData.emailLogin, formData.password)
+      const newUser = await registerUser(formData.emailLogin, formData.password);
       console.log(newUser);
-    } catch {
-      setError('ERROR registering');
+      setError('');
+    } catch (error) {
+      handleAuthError(error);
+    }
+  }
+
+  const handleAuthError = (error) => {
+    const errorMessage = error.message;
+    const errorCode = errorMessage.match(/auth\/[a-z\-]+/i)?.[0];
+
+    switch (errorCode) {
+      case 'auth/user-not-found':
+        setError('No account found for this email address.');
+        break;
+      case 'auth/invalid-credential':
+        setError('Incorrect email or password.');
+        break;
+      case 'auth/missing-password':
+        setError('Missing password.');
+        break;
+      case 'auth/invalid-email':
+        setError('Invalid email address.');
+        break;
+      case 'auth/email-already-in-use':
+        setError('This email is already in use. Please use a different email.');
+        break;
+      case 'auth/weak-password':
+        setError('Password should be at least 6 characters.');
+        break;
+      default:
+        setError('An unknown error occurred. Please try again.');
+        break;
     }
   }
 
@@ -64,6 +95,7 @@ const LoginModal = ({ toggleAccountModalManager }) => {
           value={formData.password}
           onChange={handleChange}
         />
+        {error && <p className={styles['error-message']}>{error}</p>}
         <button id={styles['sign-in']} className="btn-primary">SIGN IN</button>
       </form>
       <div className={styles['login-modal-options']}>

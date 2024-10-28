@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import styles from './checkoutPage.module.scss';
 import CartContext from "../../store/CartContext";
 import CheckoutItem from "./CheckoutItem";
@@ -6,13 +6,15 @@ import { getTotalCartPrice } from "../global/globalUtils";
 import { useNavigate } from 'react-router-dom';
 import { contactUsCover } from "../../assets/images";
 import { useTheme } from "../../store/ThemeContext";
+import useForm from "../../hooks/useForm";
 
 const CheckoutMain = () => {
   const navigate = useNavigate();
   const { isDarkMode } = useTheme();
   const { cart } = useContext(CartContext);
   const totalPrice = getTotalCartPrice();
-  const [formData, setFormData] = useState({
+
+  const { formData, handleChange, handleSubmit, isError } = useForm({
     email: '',
     shippingAddress: {
       name: '',
@@ -21,87 +23,16 @@ const CheckoutMain = () => {
       city: '',
       postalCode: '',
       country: ''
-    },
-    paymentInfo: ''
+    }
   });
-
-  const [errors, setErrors] = useState({});
 
   const handleContinueShopping = () => {
     navigate(`/home`);
   }
 
-  const validateField = (id, value) => {
-    switch (id) {
-      case 'email':
-        if (!value || !/\S+@\S+\.\S+/.test(value)) {
-          return 'Please enter a valid email address';
-        }
-        break;
-      case 'name':
-      case 'houseNumber':
-      case 'street':
-      case 'city':
-      case 'postalCode':
-      case 'country':
-        break;
-      default:
-        return '';
-    }
-    return '';
-  };
-
-  const handleChange = (event) => {
-    const { id, value } = event.target;
-
-    const errorMessage = validateField(id, value);
-    setErrors((prevErrors) => ({
-      ...prevErrors,
-      [id]: errorMessage
-    }));
-
-    if (id in formData.shippingAddress) {
-      setFormData((prevData) => ({
-        ...prevData,
-        shippingAddress: {
-          ...prevData.shippingAddress,
-          [id]: value
-        }
-      }));
-    } else {
-      setFormData((prevData) => ({
-        ...prevData,
-        [id]: value
-      }));
-    }
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    let isValid = true;
-    const newErrors = {};
-
-    if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
-      isValid = false;
-      newErrors.email = 'Please enter a valid email address';
-    }
-
-    Object.keys(formData.shippingAddress).forEach((field) => {
-      if (!formData.shippingAddress[field]) {
-        isValid = false;
-        newErrors[field] = true;
-      }
-    });
-
-    setErrors(newErrors);
-
-    if (isValid) {
-      console.log('Form is valid, submitting:', formData, cart);
-    } else {
-      console.log('Form is invalid, please correct the errors');
-    }
-  };
+  const submitForm = () => {
+    console.log(isError, formData);
+  }
 
   return (
     <div>
@@ -115,7 +46,8 @@ const CheckoutMain = () => {
             <CheckoutItem key={index} product={product} />
           ))}
         </div>
-      <form className={`${styles['checkout-form']} ${isDarkMode ? styles['dark'] : ''}`} onSubmit={handleSubmit}>
+        {isError && <p className={styles['error']}>Please fill out all fields</p>}
+      <form className={`${styles['checkout-form']} ${isDarkMode ? styles['dark'] : ''}`} onSubmit={(e) => handleSubmit(e, submitForm)}>
         <h3>Email</h3>
         <input 
           type="email"
@@ -123,9 +55,7 @@ const CheckoutMain = () => {
           value={formData.email}
           onChange={handleChange}
           placeholder="Email"
-          className={`${errors.email ? styles['input-error'] : ''} ${isDarkMode ? styles['dark'] : ''}`}
-        />
-        {errors.email && <p className={styles['error']}>{errors.email}</p>}
+          className={`${isDarkMode ? styles['dark'] : ''}`}        />
 
         <h3>Shipping</h3>
         <input
@@ -134,9 +64,7 @@ const CheckoutMain = () => {
           value={formData.shippingAddress.name}
           onChange={handleChange}
           placeholder="Full Name"
-          className={`${errors.email ? styles['input-error'] : ''} ${isDarkMode ? styles['dark'] : ''}`}
-        />
-        {errors.name && <p className={styles['error']}>{errors.name}</p>}
+          className={`${isDarkMode ? styles['dark'] : ''}`}        />
         
         <input
           type="text"
@@ -144,9 +72,8 @@ const CheckoutMain = () => {
           value={formData.shippingAddress.houseNumber}
           onChange={handleChange}
           placeholder="House Number"
-          className={`${errors.email ? styles['input-error'] : ''} ${isDarkMode ? styles['dark'] : ''}`}
+          className={`${isDarkMode ? styles['dark'] : ''}`}
         />
-        {errors.houseNumber && <p className={styles['error']}>{errors.houseNumber}</p>}
 
         <input
           type="text"
@@ -154,9 +81,7 @@ const CheckoutMain = () => {
           value={formData.shippingAddress.street}
           onChange={handleChange}
           placeholder="Street"
-          className={`${errors.email ? styles['input-error'] : ''} ${isDarkMode ? styles['dark'] : ''}`}
-        />
-        {errors.street && <p className={styles['error']}>{errors.street}</p>}
+          className={`${isDarkMode ? styles['dark'] : ''}`}        />
 
         <input
           type="text"
@@ -164,9 +89,7 @@ const CheckoutMain = () => {
           value={formData.shippingAddress.city}
           onChange={handleChange}
           placeholder="City"
-          className={`${errors.email ? styles['input-error'] : ''} ${isDarkMode ? styles['dark'] : ''}`}
-        />
-        {errors.city && <p className={styles['error']}>{errors.city}</p>}
+          className={`${isDarkMode ? styles['dark'] : ''}`}        />
 
         <input
           type="text"
@@ -174,9 +97,7 @@ const CheckoutMain = () => {
           value={formData.shippingAddress.postalCode}
           onChange={handleChange}
           placeholder="Postal Code"
-          className={`${errors.email ? styles['input-error'] : ''} ${isDarkMode ? styles['dark'] : ''}`}
-        />
-        {errors.postalCode && <p className={styles['error']}>{errors.postalCode}</p>}
+          className={`${isDarkMode ? styles['dark'] : ''}`}        />
 
         <input
           type="text"
@@ -184,9 +105,7 @@ const CheckoutMain = () => {
           value={formData.shippingAddress.country}
           onChange={handleChange}
           placeholder="Country"
-          className={`${errors.email ? styles['input-error'] : ''} ${isDarkMode ? styles['dark'] : ''}`}
-        />
-        {errors.country && <p className={styles['error']}>{errors.country}</p>}
+          className={`${isDarkMode ? styles['dark'] : ''}`}        />
 
         <button className="btn-primary" id={styles['pay-btn']} type="submit">
           Pay Now {`£${totalPrice}`}
