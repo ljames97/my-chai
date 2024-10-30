@@ -5,7 +5,7 @@ import ShippingHeader from './components/layout/ShippingHeader.jsx';
 import Footer from './components/layout/Footer.jsx';
 import CartModal from './components/cart-modal/CartModal.jsx';
 import './styles/main.scss';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import CollectionPage from './components/collection-page/CollectionPage';
 import MobileMenu from './components/mobile-menu/MobileMenu';
 import CheckoutPage from './components/checkout-page/CheckoutPage';
@@ -18,6 +18,7 @@ import JournalEntry from './components/journal/JournalEntry';
 import useToggle from './hooks/useToggle';
 import AccountModalManager from './components/customer-account/AccountModalManager';
 import { useTheme } from './store/ThemeContext';
+import AccountDetails from './components/customer-account/AccountDetails';
 
 const App = () => {
   const [isMobileMenuVisible, toggleMobileMenu] = useToggle(false);
@@ -65,7 +66,7 @@ const MainContent = ({ toggleCartModal, toggleMobileMenu, toggleAccountModalMana
     <div className="app-container">
       {isMobileMenuVisible && <MobileMenu toggleMobileMenu={toggleMobileMenu} toggleAccountModalManager={toggleAccountModalManager} />}
       {isCartModalVisible && <CartModal toggleCartModal={toggleCartModal} />}
-      {isAccountModalManagerVisible && <AccountModalManager toggleAccountModalManager={toggleAccountModalManager} />}
+      {isAccountModalManagerVisible && <AccountModalManager toggleAccountModalManager={toggleAccountModalManager} toggleMobileMenu={toggleMobileMenu} />}
       
       <div className="header-container">
         <ShippingHeader />
@@ -82,6 +83,7 @@ const MainContent = ({ toggleCartModal, toggleMobileMenu, toggleAccountModalMana
           <Route path='/product/:path' element={<ProductPage />} />
           <Route path='/journal/:path' element={<JournalEntry />} />
           <Route path='/checkout' element={<CheckoutPage />} />
+          <Route path='/account-details' element={<AccountDetails />} />
         </Routes>
       </div>
 

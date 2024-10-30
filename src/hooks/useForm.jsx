@@ -48,7 +48,7 @@ const useForm = (initialValues) => {
     setFormData(initialValues);
   }
 
-  return { formData, handleChange, handleSubmit, isError, isSubmit };
+  return { formData, setFormData, handleChange, handleSubmit, setIsError, isError, isSubmit };
 };
 
 export default useForm;

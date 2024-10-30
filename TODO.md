@@ -1,10 +1,12 @@
 TODO
 
 /final-development 
-- customer account menu links
 - function documentation
 - accessibility (buttons, forms, images, error handling)
 - desktop css
+
+- account profile photo
+- order history
 
 - tests
 - tailwind

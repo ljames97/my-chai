@@ -1,9 +1,10 @@
 // AccountModal.jsx
 
+import { Link } from "react-router-dom";
 import { deleteUserAccount, logoutUser } from "../../firebase/authService";
 import styles from './customerAccount.module.scss';
 
-const AccountModal = ({ toggleAccountModalManager }) => {
+const AccountModal = ({ toggleAccountModalManager, toggleMobileMenu }) => {
 
   const handleLogout = async () => {
     await logoutUser();
@@ -11,6 +12,11 @@ const AccountModal = ({ toggleAccountModalManager }) => {
 
   const handleDeleteAccount = async () => {
     await deleteUserAccount();
+  }
+
+  const handleClick = () => {
+    toggleAccountModalManager();
+    toggleMobileMenu();
   }
 
   return (
@@ -21,7 +27,9 @@ const AccountModal = ({ toggleAccountModalManager }) => {
       </div>
       <ul className={styles['account-menu']}>
         <li className={styles['account-menu-item']}>ORDER HISTORY</li>
-        <li className={styles['account-menu-item']}>ACCOUNT DETAILS</li>
+        <li className={styles['account-menu-item']} onClick={handleClick}>
+          <Link to="/account-details">ACCOUNT DETAILS</Link>
+        </li>
         <li className={styles['account-menu-item']} onClick={handleLogout}>LOGOUT</li>
         <li className={styles['account-menu-item']} onClick={handleDeleteAccount}>DELETE ACCOUNT</li>
       </ul>
