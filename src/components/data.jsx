@@ -6,43 +6,43 @@ const collections = [
     id: 0,
     path: 'all',
     title: 'Shop All',
-    description: 'Experience the rich, bold flavors of our Black Tea Collection.',
+    description: 'Explore the full range of our premium loose leaf teas. From bold and robust black teas to delicate and calming greens',
   },
   {
     id: 1,
     path: 'black-tea',
     title: 'Black Tea',
-    description: 'Experience the rich, bold flavors of our Black Tea Collection.',
+    description: 'Discover the richness and depth of our black tea collection. Known for its robust flavors and malty undertones, black tea is perfect for those who enjoy a strong, energizing cup.',
   },
   {
     id: 2,
     path: 'green-tea',
     title: 'Green Tea',
-    description: 'Experience the rich, bold flavors of our Green Tea Collection',
+    description: 'Immerse yourself in the soothing and rejuvenating world of green tea. With its light, vegetal notes and numerous health benefits, green tea is a perfect companion for moments of calm and clarity.',
   },
   {
     id: 3,
     path: 'oolong',
     title: 'Oolong Tea',
-    description: 'Experience the rich, bold flavors of our Oolong Tea Collection',
+    description: 'Indulge in the complexity and elegance of oolong tea, a collection for those who seek something unique, bridging the gap between green and black teas.',
   },
   {
     id: 4,
     path: 'herbal',
     title: 'Herbal',
-    description: 'Experience the rich, bold flavors of our Herbal Tea Collection',
+    description: 'Experience the calming and revitalizing benefits of our herbal tea collection. Naturally caffeine-free and infused with a variety of flowers, herbs, and spices.',
   },
   {
     id: 5,
     path: 'teaware',
     title: 'Teaware',
-    description: 'Experience the rich, bold flavors of our Teaware Collection',
+    description: 'Elevate your tea experience with our artisanal teaware collection. From elegant teapots to precision infusers and beautifully crafted cups, our teaware is designed to enhance every moment of tea preparation and enjoyment.',
   },
   {
     id: 99,
     path: 'bestsellers',
     title: 'Bestsellers',
-    description: 'Discover our range of best selling loose leaf teas'
+    description: 'Explore our bestsellers collection, where customer favorites come together to showcase the finest of what we offer.'
   }
 
 ];
@@ -54,7 +54,7 @@ const products = [
     title: 'Classic Black Tea', 
     path: 'Classic-Black-Tea',
     image: blackTea,
-    description: 'Discover the pure, rich taste of our Classic Black Tea.',
+    description: 'A bold and traditional black tea, known for its full-bodied flavor and rich, malty notes. Perfect for those who enjoy a robust cup with or without milk.',
     price: {
       '50g': '£3.95',
       '100g': '£6.95',
@@ -69,7 +69,7 @@ const products = [
     title: 'Assam Organic', 
     path: 'Assam-Organic',
     image: assam,
-    description: 'Discover the pure, rich taste of our Classic Black Tea.',
+    description: 'This organic Assam tea is grown in the lush valleys of India, offering a malty, brisk flavor with a hint of natural sweetness. Ideal for a strong morning brew.',
     price: {
       '50g': '£3.95',
       '100g': '£6.95',
@@ -83,7 +83,7 @@ const products = [
     title: 'Yunnan Golden Needle', 
     path: 'Yunnan-Golden-Needle',
     image: goldenNeedle,
-    description: 'Discover the pure, rich taste of our Classic Black Tea.',
+    description: 'Hand-picked golden buds from Yunnan province, this tea offers a smooth, honeyed sweetness with subtle earthy undertones. A luxurious black tea experience.',
     price: {
       '50g': '£9.95',
       '100g': '£17.95',
@@ -98,7 +98,7 @@ const products = [
     title: 'Yunnan Gold', 
     path: 'Yunnan-Gold',
     image: yunnanGold,
-    description: 'Discover the pure, rich taste of our Classic Black Tea.',
+    description: 'A premium black tea with golden tips, known for its sweet, mellow taste and light notes of cocoa. A delicate yet flavorful tea with a soft finish.',
     price: {
       '50g': '£5.95',
       '100g': '£9.95',
@@ -112,7 +112,7 @@ const products = [
     title: 'English Breakfast Tea', 
     path: 'English-Breakfast-Tea',
     image: englishBreakfast,
-    description: 'Discover the pure, rich taste of our Classic Black Tea.',
+    description: 'A classic blend of robust black teas, perfect for a hearty start to your day. Rich and full-bodied, it pairs perfectly with milk and sugar.',
     price: {
       '50g': '£3.95',
       '100g': '£6.95',
@@ -126,7 +126,7 @@ const products = [
     title: 'Jasmine Oolong Loose Leaf Tea', 
     path: 'Jasmine-Oolong-Loose-Leaf-Tea',
     image: jasmineOolong,
-    description: 'Discover the rich taste of our Jasmine Oolong Tea.',
+    description: 'A fragrant blend of oolong tea infused with fresh jasmine blossoms. This tea offers a balanced, floral aroma with a smooth and slightly sweet taste.',
     price: {
       '50g': '£7.95',
       '100g': '£13.95',
@@ -141,7 +141,7 @@ const products = [
     title: 'Milk Oolong', 
     path: 'Milk-Oolong',
     image: milkOolong,
-    description: 'Discover the rich taste of our Jasmine Oolong Tea.',
+    description: 'Known for its creamy, buttery texture, Milk Oolong delivers a smooth, mellow flavor with a naturally sweet finish. Perfect for a rich and comforting cup.',
     price: {
       '50g': '£6.95',
       '100g': '£11.95',
@@ -155,7 +155,7 @@ const products = [
     title: 'Yellow Gold', 
     path: 'Yellow-Gold',
     image: yellowGold,
-    description: 'Discover the rich taste of our Jasmine Oolong Tea.',
+    description: 'A rare yellow tea with a smooth, delicate flavor and light floral notes. Its unique processing brings out a rich, golden infusion with a hint of sweetness.',
     price: {
       '50g': '£4.95',
       '100g': '£8.95',
@@ -169,7 +169,7 @@ const products = [
     title: 'Japanese Sencha', 
     path: 'Japanese-Sencha',
     image: japaneseSencha,
-    description: 'Discover the rich taste of our Jasmine Oolong Tea.',
+    description: 'A classic green tea from Japan, offering a fresh, grassy flavor with a slight astringency. Ideal for those seeking a clean and refreshing cup.',
     price: {
       '50g': '£5.95',
       '100g': '£9.95',
@@ -183,7 +183,7 @@ const products = [
     title: 'Gunpowder Green', 
     path: 'Gunpowder-Green',
     image: gunpowderGreen,
-    description: 'Discover the rich taste of our Jasmine Oolong Tea.',
+    description: 'Named for its tightly rolled leaves, Gunpowder Green offers a bold, slightly smoky flavor with a crisp, clean finish. Great for a strong green tea experience.',
     price: {
       '50g': '£3.95',
       '100g': '£6.95',
@@ -198,7 +198,7 @@ const products = [
     title: 'Dragon Well', 
     path: 'Dragon-well',
     image: dragonWell,
-    description: 'Discover the rich taste of our Jasmine Oolong Tea.',
+    description: 'A renowned Chinese green tea with a smooth, chestnut-like flavor and a slightly sweet finish. Dragon Well is known for its flat leaves and refreshing taste.',
     price: {
       '50g': '£5.95',
       '100g': '£10.95',

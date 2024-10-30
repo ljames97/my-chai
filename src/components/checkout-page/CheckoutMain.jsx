@@ -47,70 +47,76 @@ const CheckoutMain = () => {
           ))}
         </div>
         {isError && <p className={styles['error']}>Please fill out all fields</p>}
-      <form className={`${styles['checkout-form']} ${isDarkMode ? styles['dark'] : ''}`} onSubmit={(e) => handleSubmit(e, submitForm)}>
-        <h3>Email</h3>
-        <input 
-          type="email"
-          id="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="Email"
-          className={`${isDarkMode ? styles['dark'] : ''}`}        />
+        <form className={`${styles['checkout-form']} ${isDarkMode ? styles['dark'] : ''}`} onSubmit={(e) => handleSubmit(e, submitForm)}>
+          <h3>Email</h3>
+          <input 
+            type="email"
+            id="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Email"
+            className={`${isDarkMode ? styles['dark'] : ''}`}
+          />
 
-        <h3>Shipping</h3>
-        <input
-          type="text"
-          id="name"
-          value={formData.shippingAddress.name}
-          onChange={handleChange}
-          placeholder="Full Name"
-          className={`${isDarkMode ? styles['dark'] : ''}`}        />
-        
-        <input
-          type="text"
-          id="houseNumber"
-          value={formData.shippingAddress.houseNumber}
-          onChange={handleChange}
-          placeholder="House Number"
-          className={`${isDarkMode ? styles['dark'] : ''}`}
-        />
+          <h3>Shipping</h3>
+          <input
+            type="text"
+            id="shippingAddress.name"
+            value={formData.shippingAddress.name}
+            onChange={handleChange}
+            placeholder="Full Name"
+            className={`${isDarkMode ? styles['dark'] : ''}`}
+          />
+          
+          <input
+            type="text"
+            id="shippingAddress.houseNumber"
+            value={formData.shippingAddress.houseNumber}
+            onChange={handleChange}
+            placeholder="House Number"
+            className={`${isDarkMode ? styles['dark'] : ''}`}
+          />
 
-        <input
-          type="text"
-          id="street"
-          value={formData.shippingAddress.street}
-          onChange={handleChange}
-          placeholder="Street"
-          className={`${isDarkMode ? styles['dark'] : ''}`}        />
+          <input
+            type="text"
+            id="shippingAddress.street"
+            value={formData.shippingAddress.street}
+            onChange={handleChange}
+            placeholder="Street"
+            className={`${isDarkMode ? styles['dark'] : ''}`}
+          />
 
-        <input
-          type="text"
-          id="city"
-          value={formData.shippingAddress.city}
-          onChange={handleChange}
-          placeholder="City"
-          className={`${isDarkMode ? styles['dark'] : ''}`}        />
+          <input
+            type="text"
+            id="shippingAddress.city"
+            value={formData.shippingAddress.city}
+            onChange={handleChange}
+            placeholder="City"
+            className={`${isDarkMode ? styles['dark'] : ''}`}
+          />
 
-        <input
-          type="text"
-          id="postalCode"
-          value={formData.shippingAddress.postalCode}
-          onChange={handleChange}
-          placeholder="Postal Code"
-          className={`${isDarkMode ? styles['dark'] : ''}`}        />
+          <input
+            type="text"
+            id="shippingAddress.postalCode"
+            value={formData.shippingAddress.postalCode}
+            onChange={handleChange}
+            placeholder="Postal Code"
+            className={`${isDarkMode ? styles['dark'] : ''}`}
+          />
 
-        <input
-          type="text"
-          id="country"
-          value={formData.shippingAddress.country}
-          onChange={handleChange}
-          placeholder="Country"
-          className={`${isDarkMode ? styles['dark'] : ''}`}        />
+          <input
+            type="text"
+            id="shippingAddress.country"
+            value={formData.shippingAddress.country}
+            onChange={handleChange}
+            placeholder="Country"
+            className={`${isDarkMode ? styles['dark'] : ''}`}
+          />
 
-        <button className="btn-primary" id={styles['pay-btn']} type="submit">
-          Pay Now {`£${totalPrice}`}
-        </button>
-      </form>
+          <button className="btn-primary" id={styles['pay-btn']} type="submit">
+            Pay Now {`£${totalPrice}`}
+          </button>
+        </form>
     </div>
   );
 };

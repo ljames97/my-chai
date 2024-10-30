@@ -112,3 +112,10 @@
 .error {
   color: red;
 }
+
+input {
+  color: black;
+  &.dark {
+    color: black;
+  }
+}

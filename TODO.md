@@ -1,7 +1,6 @@
 TODO
 
 /final-development 
-- full product and collection descriptions
 - customer account menu links
 - function documentation
 - accessibility (buttons, forms, images, error handling)

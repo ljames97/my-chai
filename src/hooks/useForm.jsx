@@ -7,14 +7,16 @@ const useForm = (initialValues) => {
 
   const handleChange = (event) => {
     const { id, value } = event.target;
-
-    if (id in formData.shippingAddress) {
+  
+    const [parentField, childField] = id.split('.'); 
+  
+    if (formData[parentField] && typeof formData[parentField] === 'object') {
       setFormData((prevData) => ({
         ...prevData,
-        shippingAddress: {
-          ...prevData.shippingAddress,
-          [id]: value,
-        }
+        [parentField]: {
+          ...prevData[parentField],
+          [childField]: value,
+        },
       }));
     } else {
       setFormData((prevData) => ({
@@ -22,23 +24,27 @@ const useForm = (initialValues) => {
         [id]: value,
       }));
     }
-  }
+  };
 
   const handleSubmit = (event, callback) => {
     event.preventDefault();
-
-    const hasError = Object.values(formData).some((value) => value === '') || 
-      Object.values(formData.shippingAddress).some((value) => value === '');
-
+  
+    const hasError = Object.values(formData).some((value) => {
+      if (typeof value === 'object' && value !== null) {
+        return Object.values(value).some((nestedValue) => nestedValue === '');
+      }
+      return value === '';
+    });
+  
     if (hasError) {
       setIsError(true);
       return;
     }
-
+  
     setIsError(false);
     setIsSubmit(true);
     callback();
-
+  
     setFormData(initialValues);
   }
 

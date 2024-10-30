@@ -59,6 +59,7 @@ input, select {
   text-align: left;
   border: 1px solid $border-color-light;
   background-color: transparent;
+  border-radius: 5px;
 }
 
 textarea {
@@ -94,6 +95,11 @@ a {
   }
 
   select, input {
+    color: $primary-text-color;
+    border-color: $primary-text-color;
+  }
+
+  textarea {
     color: $primary-text-color;
     border-color: $primary-text-color;
   }
