@@ -1,13 +1,15 @@
 // AccountDetails.jsx
-
 import { useEffect, useState } from "react";
-import { getUserDetails, reauthenticateUser, updateUserDetails } from "../../firebase/authService";
+import { reauthenticateUser, updateUserDetails } from "../../firebase/authService";
 import useForm from "../../hooks/useForm";
 import styles from './customerAccount.module.scss';
+import { defaultProfilePhoto, plusIcon } from "../../assets/images";
+import { deletePreviousPhoto, uploadProfilePhoto } from "../../firebase/storage";
+import { useUserProfile } from "../../hooks/useUserProfile";
 
 const AccountDetails = () => {
+  const { userDetails, setUserDetails, photoURL, setPhotoURL } = useUserProfile();
   const [isUpdated, setIsUpdated] = useState(false);
-  const [userDetails, setUserDetails] = useState(null);
   const { formData, handleChange, handleSubmit, setFormData, isError, setIsError } = useForm({
     name: userDetails?.name || '', 
     email: '',
@@ -15,25 +17,37 @@ const AccountDetails = () => {
   });
 
   useEffect(() => {
-    const fetchUserDetails = async () => {
-      try {
-        const userDetails = await getUserDetails();
-        setUserDetails(userDetails);
+    if (userDetails) {
+      setFormData((prevData) => ({
+        ...prevData,
+        name: userDetails.name || '',
+        email: userDetails.email || '',
+      }));
+    }
+  }, [userDetails, setFormData]);
 
-        if (userDetails) {
-          setFormData({
-            name: userDetails.name || '',
-            email: '',
-            currentPassword: ''
-          });
-        }
-      } catch (error) {
-        console.log('Error fetching user details:', error);
+  const handleProfileClick = () => {
+    document.getElementById('fileInput').click();
+  };
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      uploadNewPhoto(file);
+    }
+  };
+
+  const uploadNewPhoto = async (file) => {
+    try {
+      if (photoURL) {
+        await deletePreviousPhoto(photoURL);
       }
-    };
-
-    fetchUserDetails();
-  }, [setFormData]);
+      const newPhotoURL = await uploadProfilePhoto(file);
+      setPhotoURL(newPhotoURL);
+    } catch (error) {
+      console.error("Error uploading photo:", error);
+    }
+  };
 
   const submitForm = async () => {
     if (formData.currentPassword === '') {
@@ -68,42 +82,57 @@ const AccountDetails = () => {
 
   return (
     <div className={styles['account-details']}>
-      <form className="main-form" onSubmit={(e) => handleSubmit(e, submitForm)}>
+      <form className={`${styles['account-details-form']} main-form`} onSubmit={(e) => handleSubmit(e, submitForm)}>
         <h3>Account Details</h3>
-        {isUpdated ? <p className={styles['submit-message']}>Details updated!</p> : ''}
-        {isError ? <p className={styles['error-message']}>Invalid email/password</p> : ''}
+        {isUpdated && <p className={styles['submit-message']}>Details updated!</p>}
+        {isError && <p className={styles['error-message']}>Invalid email/password</p>}
+
+        <div onClick={handleProfileClick} className={styles['update-profile-image-container']}>
+          <img src={photoURL || defaultProfilePhoto} />
+          <div className={styles['overlay-icon']}>
+            <img src={plusIcon} alt="Add" className={styles['plus-icon']} />
+          </div>
+          <input 
+            id="fileInput" 
+            type="file" 
+            style={{ display: 'none' }} 
+            onChange={handleFileChange} 
+            accept="image/*"
+          />
+        </div>
 
         <label htmlFor="name">Name</label>
-          <input 
-            type="text"
-            placeholder={userDetails?.name || 'Add your name'}
-            id="name"
-            value={formData.name}
-            onChange={handleChange}
-          />
+        <input 
+          type="text"
+          placeholder={userDetails?.name || 'Add your name'}
+          id="name"
+          value={formData.name}
+          onChange={handleChange}
+        />
 
-        <label htmlFor="email">Email</label>
-          <input 
-            type="email"
-            placeholder='Confirm email address'
-            id="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
+      <label htmlFor="email">Email</label>
+        <input 
+          type="email"
+          placeholder='Confirm email address'
+          id="email"
+          value={formData.email}
+          onChange={handleChange}
+        />
 
-        <label htmlFor="currentPassword">Current Password</label>
-          <input 
-            type="password"
-            id="currentPassword"
-            value={formData.currentPassword}
-            onChange={handleChange}
-            placeholder="Enter your current password"
-          />
+      <label htmlFor="currentPassword">Current Password</label>
+        <input 
+          type="password"
+          id="currentPassword"
+          value={formData.currentPassword}
+          onChange={handleChange}
+          placeholder="Enter your current password"
+        />
 
-          <button className="btn-primary">Update Details</button>
+        <button className="btn-primary">Update Details</button>
+        
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default AccountDetails;

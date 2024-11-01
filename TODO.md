@@ -1,16 +1,18 @@
 TODO
 
-/final-development 
+/final-development
+
+- order confirmation page and account order history
+
 - function documentation
 - accessibility (buttons, forms, images, error handling)
 - desktop css
-
-- account profile photo
-- order history
-
 - tests
 - tailwind
 - backend (node.js, SQL)
+
+
+
 - finish, README, production on GH
 
 futher ideas:

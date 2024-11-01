@@ -3,9 +3,11 @@
 import { useState } from "react";
 import styles from './customerAccount.module.scss';
 import { loginUser, registerUser } from "../../firebase/authService";
+import { useTheme } from "../../store/ThemeContext";
 
 const LoginModal = ({ toggleAccountModalManager }) => {
   const [error, setError] = useState(false);
+  const { isDarkMode } = useTheme();
   const [formData, setFormData] = useState({
     emailLogin: '',
     password: '', 
@@ -77,6 +79,7 @@ const LoginModal = ({ toggleAccountModalManager }) => {
       <div className={styles['login-modal-header']}>
         <h3>Your Account</h3>
         <p onClick={toggleAccountModalManager}>← Back to menu</p>
+        <p className={styles['login-info']}>Login or create account to save your cart</p>
       </div>
       <form className="main-form" onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
@@ -98,7 +101,7 @@ const LoginModal = ({ toggleAccountModalManager }) => {
         {error && <p className={styles['error-message']}>{error}</p>}
         <button id={styles['sign-in']} className="btn-primary">SIGN IN</button>
       </form>
-      <div className={styles['login-modal-options']}>
+      <div className={`${styles['login-modal-options']} ${isDarkMode ? styles['dark'] : ''}`}>
         <button onClick={handleRegisterUser}>Create Account</button>
         <button>Forgot Password</button>
       </div>

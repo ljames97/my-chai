@@ -128,3 +128,4 @@ export const reauthenticateUser = async (email, password) => {
     throw new Error("No authenticated user found.");
   }
 };
+

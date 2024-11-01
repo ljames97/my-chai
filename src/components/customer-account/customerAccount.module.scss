@@ -26,19 +26,40 @@
 .login-modal-options button {
   background-color: transparent;
   border: none;
-  color: rgba(0, 0, 0, 0.7);
   letter-spacing: 0.5px;
+
+  &.dark {
+    color: $primary-text-color;
+  }
 }
 
 .account-modal-header {
-  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.account-modal-title {
+  padding: 2rem 1.2rem;
   padding-bottom: 0;
+  width: 100%;
+}
+
+.profile-image-container {
+  width: 25%;
+  margin: 1rem 1.2rem 0 auto;
+}
+
+.profile-name {
+  text-align: center;
+  margin-top: 0.5rem;
+  white-space: nowrap;
 }
 
 .account-modal-buttons {
   display: flex;
   justify-content: space-between;
-  padding: 1.2rem 2rem;
+  padding: 1.2rem;
   border-bottom: 2px $border-color-light solid;
 }
 
@@ -62,4 +83,30 @@
 
 .account-details {
   padding: 3rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.login-info {
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+.update-profile-image-container {
+  position: relative;
+  width: 50%;
+  align-self: center;
+}
+
+.overlay-icon {
+  position: absolute;
+  bottom: 30%;
+  right: 30%;
+  border-radius: 50%;
+  width: 40%;
+}
+
+.account-details-form {
+  width: 50%;
+  text-align: center;
 }
