@@ -1,12 +1,18 @@
 // CheckoutItem.jsx
 
+import { useNavigate } from 'react-router-dom';
 import styles from './checkoutPage.module.scss';
 
 const CheckoutItem = ({ product }) => {
+  const navigate = useNavigate();
   const price = parseFloat(product.price.replace('£', '') * product.quantity);
 
+  const handleClick = () => {
+    navigate(`/product/${product.path}`);
+  }
+
   return (
-    <div className={styles['checkout-item']}>
+    <div onClick={handleClick} className={styles['checkout-item']}>
       <div className={styles['checkout-image-container']}>
         <img src={product.image} alt=""/>
       </div>

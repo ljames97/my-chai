@@ -31,7 +31,7 @@ const CheckoutMain = () => {
   }
 
   const submitForm = () => {
-    console.log(isError, formData);
+    navigate('/order-confirmation');
   }
 
   return (

@@ -8,7 +8,6 @@ import { useTheme } from "../../store/ThemeContext";
 
 const AddToCart = ({ product, price, setPrice }) => {
   const { addToCart } = useContext(CartContext);
-  const { isDarkMode } = useTheme();
   const [quantity, setQuantity] = useState('1');
   const [weight, setWeight] = useState('50g');
 
@@ -29,7 +28,8 @@ const AddToCart = ({ product, price, setPrice }) => {
       weight: weight,
       quantity: quantity,
       price: price, 
-      image: product.image
+      image: product.image,
+      path: product.path
     }
     addToCart(cartProduct);
     // console.log(`ProductId: ${product.id}, ProductName: ${product.title},  Weight: ${document.getElementById('weight').value}, Quantity: ${quantity}`);

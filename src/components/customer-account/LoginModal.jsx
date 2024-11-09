@@ -79,7 +79,7 @@ const LoginModal = ({ toggleAccountModalManager }) => {
       <div className={styles['login-modal-header']}>
         <h3>Your Account</h3>
         <p onClick={toggleAccountModalManager}>← Back to menu</p>
-        <p className={styles['login-info']}>Login or create account to save your cart</p>
+        <p className={styles['login-info']}>Login or create account to save your cart and view order history</p>
       </div>
       <form className="main-form" onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>

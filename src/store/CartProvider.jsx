@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import CartContext from "./CartContext";
 import useAuth from "../hooks/useAuth";
-import { addToCartDatabase, getCartFromDatabase, removeFromCartDatabase, updateQuantityDatabase } from "../firebase/cartService";
+import { addToCartDatabase, clearUserCart, getCartFromDatabase, removeFromCartDatabase, updateQuantityDatabase } from "../firebase/cartService";
 import { loadCartFromLocalStorage, saveCartToLocalStorage } from "../components/global/globalUtils";
 
 export const CartProvider = ({ children }) => {
@@ -40,6 +40,13 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  const clearCart = async () => {
+    setCart([]);
+    if (user) {
+      await clearUserCart(user.uid);
+    }
+  }
+
   const updateQuantity = async (product, quantity) => {
     setCart((prevCart) =>
       prevCart.map(item =>
@@ -52,7 +59,7 @@ export const CartProvider = ({ children }) => {
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart, updateQuantity }}>
       {children}
     </CartContext.Provider>
   );

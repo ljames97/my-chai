@@ -1,0 +1,55 @@
+@import '../../../styles/variables';
+
+.order-widget {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 2px $border-color-light solid;
+
+  &.dark {
+    border-bottom: 2px $border-color-white solid;
+  }
+}
+
+.cover-photo-container {
+  text-align: center;
+  font-style: italic;
+  width: 30%;
+}
+
+.order-info {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  padding-left: 1rem;
+}
+
+.order-date {
+  margin-left: auto;
+}
+
+.order-history-title {
+  padding: 2rem 1rem 1rem 1rem;
+  border-bottom: 2px $border-color-light solid;
+
+  &.dark {
+    border-bottom: 2px $border-color-white solid;
+  }
+}
+
+.order-page {
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.order-header {
+  display: flex;
+  margin-bottom: 1rem;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px $border-color-light solid;
+
+  &.dark {
+    border-bottom: 2px $border-color-white solid;
+  }
+}

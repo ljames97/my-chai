@@ -19,6 +19,9 @@ import useToggle from './hooks/useToggle';
 import AccountModalManager from './components/customer-account/AccountModalManager';
 import { useTheme } from './store/ThemeContext';
 import AccountDetails from './components/customer-account/AccountDetails';
+import OrderConfirmation from './components/checkout-page/OrderConfirmation';
+import OrderHistory from './components/customer-account/order-history/OrderHistory';
+import OrderPage from './components/customer-account/order-history/OrderPage';
 
 const App = () => {
   const [isMobileMenuVisible, toggleMobileMenu] = useToggle(false);
@@ -83,7 +86,11 @@ const MainContent = ({ toggleCartModal, toggleMobileMenu, toggleAccountModalMana
           <Route path='/product/:path' element={<ProductPage />} />
           <Route path='/journal/:path' element={<JournalEntry />} />
           <Route path='/checkout' element={<CheckoutPage />} />
+          <Route path='/order-confirmation' element={<OrderConfirmation />} />
           <Route path='/account-details' element={<AccountDetails />} />
+          <Route path='/order-history' element={<OrderHistory />} />
+          <Route path='order-page' element={<OrderPage />} />
+
         </Routes>
       </div>
 
