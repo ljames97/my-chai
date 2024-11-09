@@ -28,3 +28,4 @@ export const deletePreviousPhoto = async (photoURL) => {
   const photoRef = ref(storage, photoURL);
   await deleteObject(photoRef);
 };
+
