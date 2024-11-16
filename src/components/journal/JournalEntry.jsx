@@ -4,6 +4,12 @@ import { useParams } from 'react-router-dom';
 import { journalEntries } from '../data';
 import styles from './journal.module.scss';
 
+/**
+ * Displays the detailed content of a specific journal entry.
+ *
+ * @component
+ * @returns {JSX.Element} The detailed view of a journal entry.
+ */
 const JournalEntry = () => {
   const { path } = useParams();
   const entry = journalEntries.find(entry => entry.path === path);

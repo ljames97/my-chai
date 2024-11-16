@@ -6,6 +6,13 @@ import styles from './orderHistory.module.scss';
 import ThemeContext, { useTheme } from "../../../store/ThemeContext";
 import { useContext } from "react";
 
+/**
+ * Displays a detailed view of a single order, including
+ * the order number, date, total price, and a list of items in the order.
+ *
+ * @component
+ * @returns {JSX.Element} The OrderPage component.
+ */
 const OrderPage = () => {
   const location = useLocation();
   const { order, roundedTotalPrice, orderDate } = location.state || {};

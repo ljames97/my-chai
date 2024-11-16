@@ -7,13 +7,24 @@ import ProductImageTitle from "./ProductImageTitle";
 import styles from './collectionPage.module.scss';
 import { useNavigate } from 'react-router-dom';
 
-
+/**
+ * Represents single product item within a grid.
+ * Displays product's image, title, average rating, review count, and price.
+ * 
+ * @component
+ * @param {Object} product - Product object to display.
+ * @param {Function} [toggleMobileMenu] - Optional function to close the mobile menu on navigation.
+ * @returns {JSX.Element} Clickable product item in the collection grid.
+ */
 const CollectionGridItem = ({ product, toggleMobileMenu }) => {
   const navigate = useNavigate();
   const { isDarkMode } = useTheme();
   const productReviews = getProductReviews(product);
   const productRating = calculateAverageRating(productReviews);
 
+  /**
+   * Navigates to the product detail page and optionally toggles the mobile menu.
+   */
   const handleClick = () => {
     navigate(`/product/${product.path}`);
     if (toggleMobileMenu) {

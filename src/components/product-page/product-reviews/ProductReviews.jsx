@@ -5,6 +5,15 @@ import styles from '../ProductPage.module.scss';
 import { useState } from "react";
 import useForm from "../../../hooks/useForm";
 
+/**
+ * Displays a list of customer reviews for a product and includes a form for adding a new review.
+ *
+ * @param {Object} props - Component properties.
+ * @param {Array} props.reviews - An array of review objects for the product.
+ * @param {Object} props.product - The product being reviewed.
+ *
+ * @returns {JSX.Element} The rendered ProductReviews component.
+ */
 const ProductReviews = ({ reviews, product }) => {
   const [showForm, setShowForm] = useState(false);
   const reviewButtonText = !showForm ? 'Leave a review' : 'Cancel';
@@ -28,7 +37,6 @@ const ProductReviews = ({ reviews, product }) => {
   const submitForm = () => {
     handleClick();
   }
-
 
   return (
     <div className={styles['product-reviews']}>

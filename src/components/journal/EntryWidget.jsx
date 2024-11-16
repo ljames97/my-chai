@@ -3,6 +3,14 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './journal.module.scss';
 
+/**
+ * Displays a preview of a journal entry.
+ *
+ * @component
+ * @param {Object} props - Component properties.
+ * @param {Object} props.journalEntry - The journal entry object.
+ * @returns {JSX.Element} A clickable widget displaying journal entry information.
+ */
 const EntryWidget = ({ journalEntry }) => {
   const navigate = useNavigate();
   const handleClick = () => {

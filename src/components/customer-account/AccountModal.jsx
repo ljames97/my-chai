@@ -6,18 +6,34 @@ import { defaultProfilePhoto } from "../../assets/images";
 import { useUserProfile } from "../../hooks/useUserProfile";
 import ThemeContext, { useTheme } from "../../store/ThemeContext";
 
+/**
+ * Renders modal with user account options.
+ * Includes account details, order history, logout, and account deletion.
+ *
+ * @param {Object} props - Component props
+ * @returns {JSX.Element} AccountModal component.
+ */
 const AccountModal = ({ toggleAccountModalManager, toggleMobileMenu }) => {
   const { userDetails, photoURL } = useUserProfile();
   const { isDarkMode } = useTheme(ThemeContext);
 
+  /**
+   * Logs out the user using Firebase authentication.
+   */
   const handleLogout = async () => {
     await logoutUser();
   };
 
+  /**
+   * Deletes the user account from Firebase.
+   */
   const handleDeleteAccount = async () => {
     await deleteUserAccount();
   };
 
+  /**
+   * Handles navigation click by toggling modal and mobile menu visibility.
+   */
   const handleClick = () => {
     toggleAccountModalManager();
     toggleMobileMenu();

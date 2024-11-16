@@ -8,30 +8,50 @@ import styles from './collectionPage.module.scss';
 import { collections } from "../data";
 import { useParams } from 'react-router-dom';
 
+/**
+ * Displays a specific product collection, including sorting options.
+ * etches the collection data based on the URL path and allows sorting by price or title.
+ * 
+ * @component
+ * @returns {JSX.Element} CollectionPage component.
+ */
 const CollectionPage = () => {
   const { path } = useParams();
   const [collection, setCollection] = useState(null);
   const [collectionProducts, setCollectionProducts] = useState([]);
   const [sortedProducts, setSortedProducts] = useState([]);
 
-  // Update the collection and products whenever the path changes
+  /**
+   * useEffect hook to fetch and set collection data whenever the path changes.
+   */
   useEffect(() => {
     const selectedCollection = collections.find(collection => collection.path === path);
     if (selectedCollection) {
       setCollection(selectedCollection);
       const products = getCollectionProducts(selectedCollection);
       setCollectionProducts(products);
-      setSortedProducts(products); // Initialize sorted products
+      setSortedProducts(products);
     }
   }, [path]);
 
+  /**
+   * Sorts the products based on the selected sort type.
+   * 
+   * @param {string} sortType - The type of sorting to apply (price, alphabetical).
+   */
   const handleSort = (sortType) => {
     let sortedArray = [...sortedProducts];
   
+    /**
+     * Helper function to get the first available price for a product.
+     * 
+     * @param {Object} product - The product object.
+     * @returns {number} The first price as a number, or 0 if unavailable.
+     */
     const getFirstPrice = (product) => {
       const priceValues = Object.values(product.price);
-      const firstPrice = priceValues[0]; // Assuming the first price is always the smallest ('50g')
-      return parseFloat(firstPrice.replace('£', '')) || 0; // Convert the price to a number for comparison
+      const firstPrice = priceValues[0];
+      return parseFloat(firstPrice.replace('£', '')) || 0;
     };
   
     switch (sortType) {
@@ -52,7 +72,7 @@ const CollectionPage = () => {
   }
 
   if (!collection) {
-    return <div>Loading...</div>; // Or "Collection not found" if applicable
+    return <div>Loading...</div>;
   }
 
   return (

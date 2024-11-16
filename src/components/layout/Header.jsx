@@ -6,8 +6,15 @@ import styles from './layout.module.scss';
 import MainLogo from "./MainLogo";
 import { useTheme } from "../../store/ThemeContext";
 
-// move header from index.html to here, do same for footer
-
+/**
+ * Header component for the application, containing the menu toggle, logo, and cart icon.
+ *
+ * @component
+ * @param {Function} toggleCartModal - Function to toggle the cart modal visibility.
+ * @param {Function} toggleMobileMenu - Function to toggle the mobile menu visibility.
+ * @param {boolean} isHomePage - Determines if the header is displayed on the home page.
+ * @returns {JSX.Element} The rendered header component.
+ */
 const Header = ({ toggleCartModal, toggleMobileMenu, isHomePage }) => {
   const { cart } = useContext(CartContext);
   const { isDarkMode } = useTheme();

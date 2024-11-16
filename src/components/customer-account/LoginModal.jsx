@@ -5,6 +5,13 @@ import styles from './customerAccount.module.scss';
 import { loginUser, registerUser } from "../../firebase/authService";
 import { useTheme } from "../../store/ThemeContext";
 
+/**
+ * Handles user login and registration.
+ * 
+ * @param {Object} props - Component props.
+ * @param {function} props.toggleAccountModalManager - Function to close the modal.
+ * @returns {JSX.Element} LoginModal component.
+ */
 const LoginModal = ({ toggleAccountModalManager }) => {
   const [error, setError] = useState(false);
   const { isDarkMode } = useTheme();
@@ -13,6 +20,10 @@ const LoginModal = ({ toggleAccountModalManager }) => {
     password: '', 
   });
 
+  /**
+   * Handles changes to form inputs and updates formData state.
+   * @param {Event} event - Input change event.
+   */
   const handleChange = (event) => {
     const { id, value } = event.target;
 
@@ -22,6 +33,10 @@ const LoginModal = ({ toggleAccountModalManager }) => {
     }));
   }
 
+  /**
+   * Handles form submission for user login.
+   * @param {Event} event - Form submission event.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -35,6 +50,9 @@ const LoginModal = ({ toggleAccountModalManager }) => {
     }
   }
 
+  /**
+   * Registers a new user with the provided email and password.
+   */
   const handleRegisterUser = async () => {
     try {
       const newUser = await registerUser(formData.emailLogin, formData.password);
@@ -45,6 +63,10 @@ const LoginModal = ({ toggleAccountModalManager }) => {
     }
   }
 
+  /**
+   * Maps Firebase authentication errors to user-friendly messages.
+   * @param {Error} error - Error object from Firebase.
+   */
   const handleAuthError = (error) => {
     const errorMessage = error.message;
     const errorCode = errorMessage.match(/auth\/[a-z\-]+/i)?.[0];

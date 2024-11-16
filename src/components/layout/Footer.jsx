@@ -5,14 +5,30 @@ import styles from './layout.module.scss'
 import { useTheme } from '../../store/ThemeContext';
 import { Link } from 'react-router-dom';
 
+/**
+ * Footer component providing navigation links and a newsletter subscription form.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered footer component.
+ */
 const Footer = () => {
   const [email, setEmail] = useState('');
   const { isDarkMode } = useTheme();
 
+  /**
+   * Handles changes in the email input field.
+   *
+   * @param {React.ChangeEvent<HTMLInputElement>} event - The change event for the input.
+   */
   const handleEmailChange = (event) => {
     setEmail(event.target.value)
   }
 
+  /**
+   * Handles newsletter form submission.
+   *
+   * @param {React.FormEvent<HTMLFormElement>} event - The form submission event.
+   */
   const handleNewsletterSubmit = (event) => {
     event.preventDefault();
 

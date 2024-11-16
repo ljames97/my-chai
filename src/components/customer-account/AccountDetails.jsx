@@ -7,6 +7,14 @@ import { defaultProfilePhoto, plusIcon } from "../../assets/images";
 import { deletePreviousPhoto, uploadProfilePhoto } from "../../firebase/storage";
 import { useUserProfile } from "../../hooks/useUserProfile";
 
+/**
+ * Renders form for updating user account details, including:
+ * name, email, password, and profile photo. 
+ * Utilizes Firebase authentication for reauthentication and profile updates.
+ *
+ * @component
+ * @returns {JSX.Element} AccountDetails component.
+ */
 const AccountDetails = () => {
   const { userDetails, setUserDetails, photoURL, setPhotoURL } = useUserProfile();
   const [isUpdated, setIsUpdated] = useState(false);
@@ -16,6 +24,9 @@ const AccountDetails = () => {
     currentPassword: ''
   });
 
+  /**
+   * Synchronizes form data with the retrieved user details on component mount.
+   */
   useEffect(() => {
     if (userDetails) {
       setFormData((prevData) => ({
@@ -26,10 +37,16 @@ const AccountDetails = () => {
     }
   }, [userDetails, setFormData]);
 
+  /**
+   * Initiates file input when profile image container is clicked.
+   */
   const handleProfileClick = () => {
     document.getElementById('fileInput').click();
   };
 
+  /**
+   * Triggers on file selection to upload a new profile photo.
+   */
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -37,6 +54,12 @@ const AccountDetails = () => {
     }
   };
 
+  /**
+   * Uploads new profile photo to Firebase Storage, deletes previous photo if it exists,
+   * and updates the user's profile photo URL.
+   *
+   * @param {File} file - Selected file for profile photo.
+   */
   const uploadNewPhoto = async (file) => {
     try {
       if (photoURL) {
@@ -49,6 +72,10 @@ const AccountDetails = () => {
     }
   };
 
+  /**
+   * Submits the form, reauthenticates the user, and updates user details
+   * including name and email. Clears the password field after submission.
+   */
   const submitForm = async () => {
     if (formData.currentPassword === '') {
       setIsError(true);

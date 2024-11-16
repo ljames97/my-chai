@@ -4,6 +4,12 @@ import { doc, updateDoc } from "firebase/firestore";
 
 const storage = getStorage();
 
+/**
+ * Uploads a new profile photo to Firebase Storage and updates the user's Firestore document with the photo's URL.
+ * @param {File} file - The file object to upload.
+ * @returns {Promise<string>} - The URL of the uploaded photo.
+ * @throws {Error} - Throws an error if the user is not authenticated or if the upload fails.
+ */
 export const uploadProfilePhoto = async (file) => {
   const user = auth.currentUser;
   if (!user) throw new Error("No authenticated user");
@@ -24,6 +30,11 @@ export const uploadProfilePhoto = async (file) => {
   return photoURL;
 };
 
+/**
+ * Deletes a previous profile photo from Firebase Storage.
+ * @param {string} photoURL - The URL of the photo to delete.
+ * @returns {Promise<void>} - Resolves when the photo has been deleted.
+ */
 export const deletePreviousPhoto = async (photoURL) => {
   const photoRef = ref(storage, photoURL);
   await deleteObject(photoRef);

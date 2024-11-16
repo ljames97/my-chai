@@ -7,11 +7,22 @@ import OrderWidget from "./OrderWidget"
 import { useEffect, useState } from 'react';
 import ThemeContext, { useTheme } from '../../../store/ThemeContext';
 
+/**
+ * Displays the list of past orders for the logged-in user.
+ * Orders are sorted by `orderNumber` in descending order, with the most recent order shown first.
+ *
+ * @component
+ * @returns {JSX.Element} OrderHistory component.
+ */
 const OrderHistory = () => {
   const [orders, setOrders] = useState([]);
   const { isDarkMode } = useTheme(ThemeContext);
 
   useEffect(() => {
+    /**
+     * Fetches order history from Firestore, sorts it by order number in descending order,
+     * and updates the `orders` state.
+     */
     const getOrders = async () => {
       const orders = await getOrderHistory();
       const sortedOrders = (orders || []).sort((a, b) => b.orderNumber - a.orderNumber);

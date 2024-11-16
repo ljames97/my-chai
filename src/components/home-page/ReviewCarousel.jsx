@@ -5,6 +5,12 @@ import StarRating from '../product-page/product-reviews/StarRating';
 import ReviewWidget from './ReviewWidget';
 import styles from './homePage.module.scss';
 
+/**
+ * Displays 5-star customer reviews.
+ *
+ * @component
+ * @returns {JSX.Element} A review carousel displaying top-rated reviews.
+ */
 const ReviewCarousel = () => {
   const fiveStarReviews = reviews.filter(review => review.rating === 5);
   return (

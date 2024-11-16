@@ -6,6 +6,21 @@ import useAuth from "../hooks/useAuth";
 import { addToCartDatabase, clearUserCart, getCartFromDatabase, removeFromCartDatabase, updateQuantityDatabase } from "../firebase/cartService";
 import { loadCartFromLocalStorage, saveCartToLocalStorage } from "../components/global/globalUtils";
 
+/**
+ * Provider for managing the shopping cart.
+ * 
+ * It supports the following features:
+ * - Adds items to the cart
+ * - Removes items from the cart
+ * - Updates item quantities
+ * - Clears the entire cart
+ * - Synchronizes the cart with Firebase for authenticated users
+ * - Persists the cart to local storage for unauthenticated users
+ * 
+ * @param {Object} props
+ * @param {React.ReactNode} props.children
+ * @returns {JSX.Element} The CartContext.Provider wrapping the child components.
+ */
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(loadCartFromLocalStorage());
   const user = useAuth();

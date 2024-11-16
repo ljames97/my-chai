@@ -1,5 +1,18 @@
 import { useState } from "react";
 
+/**
+ * Manages form state, handle changes, and validate form submissions.
+ * 
+ * @param {Object} initialValues - An object representing the initial state of the form fields.
+ * @returns {Object} - Contains the following properties and methods:
+ *   - `formData`: The current state of the form data.
+ *   - `setFormData`: Function to update the form data programmatically.
+ *   - `handleChange`: Function to handle changes in form fields.
+ *   - `handleSubmit`: Function to handle form submission with validation.
+ *   - `setIsError`: Function to manually update the error state.
+ *   - `isError`: Boolean indicating if there are errors in the form.
+ *   - `isSubmit`: Boolean indicating if the form has been successfully submitted.
+ */
 const useForm = (initialValues) => {
   const [formData, setFormData] = useState(initialValues);
   const [isSubmit, setIsSubmit] = useState(false);

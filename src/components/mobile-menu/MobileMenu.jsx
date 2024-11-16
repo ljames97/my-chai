@@ -7,6 +7,14 @@ import { products } from '../data';
 import ProductImageTitle from '../collection-page/ProductImageTitle';
 import { useTheme } from '../../store/ThemeContext';
 
+/**
+ * Responsive navigation menu for mobile devices.
+ * Includes theme switching, search functionality, and navigation links.
+ *
+ * @param {Function} toggleMobileMenu - Function to toggle the visibility of the menu.
+ * @param {Function} toggleAccountModalManager - Function to toggle the account modal.
+ * @returns {JSX.Element} Rendered MobileMenu component.
+ */
 const MobileMenu = ({ toggleMobileMenu, toggleAccountModalManager }) => {
   const [searchProducts, setSearchProducts] = useState([]);
   const { isDarkMode, toggleTheme } = useTheme();
@@ -15,6 +23,11 @@ const MobileMenu = ({ toggleMobileMenu, toggleAccountModalManager }) => {
     toggleTheme();
   }
 
+  /**
+   * Handles search input change and filters products based on the search term.
+   *
+   * @param {Event} event - Input change event.
+   */
   const handleChange = (event) => {
     const searchTerm = event.target.value.toLowerCase();
     const userSearchProducts = products.filter(product => product.title.toLowerCase().includes(searchTerm));

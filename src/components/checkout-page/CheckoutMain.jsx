@@ -8,12 +8,20 @@ import { contactUsCover } from "../../assets/images";
 import { useTheme } from "../../store/ThemeContext";
 import useForm from "../../hooks/useForm";
 
+/**
+* Displays the checkout page, including order summary and a form for user email and shipping address input.
+* Allows users to confirm their order details and submit them for processing.
+*
+* @component
+* @returns {JSX.Element} Checkout page.
+ */
 const CheckoutMain = () => {
   const navigate = useNavigate();
   const { isDarkMode } = useTheme();
   const { cart } = useContext(CartContext);
   const totalPrice = getTotalCartPrice();
 
+  // Custom form hook to handle form data, changes, and errors
   const { formData, handleChange, handleSubmit, isError } = useForm({
     email: '',
     shippingAddress: {
@@ -26,10 +34,16 @@ const CheckoutMain = () => {
     }
   });
 
+  /**
+   * Handles navigation to the home page to continue shopping.
+   */
   const handleContinueShopping = () => {
     navigate(`/home`);
   }
 
+  /**
+   * Handles form submission, navigating to order confirmation.
+   */
   const submitForm = () => {
     navigate('/order-confirmation');
   }

@@ -10,6 +10,14 @@ import TextImageFeature from './TextImageFeature';
 import styles from './homePage.module.scss';
 import { useNavigate } from 'react-router-dom';
 
+
+/**
+ * Renders the homepage for the store, featuring a cover image, promotional text, 
+ * a collection of bestsellers, reviews, and additional features.
+ * 
+ * @component
+ * @returns {JSX.Element} The homepage layout and content.
+ */
 const HomePage = () => {
   const navigate = useNavigate();
   const { isDarkMode } = useTheme();
@@ -28,6 +36,7 @@ const HomePage = () => {
     button: 'DISCOVER'
   }
 
+  // Handle navigation to the full collection page.
   const handleShopNowClick = () => {
     navigate('/collection/all');
   }

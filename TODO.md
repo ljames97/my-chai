@@ -1,7 +1,6 @@
 TODO
 
 /final-development
-- function documentation
 - accessibility (buttons, forms, images, error handling)
 - desktop css
 

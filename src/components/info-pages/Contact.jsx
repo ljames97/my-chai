@@ -3,6 +3,12 @@ import InfoPage from "./InfoPage";
 import styles from './infoPages.module.scss';
 import useForm from "../../hooks/useForm";
 
+/**
+ * Displays the "Contact Us" page with a contact form.
+ *
+ * @component
+ * @returns {JSX.Element} The "Contact Us" page.
+ */
 const Contact = () => {
   const { formData, handleChange, handleSubmit, isError, isSubmit } = useForm({
     name: '',

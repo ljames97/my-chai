@@ -3,6 +3,13 @@
 import { Timestamp, addDoc, arrayUnion, collection, doc, getDoc, getDocs, runTransaction, updateDoc } from "firebase/firestore";
 import { auth, db } from "./firebaseConfig";
 
+/**
+ * Adds a product to the user's cart in Firestore.
+ *
+ * @param {string} userId - The unique ID of the user.
+ * @param {object} product - The product object to be added to the cart.
+ * @throws {Error}
+ */
 export const addToCartDatabase = async (userId, product) => {
   try {
     const userRef = doc(db, "users", userId);
@@ -15,6 +22,13 @@ export const addToCartDatabase = async (userId, product) => {
   }
 }
 
+/**
+ * Removes a product from the user's cart in Firestore.
+ *
+ * @param {string} userId - The unique ID of the user.
+ * @param {string} productId - The unique ID of the product to be removed.
+ * @throws {Error} 
+ */
 export const removeFromCartDatabase = async (userId, productId) => {
   try {
     const userRef = doc(db, "users", userId);
@@ -33,6 +47,12 @@ export const removeFromCartDatabase = async (userId, productId) => {
   }
 }
 
+/**
+ * Clears the user's cart in Firestore.
+ *
+ * @param {string} userId - The unique ID of the user.
+ * @throws {Error}
+ */
 export const clearUserCart = async (userId) => {
   try {
     const userRef = doc(db, "users", userId);
@@ -49,6 +69,14 @@ export const clearUserCart = async (userId) => {
     
 }
 
+/**
+ * Updates the quantity of a specific product in the user's cart in Firestore.
+ *
+ * @param {string} userId - The unique ID of the user.
+ * @param {object} product - The product object to update.
+ * @param {number} quantity - The new quantity of the product.
+ * @throws {Error}
+ */
 export const updateQuantityDatabase = async (userId, product, quantity) => {
   try {
     const userRef = doc(db, "users", userId);
@@ -77,6 +105,13 @@ export const updateQuantityDatabase = async (userId, product, quantity) => {
   }
 };
 
+/**
+ * Retrieves the user's cart from Firestore.
+ *
+ * @param {string} userId - The unique ID of the user.
+ * @returns {Array} - An array of product objects in the cart.
+ * @throws {Error}
+ */
 export const getCartFromDatabase = async (userId) => {
   try {
     const userRef = doc(db, "users", userId);
@@ -90,6 +125,12 @@ export const getCartFromDatabase = async (userId) => {
   }
 }
 
+/**
+ * Saves an order to Firestore under the user's orders collection.
+ *
+ * @param {Array} orderItems - An array of product objects representing the order.
+ * @throws {Error}
+ */
 export const saveOrderToFirestore = async (orderItems) => {
   const user = auth.currentUser;
   if (!user) return;
@@ -111,6 +152,12 @@ export const saveOrderToFirestore = async (orderItems) => {
   }
 };
 
+/**
+ * Retrieves the next order number from Firestore and increments the order counter.
+ *
+ * @returns {number} - Next order number.
+ * @throws {Error}
+ */
 const getNextOrderNumber = async () => {
   const orderCounterRef = doc(db, "counters", "orderCounter");
 
@@ -130,6 +177,12 @@ const getNextOrderNumber = async () => {
   });
 };
 
+/**
+ * Retrieves the user's order history from Firestore.
+ *
+ * @returns {Array} - Array of order objects.
+ * @throws {Error}
+ */
 export const getOrderHistory = async () => {
   const user = auth.currentUser;
   if (!user) return [];

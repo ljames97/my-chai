@@ -3,10 +3,21 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './checkoutPage.module.scss';
 
+/**
+ * Displays a product's details in the checkout page, including image, title, weight, price, and quantity.
+ * Clicking on the item navigates to the product's detail page.
+ *
+ * @component
+ * @param {Object} props - product
+ * @returns {JSX.Element} CheckoutItem component
+ */
 const CheckoutItem = ({ product }) => {
   const navigate = useNavigate();
   const price = parseFloat(product.price.replace('£', '') * product.quantity);
 
+  /**
+   * Navigates to the product detail page on click
+   */
   const handleClick = () => {
     navigate(`/product/${product.path}`);
   }
