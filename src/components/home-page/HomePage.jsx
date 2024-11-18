@@ -10,6 +10,14 @@ import TextImageFeature from './TextImageFeature';
 import styles from './homePage.module.scss';
 import { useNavigate } from 'react-router-dom';
 
+
+/**
+ * Renders the homepage for the store, featuring a cover image, promotional text, 
+ * a collection of bestsellers, reviews, and additional features.
+ * 
+ * @component
+ * @returns {JSX.Element} The homepage layout and content.
+ */
 const HomePage = () => {
   const navigate = useNavigate();
   const { isDarkMode } = useTheme();
@@ -28,6 +36,7 @@ const HomePage = () => {
     button: 'DISCOVER'
   }
 
+  // Handle navigation to the full collection page.
   const handleShopNowClick = () => {
     navigate('/collection/all');
   }
@@ -35,8 +44,8 @@ const HomePage = () => {
   return (
     <div className={styles['home-page']}>
       <div className={styles['cover-photo-container']}>
-        <img src={homePageCover}/>
-        <button onClick={handleShopNowClick} className={`${styles['shop-now-btn']} ${isDarkMode ? styles['dark']: ''}`}>SHOP NOW</button>
+        <img src={homePageCover} alt='Home page cover photo'/>
+        <button onClick={handleShopNowClick} className={`${styles['shop-now-btn']} ${isDarkMode ? styles['dark']: ''}`} aria-label='Shop now'>SHOP NOW</button>
       </div>
       <div className={`${styles['section-header']} ${isDarkMode ? styles['dark'] : ''}`}>
         <h3>Premium Loose Leaf Tea</h3>

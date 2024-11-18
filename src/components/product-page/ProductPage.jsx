@@ -12,6 +12,10 @@ import ProductNavigation from "./ProductNavigation";
 import { useState } from "react";
 
 
+/**
+ * Renders Product Page with details and actions for a single product.
+ * @returns {JSX.Element} Product page.
+ */
 const ProductPage = () => {
   const { path } = useParams();
   const product = products.find(product => product.path === path);

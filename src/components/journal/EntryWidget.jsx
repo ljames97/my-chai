@@ -3,6 +3,14 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './journal.module.scss';
 
+/**
+ * Displays a preview of a journal entry.
+ *
+ * @component
+ * @param {Object} props - Component properties.
+ * @param {Object} props.journalEntry - The journal entry object.
+ * @returns {JSX.Element} A clickable widget displaying journal entry information.
+ */
 const EntryWidget = ({ journalEntry }) => {
   const navigate = useNavigate();
   const handleClick = () => {
@@ -13,7 +21,7 @@ const EntryWidget = ({ journalEntry }) => {
     <div onClick={handleClick} className={styles['journal-entry-widget']}>
       <div className={styles['journal-entry-header']}>
         <div className={styles['cover-photo-container']}>
-          <img src={journalEntry.coverImage}/>
+          <img src={journalEntry.coverImage} alt='Cover image'/>
         </div>
         <div className={styles['text-overlay']}>
           <h3>{journalEntry.title}</h3>
@@ -22,7 +30,7 @@ const EntryWidget = ({ journalEntry }) => {
       </div>
       <div className={styles['main-text']}>
         <p>{journalEntry.mainText[0]}</p>
-        <button>Read More</button>
+        <button aria-label='Read more'>Read More</button>
       </div>
     </div>
   )

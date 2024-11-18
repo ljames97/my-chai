@@ -1,60 +1,47 @@
-// Contact.jsc 
-
-import { useState } from "react";
 import { contactUsCover } from "../../assets/images";
 import InfoPage from "./InfoPage";
 import styles from './infoPages.module.scss';
+import useForm from "../../hooks/useForm";
 
+/**
+ * Displays the "Contact Us" page with a contact form.
+ *
+ * @component
+ * @returns {JSX.Element} The "Contact Us" page.
+ */
 const Contact = () => {
-  const [isSubmit, setIsSubmit] = useState(false);
-  const [error, setError] = useState(false);
-  const [formData, setFormData] = useState({
+  const { formData, handleChange, handleSubmit, isError, isSubmit } = useForm({
     name: '',
     email: '',
     message: ''
   });
 
-  const handleChange = (event) => {
-    const { id, value } = event.target;
-
-    setFormData((prevData) => ({
-      ...prevData,
-      [id]: value
-    }));
-  }
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (formData.email === '') {
-      setError(true);
-      setIsSubmit(false);
-      return;
-    }
-
-    setIsSubmit(true);
-    setError(false);
-    console.log(formData);
-    setFormData({
-      name: '',
-      email: '',
-      message: ''
-    });
-  }
+  const submitForm = () => {
+    console.log('Form submitted successfully:', formData);
+  };
 
   return (
     <div className="contact-us-page">
-      <InfoPage featuredImage={contactUsCover} header={'Contact Us'} mainText={['For questions, comments or general enquiries, please get in touch at hello@mychai.co.uk or fill in our contact form below.']}/>
+      <InfoPage 
+        featuredImage={contactUsCover} 
+        header={'Contact Us'} 
+        mainText={['For questions, comments or general enquiries, please get in touch at hello@mychai.co.uk or fill in our contact form below.']}
+      />
       {isSubmit ? <p className={styles['submit-message']}>Thank you for contacting us. We'll get back to you soon!</p> : ''}
-      {error ? <p className={`${styles['submit-message']} error-message`}>Please enter a valid email address</p> : ''}
-      <form className="main-form" onSubmit={handleSubmit}>
-      <label htmlFor="name">Full Name</label>
+      {isError ? <p className={`${styles['error-message']}`} aria-live="assertive" role="alert">Please fill out all fields</p> : ''}
+
+      <form className="main-form" onSubmit={(e) => handleSubmit(e, submitForm)}>
+        <label htmlFor="name">Full Name</label>
         <input 
           type="text"
           placeholder="Full Name"
           id="name"
           value={formData.name}
           onChange={handleChange}
+          aria-required="true"
+          aria-describedby={isError ? "error-message" : undefined}
         />
+
         <label htmlFor="email">Email</label>
         <input 
           type="email"
@@ -62,7 +49,9 @@ const Contact = () => {
           id="email"
           value={formData.email}
           onChange={handleChange}
-        />
+          aria-required="true"
+          aria-describedby={isError ? "error-message" : undefined}        />
+
         <label htmlFor="message">Message</label>
         <textarea 
           type="text"
@@ -70,11 +59,13 @@ const Contact = () => {
           id="message"
           value={formData.message}
           onChange={handleChange}
-        />
-        <button className="btn-primary">Send</button>
+          aria-required="true"
+          aria-describedby={isError ? "error-message" : undefined}        />
+
+        <button className="btn-primary" aria-label="Send message">Send</button>
       </form>
     </div>
-  )
+  );
 }
 
 export default Contact;

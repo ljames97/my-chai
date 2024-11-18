@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import styles from './checkoutPage.module.scss';
 import CartContext from "../../store/CartContext";
 import CheckoutItem from "./CheckoutItem";
@@ -6,13 +6,23 @@ import { getTotalCartPrice } from "../global/globalUtils";
 import { useNavigate } from 'react-router-dom';
 import { contactUsCover } from "../../assets/images";
 import { useTheme } from "../../store/ThemeContext";
+import useForm from "../../hooks/useForm";
 
+/**
+* Displays the checkout page, including order summary and a form for user email and shipping address input.
+* Allows users to confirm their order details and submit them for processing.
+*
+* @component
+* @returns {JSX.Element} Checkout page.
+ */
 const CheckoutMain = () => {
   const navigate = useNavigate();
   const { isDarkMode } = useTheme();
   const { cart } = useContext(CartContext);
   const totalPrice = getTotalCartPrice();
-  const [formData, setFormData] = useState({
+
+  // Custom form hook to handle form data, changes, and errors
+  const { formData, handleChange, handleSubmit, isError } = useForm({
     email: '',
     shippingAddress: {
       name: '',
@@ -21,177 +31,127 @@ const CheckoutMain = () => {
       city: '',
       postalCode: '',
       country: ''
-    },
-    paymentInfo: ''
+    }
   });
 
-  const [errors, setErrors] = useState({});
-
+  /**
+   * Handles navigation to the home page to continue shopping.
+   */
   const handleContinueShopping = () => {
     navigate(`/home`);
   }
 
-  const validateField = (id, value) => {
-    switch (id) {
-      case 'email':
-        if (!value || !/\S+@\S+\.\S+/.test(value)) {
-          return 'Please enter a valid email address';
-        }
-        break;
-      case 'name':
-      case 'houseNumber':
-      case 'street':
-      case 'city':
-      case 'postalCode':
-      case 'country':
-        break;
-      default:
-        return '';
-    }
-    return '';
-  };
-
-  const handleChange = (event) => {
-    const { id, value } = event.target;
-
-    const errorMessage = validateField(id, value);
-    setErrors((prevErrors) => ({
-      ...prevErrors,
-      [id]: errorMessage
-    }));
-
-    if (id in formData.shippingAddress) {
-      setFormData((prevData) => ({
-        ...prevData,
-        shippingAddress: {
-          ...prevData.shippingAddress,
-          [id]: value
-        }
-      }));
-    } else {
-      setFormData((prevData) => ({
-        ...prevData,
-        [id]: value
-      }));
-    }
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    let isValid = true;
-    const newErrors = {};
-
-    if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
-      isValid = false;
-      newErrors.email = 'Please enter a valid email address';
-    }
-
-    Object.keys(formData.shippingAddress).forEach((field) => {
-      if (!formData.shippingAddress[field]) {
-        isValid = false;
-        newErrors[field] = true;
-      }
-    });
-
-    setErrors(newErrors);
-
-    if (isValid) {
-      console.log('Form is valid, submitting:', formData, cart);
-    } else {
-      console.log('Form is invalid, please correct the errors');
-    }
-  };
+  /**
+   * Handles form submission, navigating to order confirmation.
+   */
+  const submitForm = () => {
+    navigate('/order-confirmation');
+  }
 
   return (
     <div>
       <div className="image-container">
-        <img src={contactUsCover}/>
+        <img src={contactUsCover} alt="Contact us cover photo"/>
       </div>
       <div className={styles['order-summary']}>
-      <button onClick={handleContinueShopping} id={styles['continue-shopping']}>Continue Shopping</button>
+      <button onClick={handleContinueShopping} id={styles['continue-shopping']} aria-label="Continue Shopping">Continue Shopping</button>
           <h3>Order Summary</h3>
           {cart.map((product, index) => (
             <CheckoutItem key={index} product={product} />
           ))}
         </div>
-      <form className={`${styles['checkout-form']} ${isDarkMode ? styles['dark'] : ''}`} onSubmit={handleSubmit}>
-        <h3>Email</h3>
-        <input 
-          type="email"
-          id="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="Email"
-          className={`${errors.email ? styles['input-error'] : ''} ${isDarkMode ? styles['dark'] : ''}`}
-        />
-        {errors.email && <p className={styles['error']}>{errors.email}</p>}
+        {isError && <p id="error" className={styles['error']}>Please fill out all fields</p>}
+        <form className={`${styles['checkout-form']} ${isDarkMode ? styles['dark'] : ''}`} onSubmit={(e) => handleSubmit(e, submitForm)}>
+          <h3>Email</h3>
+          <label htmlFor="email">Email Address</label>
+          <input 
+            type="email"
+            id="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Email"
+            className={`${isDarkMode ? styles['dark'] : ''}`}
+            aria-describedby={isError ? "error" : undefined}
+            required
+          />
 
-        <h3>Shipping</h3>
-        <input
-          type="text"
-          id="name"
-          value={formData.shippingAddress.name}
-          onChange={handleChange}
-          placeholder="Full Name"
-          className={`${errors.email ? styles['input-error'] : ''} ${isDarkMode ? styles['dark'] : ''}`}
-        />
-        {errors.name && <p className={styles['error']}>{errors.name}</p>}
-        
-        <input
-          type="text"
-          id="houseNumber"
-          value={formData.shippingAddress.houseNumber}
-          onChange={handleChange}
-          placeholder="House Number"
-          className={`${errors.email ? styles['input-error'] : ''} ${isDarkMode ? styles['dark'] : ''}`}
-        />
-        {errors.houseNumber && <p className={styles['error']}>{errors.houseNumber}</p>}
+          <h3>Shipping</h3>
+          <label htmlFor="shippingAddress.name">Full Name</label>
+          <input
+            type="text"
+            id="shippingAddress.name"
+            value={formData.shippingAddress.name}
+            onChange={handleChange}
+            placeholder="Full Name"
+            className={`${isDarkMode ? styles['dark'] : ''}`}
+            aria-describedby={isError ? "error" : undefined}
+            required
+          />
+          
+          <label htmlFor="shippingAddress.houseNumber">House Number</label>
+          <input
+            type="text"
+            id="shippingAddress.houseNumber"
+            value={formData.shippingAddress.houseNumber}
+            onChange={handleChange}
+            placeholder="House Number"
+            className={`${isDarkMode ? styles['dark'] : ''}`}
+            aria-describedby={isError ? "error" : undefined}
+            required
+          />
 
-        <input
-          type="text"
-          id="street"
-          value={formData.shippingAddress.street}
-          onChange={handleChange}
-          placeholder="Street"
-          className={`${errors.email ? styles['input-error'] : ''} ${isDarkMode ? styles['dark'] : ''}`}
-        />
-        {errors.street && <p className={styles['error']}>{errors.street}</p>}
+          <label htmlFor="shippingAddress.street">Street</label>
+          <input
+            type="text"
+            id="shippingAddress.street"
+            value={formData.shippingAddress.street}
+            onChange={handleChange}
+            placeholder="Street"
+            className={`${isDarkMode ? styles['dark'] : ''}`}
+            aria-describedby={isError ? "error" : undefined}
+            required
+          />
 
-        <input
-          type="text"
-          id="city"
-          value={formData.shippingAddress.city}
-          onChange={handleChange}
-          placeholder="City"
-          className={`${errors.email ? styles['input-error'] : ''} ${isDarkMode ? styles['dark'] : ''}`}
-        />
-        {errors.city && <p className={styles['error']}>{errors.city}</p>}
+          <label htmlFor="shippingAddress.city">City</label>
+          <input
+            type="text"
+            id="shippingAddress.city"
+            value={formData.shippingAddress.city}
+            onChange={handleChange}
+            placeholder="City"
+            className={`${isDarkMode ? styles['dark'] : ''}`}
+            aria-describedby={isError ? "error" : undefined}
+            required
+          />
 
-        <input
-          type="text"
-          id="postalCode"
-          value={formData.shippingAddress.postalCode}
-          onChange={handleChange}
-          placeholder="Postal Code"
-          className={`${errors.email ? styles['input-error'] : ''} ${isDarkMode ? styles['dark'] : ''}`}
-        />
-        {errors.postalCode && <p className={styles['error']}>{errors.postalCode}</p>}
+          <label htmlFor="shippingAddress.postalCode">Postal Code</label>
+          <input
+            type="text"
+            id="shippingAddress.postalCode"
+            value={formData.shippingAddress.postalCode}
+            onChange={handleChange}
+            placeholder="Postal Code"
+            className={`${isDarkMode ? styles['dark'] : ''}`}
+            aria-describedby={isError ? "error" : undefined}
+            required
+          />
 
-        <input
-          type="text"
-          id="country"
-          value={formData.shippingAddress.country}
-          onChange={handleChange}
-          placeholder="Country"
-          className={`${errors.email ? styles['input-error'] : ''} ${isDarkMode ? styles['dark'] : ''}`}
-        />
-        {errors.country && <p className={styles['error']}>{errors.country}</p>}
+          <label htmlFor="shippingAddress.country">Country</label>
+          <input
+            type="text"
+            id="shippingAddress.country"
+            value={formData.shippingAddress.country}
+            onChange={handleChange}
+            placeholder="Country"
+            className={`${isDarkMode ? styles['dark'] : ''}`}
+            aria-describedby={isError ? "error" : undefined}
+            required
+          />
 
-        <button className="btn-primary" id={styles['pay-btn']} type="submit">
-          Pay Now {`£${totalPrice}`}
-        </button>
-      </form>
+          <button className="btn-primary" id={styles['pay-btn']} type="submit" aria-label="Pay Now">
+            Pay Now {`£${totalPrice}`}
+          </button>
+        </form>
     </div>
   );
 };

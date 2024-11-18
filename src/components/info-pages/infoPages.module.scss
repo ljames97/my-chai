@@ -18,8 +18,13 @@
   align-self: flex-start;
 }
 
-.submit-message {
+.submit-message,
+.error-message {
   padding: 0 1rem;
   margin-bottom: 1rem;
   font-size: 0.9rem;
+}
+
+.error-message {
+  color: red;
 }

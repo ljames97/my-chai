@@ -4,6 +4,15 @@ import StarRating from "./StarRating";
 import styles from '../ProductPage.module.scss';
 import ReviewDate from "./ReviewDate";
 
+/**
+ * Displays detailed customer review, including the star rating, 
+ * reviewer's name, date, title, and description of the review.
+ *
+ * @param {Object} props - Component properties.
+ * @param {Object} props.review - Review data.
+ *
+ * @returns {JSX.Element} Rendered CustomerReview component.
+ */
 const CustomerReview = ({ review }) => {
   return (
     <div className={styles['customer-review']}>

@@ -3,12 +3,17 @@
 import { useContext, useState } from "react";
 import styles from './ProductPage.module.scss';
 import CartContext from "../../store/CartContext";
-import { useTheme } from "../../store/ThemeContext";
 
-
+/**
+ * `AddToCart` component for managing product configuration and adding items to the cart.
+ * @param {Object} props
+ * @param {Object} props.product - Product details such as `id`, `title`, `price`, `image`, and `path`.
+ * @param {string} props.price - Current price of the selected product weight.
+ * @param {Function} props.setPrice - Function to update the price when the weight changes.
+ * @returns JSX.Element
+ */
 const AddToCart = ({ product, price, setPrice }) => {
   const { addToCart } = useContext(CartContext);
-  const { isDarkMode } = useTheme();
   const [quantity, setQuantity] = useState('1');
   const [weight, setWeight] = useState('50g');
 
@@ -29,7 +34,8 @@ const AddToCart = ({ product, price, setPrice }) => {
       weight: weight,
       quantity: quantity,
       price: price, 
-      image: product.image
+      image: product.image,
+      path: product.path
     }
     addToCart(cartProduct);
     // console.log(`ProductId: ${product.id}, ProductName: ${product.title},  Weight: ${document.getElementById('weight').value}, Quantity: ${quantity}`);
@@ -54,7 +60,7 @@ const AddToCart = ({ product, price, setPrice }) => {
         value={quantity}
         onChange={handleQuantityChange}
       />
-      <button className={`${styles['add-to-cart-btn']} btn-primary`} onClick={addToCartHandler}>ADD TO CART</button>
+      <button className={`${styles['add-to-cart-btn']} btn-primary`} onClick={addToCartHandler} aria-label="Add to cart">ADD TO CART</button>
     </div>
   )
 }

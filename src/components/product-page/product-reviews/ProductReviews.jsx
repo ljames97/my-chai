@@ -3,13 +3,22 @@
 import CustomerReview from "./CustomerReview";
 import styles from '../ProductPage.module.scss';
 import { useState } from "react";
+import useForm from "../../../hooks/useForm";
 
+/**
+ * Displays a list of customer reviews for a product and includes a form for adding a new review.
+ *
+ * @param {Object} props - Component properties.
+ * @param {Array} props.reviews - An array of review objects for the product.
+ * @param {Object} props.product - The product being reviewed.
+ *
+ * @returns {JSX.Element} The rendered ProductReviews component.
+ */
 const ProductReviews = ({ reviews, product }) => {
   const [showForm, setShowForm] = useState(false);
   const reviewButtonText = !showForm ? 'Leave a review' : 'Cancel';
-  const [error, setError] = useState(false);
-  const [isSubmit, setIsSubmit] = useState(false);
-  const [formData, setFormData] = useState({
+
+  const { formData, handleChange, handleSubmit, isError, isSubmit } = useForm({
     name: '',
     email: '',
     rating: 5,
@@ -20,80 +29,65 @@ const ProductReviews = ({ reviews, product }) => {
   const handleClick = () => {
     if (showForm) {
       setShowForm(false);
-      setIsSubmit(false);
     } else {
       setShowForm(true);
     }
   }
 
-  const handleChange = (event) =>  {
-    const { id, value } = event.target;
-
-    setFormData((prevData) => ({
-      ...prevData,
-      [id]: value
-    }));
-  }
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (formData.name === '' || formData.email === '' || formData.rating === '' || formData.reviewTitle === '' || formData.review === '') {
-      setError(true);
-      setIsSubmit(false);
-      return;
-    }
-
-    console.log(formData, product);
+  const submitForm = () => {
     handleClick();
-    setError(false);
-    setFormData({
-      name: '',
-      email: '',
-      rating: 5,
-      reviewTitle: '',
-      review: ''
-    });
-    setIsSubmit(true);
   }
-
 
   return (
     <div className={styles['product-reviews']}>
       <h3>Customer Reviews</h3>
       {isSubmit && !showForm ? <p id={styles['thankyou']}>Thank you for leaving a review!</p> : ''}
-      <button onClick={handleClick} className={styles['write-a-review']}>{reviewButtonText}</button>
-      {error && showForm ? <p className="error-message" id={styles['review-error']}>Please fill out all fields</p> : ''}
-      {showForm ? <form onSubmit={handleSubmit} className='main-form' id={styles['review-form']}>
+      <button onClick={handleClick} className={styles['write-a-review']} aria-label={reviewButtonText}>{reviewButtonText}</button>
+      {isError && showForm ? <p className="error-message" id={styles['review-error']} aria-live="assertive" role="alert">Please fill out all fields</p> : ''}
+      {showForm ? <form onSubmit={(e) => handleSubmit(e, submitForm)} className='main-form' id={styles['review-form']}>
+        <label htmlFor="name">Full name</label>
         <input
           placeholder="First Name"
           type="text"
           id="name"
           value={formData.name}
           onChange={handleChange}
+          required
+          aria-invalid={isError ? "true" : "false"}
+          aria-describedby={isError ? "review-error" : undefined}
         />
+        <label htmlFor="email">Email</label>
         <input
           placeholder="Email"
           type="email"
           id="email"
           value={formData.email}
           onChange={handleChange}
+          required
+          aria-describedby={isError ? "review-error" : undefined}
         />
         <div>RATING SELECT</div>
+        <label htmlFor="reviewTitle">Review title</label>
         <input
           placeholder="Review Title"
           type="text"
           id="reviewTitle"
           value={formData.reviewTitle}
           onChange={handleChange}
+          required
+          aria-describedby={isError ? "review-error" : undefined}
         />
+        <label htmlFor="review">Review</label>
         <textarea
           placeholder="Comments"
           type="text"
           id="review"
           value={formData.review}
           onChange={handleChange}
+          required
+          aria-describedby={isError ? "review-error" : undefined}
         />
-        <button id={styles['submit-review-button']} className="btn-primary" type="submit">Submit Review</button>
+        <button id={styles['submit-review-button']} className="btn-primary" type="submit" aria-label="Submit review">Submit Review</button>
       </form> : ''}
       {reviews.map((review, index) => (
         <CustomerReview key={index} review={review} />

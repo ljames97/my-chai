@@ -7,6 +7,14 @@ import ProductTitle from "./ProductTitle";
 import styles from '../ProductPage.module.scss';
 import { calculateAverageRating, getProductReviews } from "../../global/globalUtils";
 
+/**
+ * Displays the main details of a product: image, rating, title, and price.
+ *
+ * @param {Object} props - Component properties.
+ * @param {Object} props.product - Product data object.
+ * @param {number} props.price - Price of the product.
+ * @returns {JSX.Element} Rendered ProductHeader component.
+ */
 const ProductHeader = ({ product, price }) => {
   const productReviews = getProductReviews(product);
   const productRating = calculateAverageRating(productReviews);

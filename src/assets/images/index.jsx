@@ -20,3 +20,5 @@ export { default as contactUsCover } from './contact-us-cover.png';
 export { default as homePageCover } from './home-page-cover.png';
 export { default as journalEntry_1 } from './pouring-tea.png';
 export { default as journalEntry_2 } from './tea-leaves.png';
+export { default as defaultProfilePhoto } from './profile-photo-default.png';
+export { default as plusIcon } from './plus-icon.png';

@@ -5,6 +5,10 @@
   justify-content: space-between;
   padding: 1rem;
   border-bottom: 2px $border-color-light solid;
+
+  &.dark {
+    border-bottom: 2px $border-color-white solid;
+  }
 }
 
 .search-bar {
@@ -12,6 +16,10 @@
   justify-content: space-between;
   padding: 0.5rem;
   border-bottom: 2px $border-color-light solid;
+
+  &.dark {
+    border-bottom: 2px $border-color-white solid;
+  }
 }
 
 .search-bar input {
@@ -39,6 +47,10 @@
   border-bottom: 2px $border-color-light solid;
   font-size: 0.9rem;
   letter-spacing: 1px;
+
+  &.dark {
+    border-bottom: 2px $border-color-white solid;
+  }
 }
 
 .search-results {

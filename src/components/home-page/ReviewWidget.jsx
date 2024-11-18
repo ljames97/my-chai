@@ -6,7 +6,14 @@ import StarRating from "../product-page/product-reviews/StarRating";
 import styles from './homePage.module.scss';
 import { useNavigate } from 'react-router-dom';
 
-
+/**
+ * Displays a single review with its associated product.
+ *
+ * @component
+ * @param {Object} props
+ * @param {Object} props.review - The review object containing review details.
+ * @returns {JSX.Element} A widget displaying the review information.
+ */
 const ReviewWidget = ({ review }) => {
   const navigate = useNavigate();
   const { isDarkMode } = useTheme();
