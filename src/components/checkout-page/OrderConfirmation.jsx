@@ -56,7 +56,7 @@ const OrderConfirmation = () => {
       {cartItems.map((product, index) => (
         <CheckoutItem key={index} product={product} />
       ))}
-      <button onClick={handleHomeClick} className='btn-primary'>Back to home</button>
+      <button onClick={handleHomeClick} className='btn-primary' aria-label='Back to home'>Back to home</button>
     </div>
   );
 };
