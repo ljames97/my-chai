@@ -21,7 +21,7 @@ const EntryWidget = ({ journalEntry }) => {
     <div onClick={handleClick} className={styles['journal-entry-widget']}>
       <div className={styles['journal-entry-header']}>
         <div className={styles['cover-photo-container']}>
-          <img src={journalEntry.coverImage}/>
+          <img src={journalEntry.coverImage} alt='Cover image'/>
         </div>
         <div className={styles['text-overlay']}>
           <h3>{journalEntry.title}</h3>
@@ -30,7 +30,7 @@ const EntryWidget = ({ journalEntry }) => {
       </div>
       <div className={styles['main-text']}>
         <p>{journalEntry.mainText[0]}</p>
-        <button>Read More</button>
+        <button aria-label='Read more'>Read More</button>
       </div>
     </div>
   )

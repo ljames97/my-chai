@@ -42,7 +42,7 @@ const CartItem = ({ product }) => {
   return (
     <div className={`${styles['cart-item']} ${isDarkMode ? styles['dark']: ''}`}>
       <div className={styles['cart-image-container']}>
-        <img src={product.image} alt=""/>
+        <img src={product.image} alt="Product image"/>
       </div>
       <div className="cart-item-information">
         <p className={styles['cart-item-title']}>{product.title}</p>
@@ -53,7 +53,7 @@ const CartItem = ({ product }) => {
         value={product.quantity}
         onChange={handleQuantityChange}/>
       </div>
-      <button onClick={handleRemoveItem} id={styles['remove-from-cart-btn']}>Remove</button>
+      <button onClick={handleRemoveItem} id={styles['remove-from-cart-btn']} aria-label="Remove item from cart">Remove</button>
     </div>
   );
 }

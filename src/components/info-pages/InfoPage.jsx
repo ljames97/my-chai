@@ -16,7 +16,7 @@ const InfoPage = ({ featuredImage, header, mainText }) => {
   return (
     <div className="info-page">
       <div className="cover-image-container">
-        <img src={featuredImage}/>
+        <img src={featuredImage} alt='Featured image'/>
       </div>
       <div className={styles['info-text']}>
         <h3>{header}</h3>

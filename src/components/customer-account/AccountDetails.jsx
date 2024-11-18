@@ -111,52 +111,83 @@ const AccountDetails = () => {
     <div className={styles['account-details']}>
       <form className={`${styles['account-details-form']} main-form`} onSubmit={(e) => handleSubmit(e, submitForm)}>
         <h3>Account Details</h3>
-        {isUpdated && <p className={styles['submit-message']}>Details updated!</p>}
-        {isError && <p className={styles['error-message']}>Invalid email/password</p>}
+        {isUpdated && (
+          <p 
+            className={styles['submit-message']} 
+            role="status" 
+            aria-live="polite"
+          >
+            Details updated!
+          </p>
+        )}
+        {isError && (
+          <p 
+            className={styles['error-message']} 
+            role="alert" 
+            aria-live="assertive"
+          >
+            Invalid email/password
+          </p>
+        )}
 
-        <div onClick={handleProfileClick} className={styles['update-profile-image-container']}>
-          <img src={photoURL || defaultProfilePhoto} />
+        <button 
+          type="button" 
+          onClick={handleProfileClick} 
+          className={styles['update-profile-image-container']} 
+          aria-label="Upload profile photo"
+        >
+          <img src={photoURL || defaultProfilePhoto} alt="Profile photo" />
           <div className={styles['overlay-icon']}>
-            <img src={plusIcon} alt="Add" className={styles['plus-icon']} />
+            <img src={plusIcon} alt="Add icon" className={styles['plus-icon']} />
           </div>
-          <input 
-            id="fileInput" 
-            type="file" 
-            style={{ display: 'none' }} 
-            onChange={handleFileChange} 
-            accept="image/*"
-          />
-        </div>
+        </button>
+        <input 
+          id="fileInput" 
+          type="file" 
+          style={{ display: 'none' }} 
+          onChange={handleFileChange} 
+          accept="image/*"
+        />
 
         <label htmlFor="name">Name</label>
         <input 
           type="text"
-          placeholder={userDetails?.name || 'Add your name'}
           id="name"
           value={formData.name}
           onChange={handleChange}
+          placeholder={userDetails?.name || 'Add your name'}
+          required
+          aria-required="true"
         />
 
-      <label htmlFor="email">Email</label>
+        <label htmlFor="email">Email</label>
         <input 
           type="email"
-          placeholder='Confirm email address'
           id="email"
           value={formData.email}
           onChange={handleChange}
+          placeholder="Confirm email address"
+          required
+          aria-required="true"
         />
 
-      <label htmlFor="currentPassword">Current Password</label>
+        <label htmlFor="currentPassword">Current Password</label>
         <input 
           type="password"
           id="currentPassword"
           value={formData.currentPassword}
           onChange={handleChange}
           placeholder="Enter your current password"
+          required
+          aria-required="true"
         />
 
-        <button className="btn-primary">Update Details</button>
-        
+        <button 
+          className="btn-primary" 
+          aria-label="Update account details"
+        >
+          Update Details
+        </button>
       </form>
     </div>
   );

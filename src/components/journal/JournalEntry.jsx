@@ -16,7 +16,7 @@ const JournalEntry = () => {
   return (
     <div className={styles['journal-entry']}>
       <div className='entry-cover-photo'>
-        <img src={entry.coverImage}/>
+        <img src={entry.coverImage} alt='Cover image'/>
       </div>
       <div className={styles['entry-text']}>
         <h3>{entry.title}</h3>

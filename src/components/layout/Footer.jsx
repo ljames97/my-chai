@@ -57,10 +57,17 @@ const Footer = () => {
       </nav>
       <div className={styles['newsletter']}>
         <p className={styles['newsletter-text']}>Subscribe for exclusive offers, free giveaways and My Chai news.</p>
-        <form onSubmit={handleNewsletterSubmit} className={styles['newsletter-form']}>
+        <form onSubmit={handleNewsletterSubmit} className={styles['newsletter-form']} aria-labelledby="newsletterFormTitle">
           <label htmlFor="email"></label>
-          <input type="email" id="email" placeholder="your-email@example.com" value={email} onChange={handleEmailChange} />
-          <button className={`${styles['form-button']} ${isDarkMode ? styles['dark'] : ''}`}>JOIN</button>
+          <input 
+            type="email"
+            id="email"
+            placeholder="your-email@example.com"
+            value={email}
+            onChange={handleEmailChange}
+            required
+          />
+          <button className={`${styles['form-button']} ${isDarkMode ? styles['dark'] : ''}`} aria-label='Join'>JOIN</button>
         </form>
       </div>
       <p className={styles['copyright']}>MyChai | © 2024 All Rights Reserved.</p>

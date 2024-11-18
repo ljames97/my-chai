@@ -30,7 +30,7 @@ const ProductImageTitle = ({ product, toggleMobileMenu, className = '' }) => {
   return (
     <div onClick={handleClick} className={`${styles[className]} ${styles['product-image-title']}`}>
       <div className="grid-item-image-container">
-        <img src={product.image} alt="" />
+        <img src={product.image} alt="Product image" />
       </div>
       <p className="grid-item-title">{product.title}</p>
     </div>

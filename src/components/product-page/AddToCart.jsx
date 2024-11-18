@@ -60,7 +60,7 @@ const AddToCart = ({ product, price, setPrice }) => {
         value={quantity}
         onChange={handleQuantityChange}
       />
-      <button className={`${styles['add-to-cart-btn']} btn-primary`} onClick={addToCartHandler}>ADD TO CART</button>
+      <button className={`${styles['add-to-cart-btn']} btn-primary`} onClick={addToCartHandler} aria-label="Add to cart">ADD TO CART</button>
     </div>
   )
 }

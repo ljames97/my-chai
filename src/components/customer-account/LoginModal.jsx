@@ -104,13 +104,15 @@ const LoginModal = ({ toggleAccountModalManager }) => {
         <p className={styles['login-info']}>Login or create account to save your cart and view order history</p>
       </div>
       <form className="main-form" onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
+        <label htmlFor="emailLogin">Email</label>
         <input 
           type="email"
           placeholder="Email"
           id="emailLogin"
           value={formData.email}
           onChange={handleChange}
+          required
+          aria-describedby={error && "error-message"}
         />
         <label htmlFor="password">Password</label>
         <input 
@@ -119,13 +121,15 @@ const LoginModal = ({ toggleAccountModalManager }) => {
           id="password"
           value={formData.password}
           onChange={handleChange}
+          required
+          aria-describedby={error && "error-message"}
         />
-        {error && <p className={styles['error-message']}>{error}</p>}
-        <button id={styles['sign-in']} className="btn-primary">SIGN IN</button>
+        {error && <p className={styles['error-message']} role="alert">{error}</p>}
+        <button id={styles['sign-in']} className="btn-primary" aria-label="Sign in">SIGN IN</button>
       </form>
       <div className={`${styles['login-modal-options']} ${isDarkMode ? styles['dark'] : ''}`}>
-        <button onClick={handleRegisterUser}>Create Account</button>
-        <button>Forgot Password</button>
+        <button onClick={handleRegisterUser} aria-label="Create account">Create Account</button>
+        <button aria-label="Reset your password">Forgot Password</button>
       </div>
     </div>
   )

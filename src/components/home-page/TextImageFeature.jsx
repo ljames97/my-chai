@@ -24,11 +24,11 @@ const TextImageFeature = ({ text, image, buttonLink }) => {
   return (
     <div className={styles['text-image-feature']}>
       <div className={styles['image-container']}>
-        <img src={image}/>
+        <img src={image} alt='Featured image'/>
       </div>
       <h3 className={styles['featured-sub-header']}>{text.subHeader}</h3>
       <p className={styles['featured-text']}>{text.main}</p>
-      <button onClick={handleClick} className={`${styles['featured-button']} ${isDarkMode ? styles['dark']: ''}`}>{text.button}</button>
+      <button onClick={handleClick} className={`${styles['featured-button']} ${isDarkMode ? styles['dark']: ''}`} aria-label={text.button}>{text.button}</button>
     </div>
   );
 }

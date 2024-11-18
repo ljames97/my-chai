@@ -42,7 +42,7 @@ const OrderWidget = ({ order }) => {
   return (
     <div className={`${styles['order-widget']} ${isDarkMode ? styles['dark'] : ''}`} onClick={handleOrderClick}>
       <div className={styles['cover-photo-container']}>
-        <img src={order.items[0].image}/>
+        <img src={order.items[0].image} alt='Product image'/>
         <p className={styles['extra-items']}>{extraItems === 0 ? '' : `+ ${extraItems} items`}</p>
       </div>
       <div className={styles['order-info']}>

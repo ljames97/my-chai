@@ -47,13 +47,13 @@ const FilterProducts = ({ onSort }) => {
 
   return (
     <div className={styles['filter-bar']} ref={sortMenuRef}>
-      <button id={styles['sort-btn']} onClick={handleSortClick} >SORT ◿</button>
+      <button id={styles['sort-btn']} onClick={handleSortClick} aria-label='Sort products'>SORT ◿</button>
 
       {isSortMenuVisible &&(
         <div className={styles['sort-menu']}>
-          <button onClick={() => { onSort('price-low-high'); setIsSortMenuVisible(false); }}>Price: Low to High</button>
-          <button onClick={() => { onSort('price-high-low'); setIsSortMenuVisible(false); }}>Price: High to Low</button>
-          <button onClick={() => { onSort('alphabetical'); setIsSortMenuVisible(false); }}>Alphabetical Order</button>
+          <button onClick={() => { onSort('price-low-high'); setIsSortMenuVisible(false);}} aria-label='Price: Low to High'>Price: Low to High</button>
+          <button onClick={() => { onSort('price-high-low'); setIsSortMenuVisible(false); }} aria-label='Price: High to Low'>Price: High to Low</button>
+          <button onClick={() => { onSort('alphabetical'); setIsSortMenuVisible(false); }} aria-label='Alphabetical Order'>Alphabetical Order</button>
         </div>
       )}
     </div>

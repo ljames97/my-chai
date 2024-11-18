@@ -51,18 +51,19 @@ const CheckoutMain = () => {
   return (
     <div>
       <div className="image-container">
-        <img src={contactUsCover}/>
+        <img src={contactUsCover} alt="Contact us cover photo"/>
       </div>
       <div className={styles['order-summary']}>
-      <button onClick={handleContinueShopping} id={styles['continue-shopping']}>Continue Shopping</button>
+      <button onClick={handleContinueShopping} id={styles['continue-shopping']} aria-label="Continue Shopping">Continue Shopping</button>
           <h3>Order Summary</h3>
           {cart.map((product, index) => (
             <CheckoutItem key={index} product={product} />
           ))}
         </div>
-        {isError && <p className={styles['error']}>Please fill out all fields</p>}
+        {isError && <p id="error" className={styles['error']}>Please fill out all fields</p>}
         <form className={`${styles['checkout-form']} ${isDarkMode ? styles['dark'] : ''}`} onSubmit={(e) => handleSubmit(e, submitForm)}>
           <h3>Email</h3>
+          <label htmlFor="email">Email Address</label>
           <input 
             type="email"
             id="email"
@@ -70,9 +71,12 @@ const CheckoutMain = () => {
             onChange={handleChange}
             placeholder="Email"
             className={`${isDarkMode ? styles['dark'] : ''}`}
+            aria-describedby={isError ? "error" : undefined}
+            required
           />
 
           <h3>Shipping</h3>
+          <label htmlFor="shippingAddress.name">Full Name</label>
           <input
             type="text"
             id="shippingAddress.name"
@@ -80,8 +84,11 @@ const CheckoutMain = () => {
             onChange={handleChange}
             placeholder="Full Name"
             className={`${isDarkMode ? styles['dark'] : ''}`}
+            aria-describedby={isError ? "error" : undefined}
+            required
           />
           
+          <label htmlFor="shippingAddress.houseNumber">House Number</label>
           <input
             type="text"
             id="shippingAddress.houseNumber"
@@ -89,8 +96,11 @@ const CheckoutMain = () => {
             onChange={handleChange}
             placeholder="House Number"
             className={`${isDarkMode ? styles['dark'] : ''}`}
+            aria-describedby={isError ? "error" : undefined}
+            required
           />
 
+          <label htmlFor="shippingAddress.street">Street</label>
           <input
             type="text"
             id="shippingAddress.street"
@@ -98,8 +108,11 @@ const CheckoutMain = () => {
             onChange={handleChange}
             placeholder="Street"
             className={`${isDarkMode ? styles['dark'] : ''}`}
+            aria-describedby={isError ? "error" : undefined}
+            required
           />
 
+          <label htmlFor="shippingAddress.city">City</label>
           <input
             type="text"
             id="shippingAddress.city"
@@ -107,8 +120,11 @@ const CheckoutMain = () => {
             onChange={handleChange}
             placeholder="City"
             className={`${isDarkMode ? styles['dark'] : ''}`}
+            aria-describedby={isError ? "error" : undefined}
+            required
           />
 
+          <label htmlFor="shippingAddress.postalCode">Postal Code</label>
           <input
             type="text"
             id="shippingAddress.postalCode"
@@ -116,8 +132,11 @@ const CheckoutMain = () => {
             onChange={handleChange}
             placeholder="Postal Code"
             className={`${isDarkMode ? styles['dark'] : ''}`}
+            aria-describedby={isError ? "error" : undefined}
+            required
           />
 
+          <label htmlFor="shippingAddress.country">Country</label>
           <input
             type="text"
             id="shippingAddress.country"
@@ -125,9 +144,11 @@ const CheckoutMain = () => {
             onChange={handleChange}
             placeholder="Country"
             className={`${isDarkMode ? styles['dark'] : ''}`}
+            aria-describedby={isError ? "error" : undefined}
+            required
           />
 
-          <button className="btn-primary" id={styles['pay-btn']} type="submit">
+          <button className="btn-primary" id={styles['pay-btn']} type="submit" aria-label="Pay Now">
             Pay Now {`£${totalPrice}`}
           </button>
         </form>

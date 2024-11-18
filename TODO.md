@@ -1,7 +1,6 @@
 TODO
 
 /final-development
-- accessibility (buttons, forms, images, error handling)
 - desktop css
 
 - tests

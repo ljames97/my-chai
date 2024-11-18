@@ -36,13 +36,13 @@ const CartModal = ({ toggleCartModal }) => {
     <div id={styles['cart-modal']} className='modal'>
       <div className={`${styles['cart-modal-header']} ${isDarkMode ? styles['dark'] : ''}`}>
         <p>CART</p>
-        <button id={styles['cart-modal-exit-btn']} className={`${isDarkMode ? 'dark' : ''} exit-modal-btn`} onClick={toggleCartModal}>X</button>
+        <button id={styles['cart-modal-exit-btn']} className={`${isDarkMode ? 'dark' : ''} exit-modal-btn`} onClick={toggleCartModal} aria-label="Close cart modal">X</button>
       </div>
       {cart.map((product, index) => (
         <CartItem key={index} product={product} />
       ))}
       <p className={styles['cart-message']}>Shipping calculated at checkout</p>
-      <button onClick={handleCheckoutClick} className={`${styles['checkout-btn']} btn-primary ${isDarkMode ? styles['dark']: ''}`}>CHECKOUT {`£${totalPrice}`}</button>
+      <button onClick={handleCheckoutClick} className={`${styles['checkout-btn']} btn-primary ${isDarkMode ? styles['dark']: ''}`} aria-label={`Proceed to checkout. Total price: £${totalPrice}`}>CHECKOUT {`£${totalPrice}`}</button>
     </div>
   )
 }

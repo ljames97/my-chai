@@ -44,7 +44,7 @@ const AccountModal = ({ toggleAccountModalManager, toggleMobileMenu }) => {
       <div className={styles['account-modal-header']}>
         <h3 className={styles['account-modal-title']}>Your Account</h3>
         <div className={styles['profile-image-container']}>
-          <img src={photoURL || defaultProfilePhoto} />
+          <img src={photoURL || defaultProfilePhoto} alt="Profile photo"/>
           <p className={styles['profile-name']}>{userDetails?.name || ''}</p>
         </div>
       </div>

@@ -25,7 +25,7 @@ const CheckoutItem = ({ product }) => {
   return (
     <div onClick={handleClick} className={styles['checkout-item']}>
       <div className={styles['checkout-image-container']}>
-        <img src={product.image} alt=""/>
+        <img src={product.image} alt="Product image"/>
       </div>
       <div className={styles['checkout-item-description']}>
       <p className={styles['checkout-item-title']}>{product.title}</p>

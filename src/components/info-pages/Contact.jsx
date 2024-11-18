@@ -28,7 +28,7 @@ const Contact = () => {
         mainText={['For questions, comments or general enquiries, please get in touch at hello@mychai.co.uk or fill in our contact form below.']}
       />
       {isSubmit ? <p className={styles['submit-message']}>Thank you for contacting us. We'll get back to you soon!</p> : ''}
-      {isError ? <p className={`${styles['error-message']}`}>Please fill out all fields</p> : ''}
+      {isError ? <p className={`${styles['error-message']}`} aria-live="assertive" role="alert">Please fill out all fields</p> : ''}
 
       <form className="main-form" onSubmit={(e) => handleSubmit(e, submitForm)}>
         <label htmlFor="name">Full Name</label>
@@ -38,6 +38,8 @@ const Contact = () => {
           id="name"
           value={formData.name}
           onChange={handleChange}
+          aria-required="true"
+          aria-describedby={isError ? "error-message" : undefined}
         />
 
         <label htmlFor="email">Email</label>
@@ -47,7 +49,8 @@ const Contact = () => {
           id="email"
           value={formData.email}
           onChange={handleChange}
-        />
+          aria-required="true"
+          aria-describedby={isError ? "error-message" : undefined}        />
 
         <label htmlFor="message">Message</label>
         <textarea 
@@ -56,9 +59,10 @@ const Contact = () => {
           id="message"
           value={formData.message}
           onChange={handleChange}
-        />
+          aria-required="true"
+          aria-describedby={isError ? "error-message" : undefined}        />
 
-        <button className="btn-primary">Send</button>
+        <button className="btn-primary" aria-label="Send message">Send</button>
       </form>
     </div>
   );
