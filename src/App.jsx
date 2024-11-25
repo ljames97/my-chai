@@ -66,14 +66,14 @@ const MainContent = ({ toggleCartModal, toggleMobileMenu, toggleAccountModalMana
   const isHomePage = location.pathname === '/home';
 
   return (
-    <div className="app-container">
+    <div className={`app-container, ${isCartModalVisible || isAccountModalManagerVisible ? 'blur' : ''}`}>
       {isMobileMenuVisible && <MobileMenu toggleMobileMenu={toggleMobileMenu} toggleAccountModalManager={toggleAccountModalManager} />}
       {isCartModalVisible && <CartModal toggleCartModal={toggleCartModal} />}
-      {isAccountModalManagerVisible && <AccountModalManager toggleAccountModalManager={toggleAccountModalManager} toggleMobileMenu={toggleMobileMenu} />}
+      {isAccountModalManagerVisible && <AccountModalManager toggleAccountModalManager={toggleAccountModalManager} toggleMobileMenu={toggleMobileMenu} isMobileMenuVisible={isMobileMenuVisible} />}
       
       <div className="header-container">
         <ShippingHeader />
-        {!isCheckoutPage && <Header toggleCartModal={toggleCartModal} toggleMobileMenu={toggleMobileMenu} isHomePage={isHomePage} />} 
+        {!isCheckoutPage && <Header toggleCartModal={toggleCartModal} toggleMobileMenu={toggleMobileMenu} isHomePage={isHomePage} toggleAccountModalManager={toggleAccountModalManager} />} 
       </div>
 
       <div className="content">
