@@ -53,3 +53,17 @@
     border-bottom: 2px $border-color-white solid;
   }
 }
+
+@media (min-width: 768px) {
+  .order-widget {
+    cursor: pointer;
+  }
+
+  .order-widget:hover {
+    filter: brightness(90%);
+  }
+
+  .order-history {
+    margin-bottom: 2rem;
+  }
+}

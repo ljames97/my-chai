@@ -22,7 +22,7 @@ const ProductNavigation = ({ product }) => {
     <div className={styles['product-navigation']}>
       <Link to='/home'>Home</Link>
       <div>•</div>
-      <div onClick={handleCollectionNavigation}>{product.collection}</div>
+      <div className={styles['nav-btn']} onClick={handleCollectionNavigation}>{product.collection}</div>
       <div>•</div>
       <div>{product.title}</div>
     </div>

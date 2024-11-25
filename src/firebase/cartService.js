@@ -158,7 +158,7 @@ export const saveOrderToFirestore = async (orderItems) => {
  * @returns {number} - Next order number.
  * @throws {Error}
  */
-const getNextOrderNumber = async () => {
+export const getNextOrderNumber = async () => {
   const orderCounterRef = doc(db, "counters", "orderCounter");
 
   return await runTransaction(db, async (transaction) => {

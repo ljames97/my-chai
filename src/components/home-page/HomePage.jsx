@@ -24,16 +24,16 @@ const HomePage = () => {
 
   const bestSellers = products.filter(product => product.bestSeller === true);
   const featuredText = {
-    header: 'Premium Loos Leaf Tea',
+    header: 'Premium Loose Leaf Tea',
     subHeader: 'Chosen for flavour',
     main: 'Savor the rich, authentic taste of our premium loose leaf teas, carefully sourced from the finest tea gardens around the world. Whether you seek the boldness of black tea, the serenity of green tea, or the delicate notes of herbal blends, each cup offers a journey in flavor, aroma, and tradition.',
-    button: 'DISCOVER'
+    button: 'SHOP TEA'
   }
   const featuredText_2 = {
     header: 'Deluxe Teaware',
     subHeader: 'Elegant design',
     main: 'Discover our curated collection of artisanal teaware, designed to enhance every tea experience. From elegantly crafted teapots to precision infusers and delicate cups, our teaware merges form and function for both daily rituals and special occasions.',
-    button: 'DISCOVER'
+    button: 'SHOP TEAWARE'
   }
 
   // Handle navigation to the full collection page.
@@ -54,8 +54,10 @@ const HomePage = () => {
         </p>
       </div>
       <FeaturedCollection header={'BESTSELLERS'} collection={bestSellers} />
-      <TextImageFeature text={featuredText} image={featuredImage} buttonLink={'/collection/all'}/>
-      <TextImageFeature text={featuredText_2} image={contactUsCover} buttonLink={'/collection/teaware'} />
+      <div className={styles['text-image-features']}>
+        <TextImageFeature text={featuredText} image={featuredImage} buttonLink={'/collection/all'} className="first-feature"/>
+        <TextImageFeature text={featuredText_2} image={contactUsCover} buttonLink={'/collection/teaware'} />
+      </div>
       <ReviewCarousel />
       <JournalWidget />
     </div>

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import styles from './collectionPage.module.scss';
+import { useTheme } from '../../store/ThemeContext';
 
 /**
  * Provides sorting options for a collection of products.
@@ -14,6 +15,7 @@ import styles from './collectionPage.module.scss';
 const FilterProducts = ({ onSort }) => {
   const [isSortMenuVisible, setIsSortMenuVisible] = useState(false);
   const sortMenuRef = useRef(null);
+  const { isDarkMode } = useTheme();
 
   /**
    * Toggles visibility of sort menu dropdown.
@@ -46,7 +48,7 @@ const FilterProducts = ({ onSort }) => {
   }, [isSortMenuVisible]);
 
   return (
-    <div className={styles['filter-bar']} ref={sortMenuRef}>
+    <div className={`${styles['filter-bar']} ${isDarkMode ? styles['dark'] : ''}`} ref={sortMenuRef}>
       <button id={styles['sort-btn']} onClick={handleSortClick} aria-label='Sort products'>SORT ◿</button>
 
       {isSortMenuVisible &&(

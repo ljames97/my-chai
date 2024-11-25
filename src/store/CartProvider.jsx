@@ -9,7 +9,6 @@ import { loadCartFromLocalStorage, saveCartToLocalStorage } from "../components/
 /**
  * Provider for managing the shopping cart.
  * 
- * It supports the following features:
  * - Adds items to the cart
  * - Removes items from the cart
  * - Updates item quantities
@@ -19,7 +18,7 @@ import { loadCartFromLocalStorage, saveCartToLocalStorage } from "../components/
  * 
  * @param {Object} props
  * @param {React.ReactNode} props.children
- * @returns {JSX.Element} The CartContext.Provider wrapping the child components.
+ * @returns {JSX.Element} value = cart, addToCart, removeFromCart, clearCart, updateQuantity
  */
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(loadCartFromLocalStorage());

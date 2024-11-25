@@ -21,7 +21,6 @@ const ProductHeader = ({ product, price }) => {
   
   return (
     <div className={styles['product-header']}>
-      <ProductImage image={product.image}/>
       <StarRating rating={productRating}/>
       <ProductTitle title={product.title}/>
       <ProductPrice price={price}/>

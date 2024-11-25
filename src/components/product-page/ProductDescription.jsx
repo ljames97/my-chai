@@ -1,5 +1,6 @@
 // ProductDescription.jsx
 
+import { useTheme } from '../../store/ThemeContext';
 import styles from './ProductPage.module.scss';
 
 /**
@@ -9,8 +10,9 @@ import styles from './ProductPage.module.scss';
  * @returns {JSX.Element} A paragraph with the product description.
  */
 const ProductDescription = ({ description }) => {
+  const { isDarkMode } = useTheme();
   return (
-    <p className={styles['product-decription']}>{description}</p>
+    <p className={`${styles['product-description']} ${isDarkMode ? styles['dark'] : ''}`}>{description}</p>
   )
 }
 

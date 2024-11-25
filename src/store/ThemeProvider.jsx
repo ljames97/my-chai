@@ -7,14 +7,13 @@ import { loadThemeFromLocalStorage, saveThemeToLocalStorage } from "../component
 /**
  * Provider for theme management.
  * 
- * It supports the following features:
  * - Toggles between light and dark modes.
  * - Persists the theme preference to local storage.
  * - Loads the theme preference from local storage on initial render.
  * 
  * @param {Object} props
  * @param {React.ReactNode} props.children
- * @returns {JSX.Element} The ThemeContext.Provider wrapping the child components.
+ * @returns {JSX.Element} isDarkMode, toggleTheme
  */
 export const ThemeProvider = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(loadThemeFromLocalStorage());

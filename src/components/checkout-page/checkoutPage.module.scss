@@ -2,6 +2,8 @@
 
 .checkout-page {
   text-align: center;
+  width: 100vw;
+  background-color: #f9f6f2;
 
   &.dark {
     color: black;
@@ -49,7 +51,7 @@
   width: 80%;
   margin-top: 1rem;
   margin-bottom: 2rem;
-  background-color: $background-color-dark;
+  background-color: rgb(84, 71, 66);
 }
 
 .checkout-item {
@@ -133,4 +135,51 @@ input {
 .order-confirmation button {
   margin: 1rem;
   width: 50%;
+}
+
+@media (min-width: 768px) {
+  .checkout-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-container {
+    width: 100%;
+    height: 35vh;
+  }
+
+  .checkout-form {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .checkout-form h3 {
+    align-self: flex-start;
+    margin-left: 4rem;
+    margin-right: 0;
+  }
+
+  .checkout-image-container {
+    cursor: pointer;
+  }
+
+  #pay-btn {
+    width: 50%;
+    margin-left: 2rem;
+  }
+
+  #pay-btn:hover {
+    background-color: #9d8c82;
+  }
+
+  .checkout-content {
+    display: flex;
+    margin-top: 2rem;
+  }
+
+  .checkout-item {
+    width: 100%;
+  }
 }

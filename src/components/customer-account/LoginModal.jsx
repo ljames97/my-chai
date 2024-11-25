@@ -1,6 +1,7 @@
 // LoginModal.jsx
 
-import { useState } from "react";
+import ReactDOM from "react-dom";
+import { useEffect, useState } from "react";
 import styles from './customerAccount.module.scss';
 import { loginUser, registerUser } from "../../firebase/authService";
 import { useTheme } from "../../store/ThemeContext";
@@ -19,6 +20,24 @@ const LoginModal = ({ toggleAccountModalManager }) => {
     emailLogin: '',
     password: '', 
   });
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOverlayClick = (e) => {
+    if (e.target.classList.contains("modal-overlay")) {
+      closeModal();
+    }
+  };
+
+  const closeModal = () => {
+    setIsOpen(false); 
+    setTimeout(() => toggleAccountModalManager(), 200);
+  };
+
+  useEffect(() => {
+    setIsOpen(true);
+    return () => setIsOpen(false);
+  }, []);
 
   /**
    * Handles changes to form inputs and updates formData state.
@@ -96,42 +115,49 @@ const LoginModal = ({ toggleAccountModalManager }) => {
     }
   }
 
-  return (
-    <div className="modal login-modal">
-      <div className={styles['login-modal-header']}>
-        <h3>Your Account</h3>
-        <p onClick={toggleAccountModalManager}>← Back to menu</p>
-        <p className={styles['login-info']}>Login or create account to save your cart and view order history</p>
-      </div>
-      <form className="main-form" onSubmit={handleSubmit}>
-        <label htmlFor="emailLogin">Email</label>
-        <input 
-          type="email"
-          placeholder="Email"
-          id="emailLogin"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          aria-describedby={error && "error-message"}
-        />
-        <label htmlFor="password">Password</label>
-        <input 
-          type="password"
-          placeholder="Password"
-          id="password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-          aria-describedby={error && "error-message"}
-        />
-        {error && <p className={styles['error-message']} role="alert">{error}</p>}
-        <button id={styles['sign-in']} className="btn-primary" aria-label="Sign in">SIGN IN</button>
-      </form>
-      <div className={`${styles['login-modal-options']} ${isDarkMode ? styles['dark'] : ''}`}>
-        <button onClick={handleRegisterUser} aria-label="Create account">Create Account</button>
-        <button aria-label="Reset your password">Forgot Password</button>
-      </div>
-    </div>
+  return ReactDOM.createPortal (
+    <div className="modal-overlay" onClick={handleOverlayClick}>
+      <div className={`modal login-modal ${isOpen ? 'open' : 'close'}`}>
+        <div className={styles['login-modal-header']}>
+          <div className={styles['login-modal-title']}>
+            <h3>Your Account</h3>
+            <button onClick={closeModal} id={styles['exit-account-modal']} className='exit-modal-btn'>X</button>
+          </div>
+          {/* <p className={styles['back-btn']} onClick={toggleAccountModalManager}>← Back to menu</p> */}
+          <p className={styles['login-info']}>Login or create account to save your cart and view order history</p>
+        </div>
+        <form className="main-form" onSubmit={handleSubmit}>
+          <label htmlFor="emailLogin">Email</label>
+          <input 
+            type="email"
+            placeholder="Email"
+            id="emailLogin"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            aria-describedby={error && "error-message"}
+          />
+          <label htmlFor="password">Password</label>
+          <input 
+            type="password"
+            placeholder="Password"
+            id="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+            aria-describedby={error && "error-message"}
+          />
+          {error && <p className={styles['error-message']} role="alert">{error}</p>}
+          <button id={styles['sign-in']} className="btn-primary" aria-label="Sign in">SIGN IN</button>
+        </form>
+        <div className={`${styles['login-modal-options']} ${isDarkMode ? styles['dark'] : ''}`}>
+          <button onClick={handleRegisterUser} aria-label="Create account">Create Account</button>
+          <button aria-label="Reset your password">Forgot Password</button>
+        </div>
+      </div>,
+    </div>,
+    document.getElementById("modal-root")
+
   )
 }
 
