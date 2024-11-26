@@ -1,7 +1,8 @@
 TODO
 
 /extra-product-info
-- teaware and herbal products, 
+- useModal custom hook
+- teaware and herbal products
 
 - tests
 

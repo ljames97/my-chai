@@ -74,10 +74,10 @@ const AccountModal = ({ toggleAccountModalManager, toggleMobileMenu, isMobileMen
           </div>
         </div>
         <ul className={styles['account-menu']}>
-          <li className={`${styles['account-menu-item']} ${isDarkMode ? styles['dark'] : ''}`} onClick={handleClick}>
+          <li className={`${styles['account-menu-item']} ${isDarkMode ? styles['dark'] : ''}`} onClick={closeModal}>
             <Link to="/order-history">ORDER HISTORY</Link>
           </li>
-          <li className={`${styles['account-menu-item']} ${isDarkMode ? styles['dark'] : ''}`} onClick={handleClick}>
+          <li className={`${styles['account-menu-item']} ${isDarkMode ? styles['dark'] : ''}`} onClick={closeModal}>
             <Link to="/account-details">ACCOUNT DETAILS</Link>
           </li>
           <li className={`${styles['account-menu-item']} ${isDarkMode ? styles['dark'] : ''}`} onClick={handleLogout}>LOGOUT</li>
