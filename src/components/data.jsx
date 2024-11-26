@@ -1,5 +1,5 @@
 // data.jsx
-import { assam, blackTea, dragonWell, englishBreakfast, goldenNeedle, gunpowderGreen, japaneseSencha, jasmineOolong, journalEntry_1, journalEntry_2, milkOolong, yellowGold, yunnanGold } from "../assets/images";
+import { assam, blackTea, dragonWell, englishBreakfast, ginger, goldenNeedle, gunpowderGreen, japaneseSencha, jasmineOolong, journalEntry_1, journalEntry_2, lemongrass, milkOolong, peppermint, rooibos, strainer, teacup, teapot, yellowGold, yunnanGold } from "../assets/images";
 
 const collections = [
   {
@@ -205,6 +205,92 @@ const products = [
       '250g': '£24.95'
     },
     collectionId: 2
+  },
+  {
+    id: 12,
+    collection: 'Herbal', 
+    title: 'Rooibos Tea', 
+    path: 'Rooibos-Tea',
+    image: rooibos,
+    description: 'A naturally caffeine-free herbal tea from South Africa, Rooibos boasts a rich, earthy flavor with hints of honey and vanilla. Known for its vibrant red color and soothing taste, it’s a perfect choice for any time of day.',
+    price: {
+      '50g': '£3.90',
+      '100g': '£6.90',
+      '250g': '£14.05'
+    },
+    collectionId: 4
+  },
+  {
+    id: 13,
+    collection: 'Herbal', 
+    title: 'Peppermint Tea', 
+    path: 'Peppermint-Tea',
+    image: peppermint,
+    description: 'A refreshing herbal infusion made from pure peppermint leaves, this tea delivers a cool, crisp flavor with natural sweetness and a soothing aroma. Perfect as a caffeine-free pick-me-up or after-meal digestive.',
+    price: {
+      '50g': '£3.60',
+      '100g': '£6.60',
+      '250g': '£12.50'
+    },
+    collectionId: 4
+  },
+  {
+    id: 14,
+    collection: 'Herbal', 
+    title: 'Lemongrass', 
+    path: 'Lemongrass',
+    image: lemongrass,
+    description: 'A fragrant herbal tea with bright citrus notes and a subtle hint of sweetness, Lemongrass offers a refreshing and invigorating flavor. Naturally caffeine-free, its a calming choice for any time of day.',
+    price: {
+      '50g': '£3.25',
+      '100g': '£5.65',
+      '250g': '£11.25'
+    },
+    collectionId: 4
+  },
+  {
+    id: 14,
+    collection: 'Herbal', 
+    title: 'Ginger Root', 
+    path: 'Ginger-Root',
+    image: ginger,
+    description: 'A warming herbal tea with a bold, zesty flavor, Ginger Root is known for its invigorating and soothing qualities. Naturally caffeine-free, it’s a perfect choice for a refreshing boost or calming comfort.',
+    price: {
+      '50g': '£3.60',
+      '100g': '£6.25',
+      '250g': '£12.50'
+    },
+    collectionId: 4
+  },
+  {
+    id: 15,
+    collection: 'Teaware', 
+    title: 'Glass Tea Pot', 
+    path: 'tea-pot',
+    image: teapot,
+    description: 'Our Glass Teapot features a sleek, modern design paired with a coil filter for effortless brewing. Perfect for loose leaf tea, this elegant teapot ensures a smooth pour and a refined tea experience.',
+    price: '£15.99',
+    collectionId: 5
+  },
+  {
+    id: 16,
+    collection: 'Teaware', 
+    title: 'Loose Leaf Strainer', 
+    path: 'strainer',
+    image: strainer,
+    description: 'Our Loose Leaf Strainer offers an easy and mess-free way to steep your favorite teas. Crafted for durability and precision, it ensures a perfect brew every time.',
+    price: '£5.99',
+    collectionId: 5
+  },
+  {
+    id: 17,
+    collection: 'Teaware', 
+    title: 'Ceramic Teacup', 
+    path: 'teacup',
+    image: teacup,
+    description: 'An elegantly crafted Ceramic Teacup. Designed for comfort and style, its smooth finish and heat-retaining properties make it perfect for savoring every sip.',
+    price: '£12.99',
+    collectionId: 5
   },
 ];
 

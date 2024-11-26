@@ -15,20 +15,8 @@ import { useNavigate } from 'react-router-dom';
  * @returns {JSX.Element} ProductImageTitle component
  */
 const ProductImageTitle = ({ product, toggleMobileMenu, className = '' }) => {
-  const navigate = useNavigate();
-
-  /**
-   * Navigates to the product's details page. If provided, it also toggles the mobile menu.
-   */
-  const handleClick = () => {
-    navigate(`/product/${product.path}`);
-    if (toggleMobileMenu) {
-      toggleMobileMenu();
-    }
-  }
-
   return (
-    <div onClick={handleClick} className={`${styles[className]} ${styles['product-image-title']}`}>
+    <div className={`${styles[className]} ${styles['product-image-title']}`}>
       <div className={styles['grid-item-image-container']}>
         <img src={product.image} alt="Product image" />
       </div>

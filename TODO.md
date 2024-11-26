@@ -1,9 +1,6 @@
 TODO
 
 /extra-product-info
-- useModal custom hook
-- teaware and herbal products
-
 - tests
 
 - finish, README, production on GH

@@ -20,7 +20,9 @@ import ProductImage from "./product-header/ProductImage";
 const ProductPage = () => {
   const { path } = useParams();
   const product = products.find(product => product.path === path);
-  const [price, setPrice] = useState(product.price['50g']);
+
+  const initialPrice = typeof product.price === 'object' ? product.price['50g'] : product.price;
+  const [price, setPrice] = useState(initialPrice);
 
   const productReviews = getProductReviews(product);
 
