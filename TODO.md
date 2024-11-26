@@ -10,3 +10,5 @@ AI chat bot tea quiz, sticky header on scroll, mock checkout process with email 
 
 - tailwind
 - backend (node.js, SQL)
+
+- lazy loading, redux, memoisation
