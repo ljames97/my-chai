@@ -18,8 +18,8 @@ const EntryWidget = ({ journalEntry }) => {
   }
 
   return (
-    <div onClick={handleClick} className={styles['journal-entry-widget']}>
-      <div className={styles['journal-entry-header']}>
+    <div className={styles['journal-entry-widget']}>
+      <div onClick={handleClick} className={styles['journal-entry-header']}>
         <div className={styles['cover-photo-container']}>
           <img src={journalEntry.coverImage} alt='Cover image'/>
         </div>
@@ -30,7 +30,7 @@ const EntryWidget = ({ journalEntry }) => {
       </div>
       <div className={styles['main-text']}>
         <p>{journalEntry.mainText[0]}</p>
-        <button aria-label='Read more'>Read More</button>
+        <button onClick={handleClick} aria-label='Read more'>Read More</button>
       </div>
     </div>
   )

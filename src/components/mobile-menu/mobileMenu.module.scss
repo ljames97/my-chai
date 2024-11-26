@@ -1,5 +1,9 @@
 @import '../../styles/variables';
 
+.mobile-menu {
+  transform: translateX(-100%);
+}
+
 .mobile-menu-header {
   display: flex;
   justify-content: space-between;

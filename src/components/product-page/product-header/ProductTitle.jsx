@@ -6,7 +6,7 @@ import styles from '../ProductPage.module.scss';
  * Renders the product title.
  *
  * @param {Object} props - Component properties.
- * @param {string} props.title - produce title.
+ * @param {string} props.title - product title.
  * @returns {JSX.Element} Rendered ProductTitle component.
  */
 const ProductTitle = ({ title }) => {

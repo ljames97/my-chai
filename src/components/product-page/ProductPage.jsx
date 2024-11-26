@@ -10,6 +10,7 @@ import { useParams } from 'react-router-dom';
 import { products } from "../data";
 import ProductNavigation from "./ProductNavigation";
 import { useState } from "react";
+import ProductImage from "./product-header/ProductImage";
 
 
 /**
@@ -19,16 +20,23 @@ import { useState } from "react";
 const ProductPage = () => {
   const { path } = useParams();
   const product = products.find(product => product.path === path);
-  const [price, setPrice] = useState(product.price['50g']);
+
+  const initialPrice = typeof product.price === 'object' ? product.price['50g'] : product.price;
+  const [price, setPrice] = useState(initialPrice);
 
   const productReviews = getProductReviews(product);
 
   return (
     <div className={styles['product-page']}>
       <ProductNavigation product={product}/>
-      <ProductHeader product={product} price={price} />
-      <AddToCart product={product} price={price} setPrice={setPrice} />
-      <ProductDescription description={product.description} />
+      <div className={styles['product-content']}>
+        <ProductImage image={product.image}/>
+        <div className={styles['product-info']}>
+          <ProductHeader product={product} price={price} />
+          <AddToCart product={product} price={price} setPrice={setPrice} />
+          <ProductDescription description={product.description} />
+        </div>
+      </div>
       <ProductReviews reviews={productReviews} product={product}/>
     </div>
   )

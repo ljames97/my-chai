@@ -21,16 +21,17 @@ const Contact = () => {
   };
 
   return (
-    <div className="contact-us-page">
+    <div className={styles['contact-us-page']}>
       <InfoPage 
         featuredImage={contactUsCover} 
         header={'Contact Us'} 
         mainText={['For questions, comments or general enquiries, please get in touch at hello@mychai.co.uk or fill in our contact form below.']}
       />
+
+
+      <form className={`main-form ${styles['contact-form']}`} onSubmit={(e) => handleSubmit(e, submitForm)}>
       {isSubmit ? <p className={styles['submit-message']}>Thank you for contacting us. We'll get back to you soon!</p> : ''}
       {isError ? <p className={`${styles['error-message']}`} aria-live="assertive" role="alert">Please fill out all fields</p> : ''}
-
-      <form className="main-form" onSubmit={(e) => handleSubmit(e, submitForm)}>
         <label htmlFor="name">Full Name</label>
         <input 
           type="text"

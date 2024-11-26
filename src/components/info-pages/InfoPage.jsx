@@ -14,8 +14,8 @@ import styles from './infoPages.module.scss';
  */
 const InfoPage = ({ featuredImage, header, mainText }) => {
   return (
-    <div className="info-page">
-      <div className="cover-image-container">
+    <div className={styles['info-page']}>
+      <div className={styles['cover-image-container']}>
         <img src={featuredImage} alt='Featured image'/>
       </div>
       <div className={styles['info-text']}>

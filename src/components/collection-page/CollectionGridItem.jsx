@@ -22,6 +22,13 @@ const CollectionGridItem = ({ product, toggleMobileMenu }) => {
   const productReviews = getProductReviews(product);
   const productRating = calculateAverageRating(productReviews);
 
+    /**
+   * Determine the price to display (either from `50g` or as a single price).
+   */
+    const displayPrice = typeof product.price === 'object' 
+    ? `from ${product.price['50g']}` 
+    : `${product.price}`;
+
   /**
    * Navigates to the product detail page and optionally toggles the mobile menu.
    */
@@ -40,7 +47,7 @@ const CollectionGridItem = ({ product, toggleMobileMenu }) => {
         <div className={`${styles['number-of-reviews']} ${isDarkMode ? styles['dark'] : ''}`}>{`(${productReviews.length})`}</div>
       </div>
 
-      <p className={`${styles['grid-item-price']} ${isDarkMode ? styles['dark'] : ''}`}>{`from ${product.price['50g']}`}</p>
+      <p className={`${styles['grid-item-price']} ${isDarkMode ? styles['dark'] : ''}`}>{displayPrice}</p>
     </div>
   )
 }

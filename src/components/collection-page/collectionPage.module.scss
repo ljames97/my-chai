@@ -33,6 +33,10 @@
   border-radius: 5px;
   padding: 0.6rem;
   margin-bottom: 1rem;
+
+  &.dark {
+    border-color: $primary-text-color;
+  }
 }
 
 #sort-btn {
@@ -104,5 +108,32 @@
   &.dark {
     color: $primary-text-color;
   }
+}
 
+@media (min-width: 768px) {
+  .collection-grid-item {
+    min-width: 35%;
+    cursor: pointer;
+  }
+
+  .collection-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .collection-page {
+    width: 70%;
+    margin: 1rem;
+  }
+
+  .collection-description {
+    width: 80%;
+  }
+
+  .filter-bar {
+    width: 80%;
+  }
+
+  .grid-item-image-container img:hover {
+    filter: brightness(110%);
+  }
 }

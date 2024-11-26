@@ -22,3 +22,17 @@ export { default as journalEntry_1 } from './pouring-tea.png';
 export { default as journalEntry_2 } from './tea-leaves.png';
 export { default as defaultProfilePhoto } from './profile-photo-default.png';
 export { default as plusIcon } from './plus-icon.png';
+export { default as rooibos } from './rooibos.png';
+export { default as peppermint } from './peppermint.png';
+export { default as lemongrass } from './lemongrass.png';
+export { default as ginger } from './ginger-root.png';
+export { default as teapot } from './teapot.png';
+export { default as teacup } from './teacup.png';
+export { default as strainer } from './strainer.png';
+
+
+
+
+
+
+

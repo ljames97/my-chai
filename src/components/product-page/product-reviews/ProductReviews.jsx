@@ -4,6 +4,7 @@ import CustomerReview from "./CustomerReview";
 import styles from '../ProductPage.module.scss';
 import { useState } from "react";
 import useForm from "../../../hooks/useForm";
+import { useTheme } from "../../../store/ThemeContext";
 
 /**
  * Displays a list of customer reviews for a product and includes a form for adding a new review.
@@ -16,6 +17,7 @@ import useForm from "../../../hooks/useForm";
  */
 const ProductReviews = ({ reviews, product }) => {
   const [showForm, setShowForm] = useState(false);
+  const { isDarkMode } = useTheme();
   const reviewButtonText = !showForm ? 'Leave a review' : 'Cancel';
 
   const { formData, handleChange, handleSubmit, isError, isSubmit } = useForm({
@@ -39,7 +41,7 @@ const ProductReviews = ({ reviews, product }) => {
   }
 
   return (
-    <div className={styles['product-reviews']}>
+    <div className={`${styles['product-reviews']} ${isDarkMode ? styles['dark'] : ''}`}>
       <h3>Customer Reviews</h3>
       {isSubmit && !showForm ? <p id={styles['thankyou']}>Thank you for leaving a review!</p> : ''}
       <button onClick={handleClick} className={styles['write-a-review']} aria-label={reviewButtonText}>{reviewButtonText}</button>

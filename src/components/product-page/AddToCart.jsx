@@ -16,6 +16,8 @@ const AddToCart = ({ product, price, setPrice }) => {
   const { addToCart } = useContext(CartContext);
   const [quantity, setQuantity] = useState('1');
   const [weight, setWeight] = useState('50g');
+  const hasMultipleWeights = typeof product.price === 'object';
+
 
   const handleQuantityChange = (event) => {
     setQuantity(event.target.value);
@@ -31,24 +33,27 @@ const AddToCart = ({ product, price, setPrice }) => {
       id: Date.now(),
       originalId: product.id,
       title: product.title,
-      weight: weight,
+      weight: hasMultipleWeights ? weight : null,
       quantity: quantity,
       price: price, 
       image: product.image,
       path: product.path
     }
     addToCart(cartProduct);
-    // console.log(`ProductId: ${product.id}, ProductName: ${product.title},  Weight: ${document.getElementById('weight').value}, Quantity: ${quantity}`);
   }
 
   return (
     <div className={styles['add-to-cart-section']}>
-      <label htmlFor="weight">Weight:</label>
-      <select id="weight" name="weight" onChange={handleWeightChange}>
-        <option value="50g">50g</option>
-        <option value="100g">100g</option>
-        <option value="250g">250g</option>
-      </select>      
+      {hasMultipleWeights && (
+        <>
+          <label htmlFor="weight">Weight:</label>
+          <select id="weight" name="weight" onChange={handleWeightChange}>
+            <option value="50g">50g</option>
+            <option value="100g">100g</option>
+            <option value="250g">250g</option>
+          </select>   
+        </>
+      )}
       <label htmlFor="quantity">Quantity:</label>
       <input
         type="number"

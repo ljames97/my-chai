@@ -21,10 +21,44 @@
 .submit-message,
 .error-message {
   padding: 0 1rem;
-  margin-bottom: 1rem;
   font-size: 0.9rem;
+  margin-bottom: 1rem;
 }
 
 .error-message {
   color: red;
+}
+
+@media (min-width: 768px) {
+  .info-page {
+    display: flex;
+    align-items: center;
+  }
+
+  .info-text {
+    width: 100%;
+  }
+
+  .contact-us-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-form {
+    width: 50%;
+    margin-top: 2rem;
+  }
+
+  .contact-form button {
+    width: 40%;
+    align-self: flex-start;
+  }
+
+  .submit-message,
+  .error-message {
+    margin-bottom: 0;
+    padding: 0;
+  }
+
 }

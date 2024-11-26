@@ -1,0 +1,74 @@
+@import '../../styles/variables';
+
+.desktop-menu-items {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .desktop-menu-items {
+    display: flex;
+    gap: 2rem;
+    margin-right: auto;
+    margin-left: auto;
+    color: $primary-text-color;
+  }
+
+  .desktop-menu-item {
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .desktop-menu-item a {
+    color: $primary-text-color;
+    letter-spacing: 2px;
+  }
+
+  .black-text {
+    color: black;
+
+    &.dark {
+      color: $primary-text-color;
+    }
+  }
+
+  .black-text a {
+    color: black;
+  }
+
+  .desktop-menu-item:hover {
+    font-weight: 600;
+  }
+
+  .submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0.5rem 1rem;
+    z-index: 10;
+    padding: 1rem;
+    border-radius: 5px;
+    width: 10vw;
+
+    &.dark {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+  }
+
+  .submenu-item a {
+    font-weight: normal;
+    color: black;
+    white-space: nowrap;
+
+    &.dark {
+      color: $primary-text-color;
+    }
+  }
+
+  .submenu-item a:hover {
+    font-weight: 600;
+  }
+}
+

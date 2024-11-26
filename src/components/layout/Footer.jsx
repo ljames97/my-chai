@@ -58,10 +58,11 @@ const Footer = () => {
       <div className={styles['newsletter']}>
         <p className={styles['newsletter-text']}>Subscribe for exclusive offers, free giveaways and My Chai news.</p>
         <form onSubmit={handleNewsletterSubmit} className={styles['newsletter-form']} aria-labelledby="newsletterFormTitle">
-          <label htmlFor="email"></label>
+          <label htmlFor="newsletter-email"></label>
           <input 
             type="email"
-            id="email"
+            id="newsletter-email"
+            className={styles['newsletter-email']}
             placeholder="your-email@example.com"
             value={email}
             onChange={handleEmailChange}
