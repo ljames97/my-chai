@@ -1,7 +1,14 @@
 TODO
 
 /pre-production
-- remove logs, README
+- remove logs
+
+css bugs:
+- mobile menu + account modal scroll / height issue (copy cart-modal)
+- dark mode search icon
+- search grid/flex spacing issue
+- font sizes + different font from raleway
+- hover buttons on mobile remove
 
 /production
 production on GH
