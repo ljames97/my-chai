@@ -4,8 +4,8 @@ TODO
 - remove logs
 
 css bugs:
-- mobile menu + account modal scroll / height issue (copy cart-modal)
 - dark mode search icon
+- select text is blue
 - search grid/flex spacing issue
 - font sizes + different font from raleway
 - hover buttons on mobile remove
