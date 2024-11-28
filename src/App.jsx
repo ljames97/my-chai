@@ -56,12 +56,12 @@ const App = () => {
   }, [isDarkMode]);
 
   useEffect(() => {
-    if (isCartModalVisible) {
+    if (isCartModalVisible || isMobileMenuVisible || isAccountModalManagerVisible) {
       document.body.classList.add('body-no-scroll');
     } else {
       document.body.classList.remove('body-no-scroll');
     }
-  }, [isCartModalVisible]);
+  }, [isCartModalVisible, isMobileMenuVisible, isAccountModalManagerVisible]);
 
   return (
     <>
