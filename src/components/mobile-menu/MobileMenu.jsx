@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { products } from '../data';
 import ProductImageTitle from '../collection-page/ProductImageTitle';
 import { useTheme } from '../../store/ThemeContext';
+import ReactDOM from "react-dom";
 
 /**
  * Responsive navigation menu for mobile devices.
@@ -52,7 +53,7 @@ const MobileMenu = ({ toggleMobileMenu, toggleAccountModalManager }) => {
   }, []);
 
 
-  return (
+  return ReactDOM.createPortal (
     <div className={`modal ${styles['mobile-menu']} ${isOpen ? 'open' : 'close-left'}`}>
     <div className={`${styles['mobile-menu-header']} ${isDarkMode ? styles['dark'] : ''}`}>
         <svg onClick={toggleAccountModalManager} id='profile-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill={isDarkMode ? 'white' : ''}>
@@ -110,7 +111,8 @@ const MobileMenu = ({ toggleMobileMenu, toggleAccountModalManager }) => {
           <Link to="/contact">CONTACT</Link>
         </li>
       </ul>
-    </div>
+    </div>,
+    document.getElementById("modal-root")
   );
 }
 
