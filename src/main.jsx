@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/your-repository-name">
+    <BrowserRouter basename="/my-chai">
       <CartProvider>
         <ThemeProvider>
           <App />
