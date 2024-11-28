@@ -11,6 +11,10 @@ body, html {
 }
 
 body {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+body {
   background-color: $background-color;
   margin: 0;
   padding: 0;
