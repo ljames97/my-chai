@@ -44,7 +44,6 @@ const HomePage = () => {
   return (
     <div className={styles['home-page']}>
       <div className={styles['cover-photo-container']}>
-        <img src={homePageCover} alt='Home page cover photo'/>
         <button onClick={handleShopNowClick} className={`${styles['shop-now-btn']} ${isDarkMode ? styles['dark']: ''}`} aria-label='Shop now'>SHOP NOW</button>
       </div>
       <div className={`${styles['section-header']} ${isDarkMode ? styles['dark'] : ''}`}>

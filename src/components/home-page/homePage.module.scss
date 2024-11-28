@@ -6,12 +6,16 @@
 }
 
 .cover-photo-container {
+  background-image: url('../../assets/images/home-page-cover.png');
+  background-size: cover; /* Ensures the image scales correctly */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat;
+  background-attachment: scroll;
   height: calc(100vh - 3.8rem);
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-attachment: fixed
 }
 
 .shop-now-btn {
@@ -256,15 +260,18 @@
 @media (min-width: 768px) {
   .cover-photo-container {
     height: 100vh;
+    background-position: 0 -300px;
+
+
   }
 
-  .cover-photo-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top;
-    object-position: 0 -200px;
-  }
+  // .cover-photo-container img {
+  //   width: 100%;
+  //   height: 100%;
+  //   object-fit: cover;
+  //   object-position: bottom;
+  //   object-position: 0 -200px;
+  // }
 
   .shop-now-btn {
     bottom: 15%;

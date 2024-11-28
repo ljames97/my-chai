@@ -1,5 +1,10 @@
 @import '../../styles/variables';
 
+#cart-modal {
+  max-height: calc(var(--vh) * 100);
+  overflow-y: auto;
+}
+
 .cart-modal-header {
   display: flex;
   justify-content: space-between;

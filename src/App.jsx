@@ -29,6 +29,24 @@ const App = () => {
   const [isAccountModalManagerVisible, toggleAccountModalManager] = useToggle(false);
   const { isDarkMode } = useTheme();
 
+  // Adjust viewport height dynamically
+  useEffect(() => {
+    const setViewportHeight = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+
+    setViewportHeight();
+    window.addEventListener('resize', setViewportHeight);
+    window.addEventListener('orientationchange', setViewportHeight);
+
+    return () => {
+      window.removeEventListener('resize', setViewportHeight);
+      window.removeEventListener('orientationchange', setViewportHeight);
+    };
+  }, []);
+  
+
   useEffect(() => {
     if (isDarkMode) {
       document.body.classList.add('dark-theme')
