@@ -6,10 +6,12 @@ import { ThemeProvider } from './store/ThemeProvider.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <CartProvider>
-      <ThemeProvider>
-      <App />
-      </ThemeProvider>
-    </CartProvider>
+    <BrowserRouter basename="/your-repository-name">
+      <CartProvider>
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
+      </CartProvider>
+    </BrowserRouter>
   </React.StrictMode>,
 )
