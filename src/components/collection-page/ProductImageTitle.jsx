@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom';
  * @param {string} [props.className] - Optional additional CSS class to apply to the component.
  * @returns {JSX.Element} ProductImageTitle component
  */
-const ProductImageTitle = ({ product, toggleMobileMenu, className = '' }) => {
+const ProductImageTitle = ({ product, className = '' }) => {
   return (
     <div className={`${styles[className]} ${styles['product-image-title']}`}>
       <div className={styles['grid-item-image-container']}>
