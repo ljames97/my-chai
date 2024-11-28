@@ -8,8 +8,8 @@
   position: fixed;
   background-color: $background-color;
   width: 100%;
-  z-index: 4;
-  overflow-y: scroll;
+  z-index: 1010;
+  overflow-y: auto;
   transform: translateX(100%);
   transition: transform 0.3s ease;
   min-height: calc(var(--vh, 1vh) * 100);
