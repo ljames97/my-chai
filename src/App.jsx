@@ -46,7 +46,7 @@ const App = () => {
   }, [isCartModalVisible]);
 
   return (
-    <Router>
+    <>
       <ScrollToTop />
       <MainContent 
         toggleCartModal={toggleCartModal} 
@@ -56,14 +56,14 @@ const App = () => {
         isCartModalVisible={isCartModalVisible}
         isAccountModalManagerVisible={isAccountModalManagerVisible}
       />
-    </Router>
+      </>
   );
 };
 
 const MainContent = ({ toggleCartModal, toggleMobileMenu, toggleAccountModalManager, isMobileMenuVisible, isCartModalVisible, isAccountModalManagerVisible }) => {
   const location = useLocation();
   const isCheckoutPage = location.pathname === '/checkout';
-  const isHomePage = location.pathname === '/home';
+  const isHomePage = location.pathname === '/';
 
   return (
     <div className={`app-container, ${isCartModalVisible || isAccountModalManagerVisible ? 'blur' : ''}`}>
@@ -78,7 +78,7 @@ const MainContent = ({ toggleCartModal, toggleMobileMenu, toggleAccountModalMana
 
       <div className="content">
         <Routes>
-          <Route path='/home' element={<HomePage />} />
+          <Route path='/' element={<HomePage />} />
           <Route path='/journal' element={<Journal />} />
           <Route path='/about' element={<AboutUs />} />
           <Route path='/contact' element={<Contact />} />

@@ -46,7 +46,7 @@ const OrderConfirmation = () => {
    * Navigates the user back to the home page.
    */
   const handleHomeClick = () => {
-    navigate('/home');
+    navigate('/');
   };
 
   return (

@@ -83,7 +83,7 @@ const MobileMenu = ({ toggleMobileMenu, toggleAccountModalManager }) => {
       </div> : ''}
       <ul className={`${styles['mobile-menu-items']} ${isDarkMode ? styles['dark']: ''}`}>
         <li onClick={closeModal} className={`${styles['mobile-menu-item']} ${isDarkMode ? styles['dark'] : ''}`}>
-          <Link to="/home">HOME</Link>
+          <Link to="/">HOME</Link>
         </li>
         <li onClick={closeModal} className={`${styles['mobile-menu-item']} ${isDarkMode ? styles['dark'] : ''}`}>
           <Link to="/collection/black-tea">BLACK TEA</Link>

@@ -19,7 +19,7 @@ const MainLogo = ({ className = '', isHomePage }) => {
   const { isDarkMode } = useTheme();
   
   const handleLogoClick = () => {
-    navigate('/home');
+    navigate('/');
   }
   return (
     <div onClick={handleLogoClick} className={`${styles['main-logo']} ${styles[className]}`}>
