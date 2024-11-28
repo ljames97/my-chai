@@ -1,8 +1,5 @@
 TODO
 
-/tests
-- tests
-
 /pre-production
 - remove logs, README
 
