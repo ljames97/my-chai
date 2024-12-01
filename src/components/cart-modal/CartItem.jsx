@@ -18,7 +18,6 @@ import { useTheme } from '../../store/ThemeContext';
 const CartItem = ({ product }) => {
   const { updateQuantity, removeFromCart } = useContext(CartContext);
   const { isDarkMode } = useTheme();
-  console.log(product);
 
   /**
    * Handles the change in quantity for the product by calling

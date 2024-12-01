@@ -25,7 +25,7 @@ export const useUserProfile = () => {
           setPhotoURL(userDetails.photoURL);
         }
       } catch (error) {
-        console.log('Error fetching user details:', error);
+        throw new Error(error.message);
       }
     };
 

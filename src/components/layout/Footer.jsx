@@ -31,8 +31,6 @@ const Footer = () => {
    */
   const handleNewsletterSubmit = (event) => {
     event.preventDefault();
-
-    console.log(email);
     setEmail('');
   }
 

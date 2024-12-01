@@ -18,7 +18,7 @@ export const addToCartDatabase = async (userId, product) => {
       cart: arrayUnion({ product })
     })
   } catch (error) {
-    console.error("Error adding item to cart:", error);
+    throw new Error(error.message);
   }
 }
 
@@ -40,10 +40,8 @@ export const removeFromCartDatabase = async (userId, productId) => {
     await updateDoc(userRef, {
       cart: updatedCart
     });
-
-    console.log("Product removed from cart in Firestore");
   } catch (error) {
-    console.error("Error removing product from cart:", error);
+    throw new Error(error.message);
   }
 }
 
@@ -61,10 +59,8 @@ export const clearUserCart = async (userId) => {
     await updateDoc(userRef, {
       cart: updatedCart
     });
-
-    console.log('Cart cleared');
   } catch (error) {
-    console.error('Error clearing cart', error);
+    throw new Error(error.message);
   }
     
 }
@@ -98,10 +94,8 @@ export const updateQuantityDatabase = async (userId, product, quantity) => {
     });
 
     await updateDoc(userRef, { cart: updatedCart });
-
-    console.log("Quantity updated successfully!");
   } catch (error) {
-    console.error("Error updating quantity:", error);
+    throw new Error(error.message);
   }
 };
 
@@ -121,7 +115,7 @@ export const getCartFromDatabase = async (userId) => {
     const cartArray = cart.map(item => item.product);
     return cartArray;
   } catch (error) {
-    console.error("Error loading user cart");
+    throw new Error(error.message);
   }
 }
 
@@ -146,9 +140,8 @@ export const saveOrderToFirestore = async (orderItems) => {
   try {
     const ordersCollection = collection(db, `users/${user.uid}/orders`);
     await addDoc(ordersCollection, orderData);
-    console.log("Order successfully saved to Firestore");
   } catch (error) {
-    console.error("Error saving order:", error);
+    throw new Error(error.message);
   }
 };
 
@@ -192,11 +185,8 @@ export const getOrderHistory = async () => {
     const orderDocs = await getDocs(ordersRef);
     
     const orderHistory = orderDocs.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-
-    console.log(orderHistory);
     return orderHistory;
   } catch (error) {
-    console.log("Error getting order history", error);
     return [];
   }
 };

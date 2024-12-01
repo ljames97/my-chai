@@ -29,7 +29,6 @@ const OrderHistory = () => {
       setOrders(sortedOrders);
     }
     getOrders();
-    console.log(orders)
   }, []);
 
   return (

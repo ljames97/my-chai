@@ -61,11 +61,9 @@ const LoginModal = ({ toggleAccountModalManager }) => {
 
     try {
       const user = await loginUser(formData.emailLogin, formData.password);
-      console.log(user, 'log in success');
       setError(false);
     } catch (error) {
       handleAuthError(error);
-      console.log(error);
     }
   }
 
@@ -75,7 +73,6 @@ const LoginModal = ({ toggleAccountModalManager }) => {
   const handleRegisterUser = async () => {
     try {
       const newUser = await registerUser(formData.emailLogin, formData.password);
-      console.log(newUser);
       setError('');
     } catch (error) {
       handleAuthError(error);

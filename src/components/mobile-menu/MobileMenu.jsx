@@ -38,7 +38,6 @@ const MobileMenu = ({ toggleMobileMenu, toggleAccountModalManager }) => {
     } else {
       setSearchProducts([]);
     }
-    console.log(userSearchProducts)
   }
 
   const [isOpen, setIsOpen] = useState(false);
