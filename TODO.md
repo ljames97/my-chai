@@ -1,7 +1,6 @@
 TODO
 
 css bugs:
-- remove logs
 - check all browsers
 - favicon
 

@@ -101,10 +101,14 @@ export const deleteUserAccount = async () => {
     const user = auth.currentUser;
 
     if (user) {
+      const email = prompt("Enter your email:");
+      const password = prompt("Enter your password:");
+  
+      await reauthenticateUser(email, password);
+
       const userRef = doc(db, "users", user.uid);
       await deleteDoc(userRef);
       await deleteUser(user);
-      
     }
   } catch (error) {
     throw new Error(error.message);
