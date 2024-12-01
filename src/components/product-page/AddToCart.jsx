@@ -14,6 +14,7 @@ import CartContext from "../../store/CartContext";
  */
 const AddToCart = ({ product, price, setPrice }) => {
   const { addToCart } = useContext(CartContext);
+  const [isAdded, setIsAdded] = useState(false);
   const [quantity, setQuantity] = useState('1');
   const [weight, setWeight] = useState('50g');
   const hasMultipleWeights = typeof product.price === 'object';
@@ -40,6 +41,10 @@ const AddToCart = ({ product, price, setPrice }) => {
       path: product.path
     }
     addToCart(cartProduct);
+    setIsAdded(true)
+    setTimeout(() => {
+      setIsAdded(false)
+    }, 1000);
   }
 
   return (
@@ -65,7 +70,7 @@ const AddToCart = ({ product, price, setPrice }) => {
         value={quantity}
         onChange={handleQuantityChange}
       />
-      <button className={`${styles['add-to-cart-btn']} btn-primary`} onClick={addToCartHandler} aria-label="Add to cart">ADD TO CART</button>
+      <button className={`${styles['add-to-cart-btn']} btn-primary`} onClick={addToCartHandler} aria-label="Add to cart">{isAdded ? 'ADDED!' : 'ADD TO CART'}</button>
     </div>
   )
 }

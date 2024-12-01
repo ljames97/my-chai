@@ -46,10 +46,6 @@
   background-color: $dark-background-accent !important;
 }
 
-.add-to-cart-btn:hover {
-  background-color: #9d8c82 !important;
-}
-
 .product-description {
   margin-top: 1rem;
   line-height: 1.5rem;
@@ -161,6 +157,10 @@
 
   .add-to-cart-section {
     width: 60%;
+  }
+
+  .add-to-cart-btn:hover {
+    background-color: #9d8c82 !important;
   }
 
   .product-image-container {

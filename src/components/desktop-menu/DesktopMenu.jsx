@@ -21,7 +21,7 @@ const DesktopMenu = ( { isHomePage }) => {
   return (
     <ul className={styles['desktop-menu-items']}>
       <li className={`${styles['desktop-menu-item']} ${!isHomePage ? styles['black-text'] : ''}`}>
-        <Link to="/home">HOME</Link>
+        <Link to="/">HOME</Link>
       </li>
       <li className={`${styles['desktop-menu-item']} ${!isHomePage ? styles['black-text'] : ''} ${isDarkMode ? styles['dark'] : ''}`}
       onMouseEnter={toggleTeaSubMenu}

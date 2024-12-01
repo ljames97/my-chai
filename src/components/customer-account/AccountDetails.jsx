@@ -68,7 +68,7 @@ const AccountDetails = () => {
       const newPhotoURL = await uploadProfilePhoto(file);
       setPhotoURL(newPhotoURL);
     } catch (error) {
-      console.error("Error uploading photo:", error);
+      throw new Error(error.message);
     }
   };
 
@@ -79,7 +79,6 @@ const AccountDetails = () => {
   const submitForm = async () => {
     if (formData.currentPassword === '') {
       setIsError(true);
-      console.log('NO PASSWORD');
       return;
     }
   
@@ -87,7 +86,6 @@ const AccountDetails = () => {
       await reauthenticateUser(formData.email, formData.currentPassword);
   
       await updateUserDetails(formData.name, formData.email, formData.currentPassword);
-      console.log('Details updated');
       setIsUpdated(true);
   
       setFormData((prevData) => ({
@@ -102,7 +100,6 @@ const AccountDetails = () => {
         email: formData.email,
       });
     } catch (error) {
-      console.log('Could not update details', error);
       setIsError(true);
     }
   }

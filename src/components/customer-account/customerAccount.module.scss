@@ -29,11 +29,6 @@
   background-color: rgb(84, 71, 66);;
 }
 
-#sign-in:hover {
-  background-color: #9d8c82;
-}
-
-
 .login-modal-options {
   display: flex;
   justify-content: center;
@@ -148,5 +143,9 @@
 @media (min-width: 768px) {
   .account-details {
     width: 30%;
+  }
+
+  #sign-in:hover {
+    background-color: #9d8c82;
   }
 }

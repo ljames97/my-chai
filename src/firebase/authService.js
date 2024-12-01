@@ -23,7 +23,6 @@ export const registerUser = async (email, password) => {
       cart: []
     });
 
-    console.log("User registered and Firestore document created!");
     return user;
   } catch (error) {
     throw new Error(error.message);
@@ -49,15 +48,12 @@ export const updateUserDetails = async (name, newEmail, currentPassword) => {
 
       if (newEmail !== user.email) {
         await updateEmail(user, newEmail);
-        console.log("Email updated successfully");
 
         await sendEmailVerification(user);
-        console.log("Verification email sent to the new email address");
       }
 
       const userRef = doc(db, "users", user.uid);
       await updateDoc(userRef, { name });
-      console.log("User details updated successfully");
 
     } catch (error) {
       throw new Error(`Error updating user details: ${error.message}`);
@@ -85,15 +81,12 @@ export const getUserDetails = async () => {
         const userData = userSnap.data();
         return userData;
       } else {
-        console.log("No user data found in Firestore.");
         return null;
       }
     } else {
-      console.log("No authenticated user found.");
       return null;
     }
   } catch (error) {
-    console.error("Error retrieving user details:", error.message);
     throw new Error(error.message);
   }
 };
@@ -108,16 +101,16 @@ export const deleteUserAccount = async () => {
     const user = auth.currentUser;
 
     if (user) {
+      const email = prompt("Enter your email:");
+      const password = prompt("Enter your password:");
+  
+      await reauthenticateUser(email, password);
+
       const userRef = doc(db, "users", user.uid);
       await deleteDoc(userRef);
       await deleteUser(user);
-      
-      console.log("User and their data have been deleted.");
-    } else {
-      console.log("No authenticated user found.");
     }
   } catch (error) {
-    console.error("Error deleting user:", error.message);
     throw new Error(error.message);
   }
 };
@@ -167,7 +160,6 @@ export const reauthenticateUser = async (email, password) => {
     const credential = EmailAuthProvider.credential(email, password);
     try {
       await reauthenticateWithCredential(user, credential);
-      console.log("Reauthentication successful");
     } catch (error) {
       throw new Error(`Error reauthenticating user: ${error.message}`);
     }

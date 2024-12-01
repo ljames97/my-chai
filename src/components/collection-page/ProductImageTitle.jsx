@@ -16,7 +16,7 @@ import { useNavigate } from 'react-router-dom';
  */
 const ProductImageTitle = ({ product, className = '' }) => {
   return (
-    <div className={`${styles[className]} ${styles['product-image-title']}`}>
+    <div className={styles['product-image-title']}>
       <div className={styles['grid-item-image-container']}>
         <img src={product.image} alt="Product image" />
       </div>

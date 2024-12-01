@@ -40,7 +40,7 @@ const CheckoutMain = () => {
    * Handles navigation to the home page to continue shopping.
    */
   const handleContinueShopping = () => {
-    navigate(`/home`);
+    navigate(`/`);
   }
 
   /**

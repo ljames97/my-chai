@@ -44,7 +44,6 @@ export const CartProvider = ({ children }) => {
 
   useEffect(() => {
     saveCartToLocalStorage(cart);
-    console.log(cart);
   }, [cart]);
 
   const removeFromCart = async (product) => {

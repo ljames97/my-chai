@@ -77,10 +77,6 @@
   color: black;
 }
 
-.checkout-btn:hover {
-  background-color: black !important;
-}
-
 .checkout-btn.checkout-btn {
   border-radius: 0px;
 
@@ -102,5 +98,9 @@
     width: 30%;
     right: 0;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .checkout-btn:hover {
+    background-color: black !important;
   }
 }

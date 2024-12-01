@@ -31,8 +31,6 @@ const Footer = () => {
    */
   const handleNewsletterSubmit = (event) => {
     event.preventDefault();
-
-    console.log(email);
     setEmail('');
   }
 
@@ -42,16 +40,16 @@ const Footer = () => {
         <div className={styles['footer-nav-heading']}>Information</div>
         <ul className={styles['footer-nav-items']}>
           <li className={styles['footer-nav-item']}>
-            <Link to="/home">Delivery & Returns</Link>
+            <Link to="/">Delivery & Returns</Link>
           </li>
           <li className={styles['footer-nav-item']}>
-            <Link to="/home">Wholesale</Link>
+            <Link to="/">Wholesale</Link>
           </li>
           <li className={styles['footer-nav-item']}>
-            <Link to="/home">Refund Policy</Link>
+            <Link to="/">Refund Policy</Link>
           </li>
           <li className={styles['footer-nav-item']}>
-            <Link to="/home">Terms & Conditions</Link>
+            <Link to="/">Terms & Conditions</Link>
           </li>
         </ul>
       </nav>

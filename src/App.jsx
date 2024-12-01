@@ -29,6 +29,24 @@ const App = () => {
   const [isAccountModalManagerVisible, toggleAccountModalManager] = useToggle(false);
   const { isDarkMode } = useTheme();
 
+  // Adjust viewport height dynamically
+  useEffect(() => {
+    const setViewportHeight = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+
+    setViewportHeight();
+    window.addEventListener('resize', setViewportHeight);
+    window.addEventListener('orientationchange', setViewportHeight);
+
+    return () => {
+      window.removeEventListener('resize', setViewportHeight);
+      window.removeEventListener('orientationchange', setViewportHeight);
+    };
+  }, []);
+  
+
   useEffect(() => {
     if (isDarkMode) {
       document.body.classList.add('dark-theme')
@@ -38,15 +56,15 @@ const App = () => {
   }, [isDarkMode]);
 
   useEffect(() => {
-    if (isCartModalVisible) {
+    if (isCartModalVisible || isMobileMenuVisible || isAccountModalManagerVisible) {
       document.body.classList.add('body-no-scroll');
     } else {
       document.body.classList.remove('body-no-scroll');
     }
-  }, [isCartModalVisible]);
+  }, [isCartModalVisible, isMobileMenuVisible, isAccountModalManagerVisible]);
 
   return (
-    <Router>
+    <>
       <ScrollToTop />
       <MainContent 
         toggleCartModal={toggleCartModal} 
@@ -56,14 +74,14 @@ const App = () => {
         isCartModalVisible={isCartModalVisible}
         isAccountModalManagerVisible={isAccountModalManagerVisible}
       />
-    </Router>
+      </>
   );
 };
 
 const MainContent = ({ toggleCartModal, toggleMobileMenu, toggleAccountModalManager, isMobileMenuVisible, isCartModalVisible, isAccountModalManagerVisible }) => {
   const location = useLocation();
   const isCheckoutPage = location.pathname === '/checkout';
-  const isHomePage = location.pathname === '/home';
+  const isHomePage = location.pathname === '/';
 
   return (
     <div className={`app-container, ${isCartModalVisible || isAccountModalManagerVisible ? 'blur' : ''}`}>
@@ -78,7 +96,7 @@ const MainContent = ({ toggleCartModal, toggleMobileMenu, toggleAccountModalMana
 
       <div className="content">
         <Routes>
-          <Route path='/home' element={<HomePage />} />
+          <Route path='/' element={<HomePage />} />
           <Route path='/journal' element={<Journal />} />
           <Route path='/about' element={<AboutUs />} />
           <Route path='/contact' element={<Contact />} />
