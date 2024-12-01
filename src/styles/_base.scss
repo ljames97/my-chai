@@ -35,6 +35,7 @@ body {
 button {
   cursor: pointer;
   color: black;
+  font-size: 0.9rem;
 }
 
 h2, p, h3 {
@@ -81,6 +82,10 @@ input, select {
   border: 1px solid $border-color-light;
   background-color: transparent;
   border-radius: 5px;
+}
+
+select {
+  color: black;
 }
 
 textarea {
@@ -146,9 +151,4 @@ a {
     background-color: $background-color-dark;
     color: $primary-text-color;
   }
-
-  // .exit-modal-btn,
-  // .cart-modal-header {
-  //   color: black;
-  // }
 }

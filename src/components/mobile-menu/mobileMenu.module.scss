@@ -20,6 +20,10 @@
 .exit-modal-btn,
 #search-button {
   color: black;
+
+  &.dark {
+    color: white;
+  }
 }
 
 .search-bar {
@@ -67,7 +71,8 @@
 .search-results {
   display: flex;
   padding: 1rem;
-
+  flex-direction: column;
+  align-items: center;
 }
 
 .theme-switch-btn {

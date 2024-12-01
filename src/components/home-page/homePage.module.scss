@@ -136,10 +136,6 @@
   }
 }
 
-.featured-button:hover {
-  background-color: #9d8c82;
-}
-
 .review-carousel {
   margin-top: 4rem;
   text-align: left;
@@ -261,8 +257,10 @@
   .cover-photo-container {
     height: 100vh;
     background-position: 0 -300px;
+  }
 
-
+  .featured-button:hover {
+    background-color: #9d8c82;
   }
 
   // .cover-photo-container img {

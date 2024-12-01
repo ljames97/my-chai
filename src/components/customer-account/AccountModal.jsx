@@ -30,7 +30,8 @@ const AccountModal = ({ toggleAccountModalManager, toggleMobileMenu, isMobileMen
 
   const closeModal = () => {
     setIsOpen(false); 
-    setTimeout(() => handleClick(), 200);
+    toggleMobileMenu();
+    setTimeout(() =>  toggleAccountModalManager(), 200);
   };
 
   useEffect(() => {
@@ -50,14 +51,6 @@ const AccountModal = ({ toggleAccountModalManager, toggleMobileMenu, isMobileMen
    */
   const handleDeleteAccount = async () => {
     await deleteUserAccount();
-  };
-
-  /**
-   * Handles navigation click by toggling modal and mobile menu visibility.
-   */
-  const handleClick = () => {
-    toggleAccountModalManager();
-    isMobileMenuVisible && toggleMobileMenu();
   };
 
   return ReactDOM.createPortal (
