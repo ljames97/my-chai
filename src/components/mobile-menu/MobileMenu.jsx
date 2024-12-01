@@ -7,6 +7,7 @@ import { products } from '../data';
 import ProductImageTitle from '../collection-page/ProductImageTitle';
 import { useTheme } from '../../store/ThemeContext';
 import ReactDOM from "react-dom";
+import CollectionGridItem from '../collection-page/CollectionGridItem';
 
 /**
  * Responsive navigation menu for mobile devices.
@@ -80,7 +81,7 @@ const MobileMenu = ({ toggleMobileMenu, toggleAccountModalManager }) => {
         {searchProducts.length > 0 ? 
         <div className={styles['search-results']}>
           {searchProducts.map((product) => (
-            <ProductImageTitle toggleMobileMenu={toggleMobileMenu} key={product.id} product={product} className={'search-item'} />
+            <CollectionGridItem toggleMobileMenu={toggleMobileMenu} key={product.id} product={product} className={'search-item'} />
           ))}
         </div> : ''}
         <ul className={`${styles['mobile-menu-items']} ${isDarkMode ? styles['dark']: ''}`}>

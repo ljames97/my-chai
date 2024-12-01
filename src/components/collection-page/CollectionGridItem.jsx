@@ -16,7 +16,7 @@ import { useNavigate } from 'react-router-dom';
  * @param {Function} [toggleMobileMenu] - Optional function to close the mobile menu on navigation.
  * @returns {JSX.Element} Clickable product item in the collection grid.
  */
-const CollectionGridItem = ({ product, toggleMobileMenu }) => {
+const CollectionGridItem = ({ product, toggleMobileMenu, className = '' }) => {
   const navigate = useNavigate();
   const { isDarkMode } = useTheme();
   const productReviews = getProductReviews(product);
@@ -40,7 +40,7 @@ const CollectionGridItem = ({ product, toggleMobileMenu }) => {
   }
 
   return (
-    <div onClick={handleClick} className={`${styles['collection-grid-item']} ${isDarkMode ? styles['dark'] : ''}`}>
+    <div onClick={handleClick} className={`${styles[className]} ${styles['collection-grid-item']} ${isDarkMode ? styles['dark'] : ''}`}>
       <ProductImageTitle product={product} />
       <div className={styles['product-reviews']}>
         <StarRating rating={productRating}/>
