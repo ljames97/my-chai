@@ -15,28 +15,22 @@ const Footer = () => {
   const [email, setEmail] = useState('');
   const { isDarkMode } = useTheme();
 
-  /**
-   * Handles changes in the email input field.
-   *
-   * @param {React.ChangeEvent<HTMLInputElement>} event - The change event for the input.
-   */
   const handleEmailChange = (event) => {
     setEmail(event.target.value)
   }
 
-  /**
-   * Handles newsletter form submission.
-   *
-   * @param {React.FormEvent<HTMLFormElement>} event - The form submission event.
-   */
   const handleNewsletterSubmit = (event) => {
     event.preventDefault();
     setEmail('');
   }
 
+  const handlePortfolioClick = () => {
+    window.open('https://ljames97.github.io/portfolio', '_self', 'noopener,noreferrer');
+  }
+
   return (
     <footer>
-      <nav className={styles['footer-nav']}>
+      <nav className={`${styles['footer-nav']} ${isDarkMode ? styles['dark'] : ''}`}>
         <div className={styles['footer-nav-heading']}>Information</div>
         <ul className={styles['footer-nav-items']}>
           <li className={styles['footer-nav-item']}>
@@ -69,7 +63,12 @@ const Footer = () => {
           <button className={`${styles['form-button']} ${isDarkMode ? styles['dark'] : ''}`} aria-label='Join'>JOIN</button>
         </form>
       </div>
-      <p className={styles['copyright']}>MyChai | © 2024 All Rights Reserved.</p>
+      <div className={styles['footer-copyright']}>
+        <p className={styles['copyright']}>MyChai | © 2025 All Rights Reserved.</p>
+        <p onClick={handlePortfolioClick} className={styles['portfolio-link']}>Luke James</p>
+
+
+      </div>
   </footer>
   )
 }
