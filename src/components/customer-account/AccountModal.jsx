@@ -16,7 +16,7 @@ import { useEffect, useState } from "react";
  * @param {Object} props - Component props
  * @returns {JSX.Element} AccountModal component.
  */
-const AccountModal = ({ toggleAccountModalManager, toggleMobileMenu, isMobileMenuVisible }) => {
+const AccountModal = ({ toggleAccountModalManager, toggleMobileMenu }) => {
   const { userDetails, photoURL } = useUserProfile();
   const { isDarkMode } = useTheme(ThemeContext);
 
@@ -29,8 +29,12 @@ const AccountModal = ({ toggleAccountModalManager, toggleMobileMenu, isMobileMen
   };
 
   const closeModal = () => {
-    setIsOpen(false); 
-    toggleMobileMenu();
+    setIsOpen(false);
+
+    if (window.innerWidth < 768) {
+      toggleMobileMenu();
+    }
+
     setTimeout(() =>  toggleAccountModalManager(), 200);
   };
 

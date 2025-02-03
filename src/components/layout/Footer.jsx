@@ -25,7 +25,7 @@ const Footer = () => {
   }
 
   const handlePortfolioClick = () => {
-    window.open('https://ljames97.github.io/portfolio', '_self', 'noopener,noreferrer');
+    window.open('https://lukejamesdev.com', '_self', 'noopener,noreferrer');
   }
 
   return (
