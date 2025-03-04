@@ -6,9 +6,9 @@
 }
 
 .cover-photo-container {
-  background-image: url('../../assets/images/home-page-cover.png');
-  background-size: cover; /* Ensures the image scales correctly */
-  background-position: center; /* Centers the image */
+  background-image: url('../../assets/images/home-page-cover.webp');
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
   height: calc(100vh - 3.8rem);
