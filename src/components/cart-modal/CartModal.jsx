@@ -76,7 +76,7 @@ const CartModal = ({ toggleCartModal }) => {
       if (error) console.error("Stripe Checkout Error:", error);
     }
   };
-  
+  //
 
   return ReactDOM.createPortal (
     <div className="modal-overlay" onClick={handleOverlayClick}>
