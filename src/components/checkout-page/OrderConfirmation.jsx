@@ -33,8 +33,8 @@ const OrderConfirmation = () => {
       saveOrderToFirestore(cart);
 
       // Clear the cart and mark the order as saved
-      clearCart();
       isOrderSavedRef.current = true;
+      clearCart();
     } else {
       // Retrieve saved order items from localStorage if available
       const storedCartItems = JSON.parse(localStorage.getItem('orderCartItems')) || [];
@@ -47,6 +47,7 @@ const OrderConfirmation = () => {
    */
   const handleHomeClick = () => {
     navigate('/');
+    clearCart();
   };
 
   return (
