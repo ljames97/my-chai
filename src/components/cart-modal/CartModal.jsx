@@ -10,6 +10,7 @@ import { getTotalCartPrice } from "../global/globalUtils";
 import { useTheme } from "../../store/ThemeContext";
 import { getNextOrderNumber } from "../../firebase/cartService";
 import { auth } from "../../firebase/firebaseConfig";
+import { loadStripe } from "@stripe/stripe-js";
 
 /**
  * Displays a modal containing a summary of items in the shopping cart.
@@ -22,10 +23,11 @@ import { auth } from "../../firebase/firebaseConfig";
 const CartModal = ({ toggleCartModal }) => {
   const { cart } = useContext(CartContext);
   const { isDarkMode } = useTheme();
-  const navigate = useNavigate();
   const totalPrice = getTotalCartPrice();
 
   const [isOpen, setIsOpen] = useState(false);
+
+  const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
   const handleOverlayClick = (e) => {
     if (e.target.classList.contains("modal-overlay")) {
@@ -40,6 +42,7 @@ const CartModal = ({ toggleCartModal }) => {
 
   useEffect(() => {
     setIsOpen(true);
+          console.log(cart)
     return () => setIsOpen(false);
   }, []);
 
@@ -48,10 +51,32 @@ const CartModal = ({ toggleCartModal }) => {
    */
   const handleCheckoutClick = async () => {
     if (cart.length !== 0) {
-      navigate(`/checkout`);
       toggleCartModal();
+
+      
+      const formattedCart = cart.map(product => ({
+        ...product,
+        price: Number(product.price.replace("£", "")),
+      }));
+
+      const stripe = await stripePromise;
+  
+      const response = await fetch("http://localhost:4000/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ cart: formattedCart }),
+      });
+
+      const data = await response.json();
+      console.log("Stripe Session Response:", data);
+  
+      const { id } = data;
+  
+      const { error } = await stripe.redirectToCheckout({ sessionId: id });
+      if (error) console.error("Stripe Checkout Error:", error);
     }
-  }
+  };
+  
 
   return ReactDOM.createPortal (
     <div className="modal-overlay" onClick={handleOverlayClick}>
