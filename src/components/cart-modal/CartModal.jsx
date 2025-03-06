@@ -61,7 +61,7 @@ const CartModal = ({ toggleCartModal }) => {
 
       const stripe = await stripePromise;
   
-      const response = await fetch("http://localhost:4000/api/checkout", {
+      const response = await fetch("https://my-chai-server-production.up.railway.app/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ cart: formattedCart }),
