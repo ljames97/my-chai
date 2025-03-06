@@ -52,30 +52,43 @@ const CartModal = ({ toggleCartModal }) => {
   const handleCheckoutClick = async () => {
     if (cart.length !== 0) {
       toggleCartModal();
-
-      
+  
       const formattedCart = cart.map(product => ({
         ...product,
         price: Number(product.price.replace("£", "")),
       }));
-
+  
       const stripe = await stripePromise;
   
-      const response = await fetch("https://my-chai-server-production.up.railway.app/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ cart: formattedCart }),
-      });
-
-      const data = await response.json();
-      console.log("Stripe Session Response:", data);
+      console.log("Sending request to backend with:", formattedCart);
   
-      const { id } = data;
+      try {
+        const response = await fetch("https://my-chai-server-production.up.railway.app/api/checkout", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ cart: formattedCart }),
+        });
   
-      const { error } = await stripe.redirectToCheckout({ sessionId: id });
-      if (error) console.error("Stripe Checkout Error:", error);
+        console.log("Fetch response received:", response);
+  
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+  
+        const data = await response.json();
+        console.log("Stripe Session Response:", data);
+  
+        const { id } = data;
+        const { error } = await stripe.redirectToCheckout({ sessionId: id });
+  
+        if (error) console.error("Stripe Checkout Error:", error);
+  
+      } catch (err) {
+        console.error("Fetch error:", err);
+      }
     }
   };
+  
   //
 
   return ReactDOM.createPortal (
